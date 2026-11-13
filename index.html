@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณค่าสร้างบ้าน 2569 ประเมินงบสร้างบ้านต่อตารางเมตร ฟรี</title>
+<meta name="description" content="คำนวณค่าสร้างบ้านฟรี กรอกพื้นที่ จำนวนชั้น ห้องนอน ห้องน้ำ เลือกระดับวัสดุ ได้งบประมาณแยกหมวดงานทันที จากราคากลางวัสดุก่อสร้าง 2569 โดยวิศวกรโยธา">
+<link rel="canonical" href="https://moeboq.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="คำนวณค่าสร้างบ้าน 2569 ฟรี">
+<meta property="og:description" content="กรอกขนาดบ้าน ได้ค่าก่อสร้างโดยประมาณแยกทุกหมวดงาน จากราคากลางวัสดุล่าสุด">
+<meta property="og:url" content="https://moeboq.github.io/">
+<meta property="og:locale" content="th_TH">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "คำนวณค่าสร้างบ้าน", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "th", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}, "description": "ประเมินค่าก่อสร้างบ้านจากพื้นที่ จำนวนชั้น และระดับวัสดุ ด้วยราคากลางวัสดุก่อสร้าง 2569"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ค่าสร้างบ้าน 2569 ตารางเมตรละเท่าไหร่", "acceptedAnswer": {"@type": "Answer", "text": "จากราคากลางวัสดุ ก.ย. 2569 บ้านมาตรฐานทั่วไปอยู่ประมาณ 9,000–11,000 บาทต่อตารางเมตร รวมกำไรผู้รับเหมา 10% และ VAT แล้ว บ้านชั้นเดียวมักแพงกว่าต่อตารางเมตร เพราะหลังคาและฐานรากคิดเต็มพื้นที่"}}, {"@type": "Question", "name": "สร้างบ้าน 2 ชั้น 150 ตารางเมตร ใช้งบเท่าไหร่", "acceptedAnswer": {"@type": "Answer", "text": "ประมาณ 1.37–1.56 ล้านบาท ขึ้นกับระดับวัสดุ (3 ห้องนอน 2 ห้องน้ำ หลังคากระเบื้องคอนกรีต) ใช้เครื่องมือด้านบนปรับตามบ้านของคุณได้"}}, {"@type": "Question", "name": "ราคานี้รวมอะไรบ้าง", "acceptedAnswer": {"@type": "Answer", "text": "รวมงานโครงสร้าง ฐานราก เสาเข็ม งานสถาปัตย์ ผนัง พื้น ฝ้า หลังคา สี ประตูหน้าต่าง สุขภัณฑ์ และงานระบบไฟฟ้า ประปา ไม่รวมที่ดิน ค่าออกแบบ ค่าขออนุญาต รั้ว งานภายนอก และเฟอร์นิเจอร์"}}, {"@type": "Question", "name": "ทำไมราคาจากผู้รับเหมาแต่ละเจ้าไม่เท่ากัน", "acceptedAnswer": {"@type": "Answer", "text": "ต่างกันที่วัสดุที่เลือก กำไรและค่าดำเนินการ ความยากของหน้างาน และการถอดปริมาณจากแบบ วิธีเทียบราคาที่ดีที่สุดคือมี BOQ จากแบบจริงไว้เป็นตัวตั้ง"}}, {"@type": "Question", "name": "ตัวเลขนี้ใช้ยื่นกู้ธนาคารได้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ใช้ประเมินงบเบื้องต้นได้ แต่การยื่นกู้มักต้องใช้ BOQ ที่ถอดจากแบบจริง ซึ่งจ้างถอดแบบได้จากปุ่มด้านบน"}}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Sarabun:wght@400;600&display=swap">
+<style>
+/* Layout: estimator workbench — inputs column left, result sheet right (stacks on phone); brand = deep red / brown / charcoal on cool grey */
+:root{
+  --bg:#E4E4E6; --surface:#EFEFF1; --sunk:#E8E8EB; --ink:#1C1C1E; --muted:#5E5E64; --line:#CFCFD4;
+  --accent:#8B1E16; --accent-ink:#F0F0F2; --brown:#8B5E3C; --slate:#5E5E64;
+  --display:"Kanit","Sarabun",system-ui,sans-serif; --body:"Sarabun","Tahoma",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161618; --surface:#222225; --sunk:#1B1B1E; --ink:#ECECEE; --muted:#A5A5AC; --line:#38383D;
+  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --slate:#9A9AA2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161618; --surface:#222225; --sunk:#1B1B1E; --ink:#ECECEE; --muted:#A5A5AC; --line:#38383D;
+  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --slate:#9A9AA2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 40px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+header h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.5vw,40px);line-height:1.15;margin:0;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.12em;color:var(--accent);margin-bottom:6px}
+.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.panel h2{font-family:var(--display);font-weight:500;font-size:18px;margin:0 0 14px}
+form{display:grid;gap:16px}
+.field{display:grid;gap:6px}
+.field label,.field .lbl{font-weight:600;font-size:15px}
+.hint{font-size:13px;color:var(--muted)}
+.row{display:flex;gap:10px;align-items:center}
+input[type=number]{font:inherit;font-variant-numeric:tabular-nums;width:110px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--ink)}
+input[type=range]{flex:1;min-width:0;accent-color:var(--accent)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{flex:1 1 auto;text-align:center;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);cursor:pointer;font-size:15px;white-space:nowrap}
+.seg input:checked+label{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.seg input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}
+.step{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;overflow:hidden;width:max-content}
+.step button{font:inherit;font-size:18px;width:40px;height:38px;border:0;background:var(--sunk);color:var(--ink);cursor:pointer}
+.step button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.step output{min-width:44px;text-align:center;font-variant-numeric:tabular-nums;font-weight:600}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check{display:flex;gap:8px;align-items:center;font-size:15px}
+.check input{accent-color:var(--accent);width:18px;height:18px}
+
+.total{display:grid;gap:4px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.total .k{font-size:14px;color:var(--muted)}
+.big{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,52px);line-height:1.1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.big small{font-size:.42em;font-weight:500;color:var(--ink);margin-left:6px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;font-variant-numeric:tabular-nums}
+.meta b{font-weight:600}
+.parts{margin:18px 0 6px}
+.bar{display:flex;height:16px;border-radius:4px;overflow:hidden;background:var(--sunk)}
+.bar span{display:block;height:100%}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:480px){.legend{grid-template-columns:minmax(0,1fr)}}
+.legend div{border-top:3px solid var(--c);padding-top:6px}
+.legend .n{font-size:14px;color:var(--muted)}
+.legend .v{font-weight:600;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+th{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.04em;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:7px 8px;border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right;white-space:nowrap}
+td .dot{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--c);margin-right:8px;vertical-align:middle}
+tr.sum td{font-weight:600;border-bottom:0}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--bg);border-radius:10px;padding:18px 20px}
+.cta p{margin:0;max-width:56ch}
+.cta strong{font-family:var(--display);font-weight:500;font-size:18px;display:block}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:500;text-decoration:none;padding:10px 18px;border-radius:6px;white-space:nowrap}
+.btn:focus-visible{outline:2px solid var(--bg);outline-offset:2px}
+.notes{font-size:14px;color:var(--muted);display:grid;gap:6px}
+.notes h3{font-family:var(--display);font-weight:500;font-size:15px;color:var(--ink);margin:0}
+.notes ul{margin:0;padding-left:20px}
+@media (prefers-reduced-motion:no-preference){.bar span{transition:width .25s ease}}
+</style>
+<style>
+.article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 22px 8px}
+.article h2{font-family:var(--display);font-weight:500;font-size:22px;margin:0 0 10px;text-wrap:balance}
+.article h3{font-family:var(--display);font-weight:500;font-size:18px;margin:22px 0 8px}
+.article p,.article li{max-width:68ch}
+.article table{margin:10px 0 6px}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600}
+.faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.faq p{margin:8px 0 0;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);display:grid;gap:4px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.top b{font-family:var(--display);font-weight:500;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><b>คำนวณค่าสร้างบ้าน</b><span>อัปเดตราคา พ.ย. 2569</span></div>
+  <header>
+    <div class="eyebrow">ประเมินงบก่อนจ้างผู้รับเหมา</div>
+    <h1>ค่าสร้างบ้านของคุณประมาณเท่าไหร่</h1>
+    <p>กรอกขนาดบ้านและเลือกระดับวัสดุ ระบบคำนวณจากราคากลางวัสดุก่อสร้างล่าสุด แยกให้เห็นทุกหมวดงาน ตั้งแต่ฐานรากจนถึงงานระบบ</p>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="in-h">
+      <h2 id="in-h">ข้อมูลบ้าน</h2>
+      <form id="f" novalidate>
+        <div class="field">
+          <label for="area">พื้นที่ใช้สอยรวม (ตร.ม.)</label>
+          <div class="row">
+            <input type="range" id="areaR" min="40" max="400" step="5" value="150" aria-label="พื้นที่ใช้สอย">
+            <input type="number" id="area" min="30" max="1000" step="1" value="150">
+          </div>
+          <span class="hint">รวมทุกชั้น ไม่รวมลานจอดรถและระเบียงที่ไม่มีหลังคา</span>
+        </div>
+
+        <div class="field">
+          <span class="lbl" id="fl-l">จำนวนชั้น</span>
+          <div class="seg" role="radiogroup" aria-labelledby="fl-l">
+            <input type="radio" name="fl" id="fl1" value="1"><label for="fl1">1 ชั้น</label>
+            <input type="radio" name="fl" id="fl2" value="2" checked><label for="fl2">2 ชั้น</label>
+            <input type="radio" name="fl" id="fl3" value="3"><label for="fl3">3 ชั้น</label>
+          </div>
+        </div>
+
+        <div class="pair">
+          <div class="field">
+            <span class="lbl">ห้องนอน</span>
+            <div class="step"><button type="button" data-t="bed" data-d="-1" aria-label="ลดห้องนอน">−</button><output id="bed">3</output><button type="button" data-t="bed" data-d="1" aria-label="เพิ่มห้องนอน">+</button></div>
+          </div>
+          <div class="field">
+            <span class="lbl">ห้องน้ำ</span>
+            <div class="step"><button type="button" data-t="bath" data-d="-1" aria-label="ลดห้องน้ำ">−</button><output id="bath">2</output><button type="button" data-t="bath" data-d="1" aria-label="เพิ่มห้องน้ำ">+</button></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="lbl" id="rf-l">หลังคา</span>
+          <div class="seg" role="radiogroup" aria-labelledby="rf-l">
+            <input type="radio" name="rf" id="rf1" value="tile" checked><label for="rf1">กระเบื้องคอนกรีต</label>
+            <input type="radio" name="rf" id="rf2" value="metal"><label for="rf2">เมทัลชีท</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="lbl" id="lv-l">ระดับวัสดุตกแต่ง</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lv-l">
+            <input type="radio" name="lv" id="lv1" value="0.85"><label for="lv1">ประหยัด</label>
+            <input type="radio" name="lv" id="lv2" value="1" checked><label for="lv2">มาตรฐาน</label>
+            <input type="radio" name="lv" id="lv3" value="1.35"><label for="lv3">ดี</label>
+          </div>
+          <span class="hint">มีผลกับพื้น ฝ้า สี ประตูหน้าต่าง และสุขภัณฑ์</span>
+        </div>
+
+        <div class="pair">
+          <div class="field">
+            <label for="ohp">กำไรผู้รับเหมา (%)</label>
+            <input type="number" id="ohp" min="0" max="40" step="1" value="10">
+          </div>
+          <div class="field">
+            <span class="lbl">ภาษี</span>
+            <label class="check" for="vat"><input type="checkbox" id="vat" checked>รวม VAT 7%</label>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="out-h" aria-live="polite">
+      <h2 id="out-h">ผลประเมิน</h2>
+      <div class="total">
+        <span class="k">ค่าก่อสร้างโดยประมาณ</span>
+        <div class="big" id="tot">-</div>
+        <div class="meta">
+          <span>ช่วงที่น่าจะเป็น <b id="rng">-</b></span>
+          <span>เฉลี่ย <b id="psm">-</b> บาท/ตร.ม.</span>
+        </div>
+      </div>
+      <div class="parts">
+        <div class="bar" id="bar" aria-hidden="true"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>หมวดงาน</th><th class="num">บาท</th><th class="num">สัดส่วน</th></tr></thead>
+          <tbody id="tb"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="cta">
+    <p><strong>อยากได้ตัวเลขจากแบบบ้านจริง</strong>ถอดแบบ BOQ ละเอียดทุกรายการ แยกค่าวัสดุ ค่าแรง และจำนวนเหล็กที่ต้องสั่ง โดยวิศวกรโยธา ได้ไฟล์ Excel พร้อมสูตร</p>
+    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
+  </section>
+
+  
+
+  <article class="article" aria-labelledby="a-h">
+    <h2 id="a-h">ค่าสร้างบ้าน 2569 ตารางเมตรละเท่าไหร่</h2>
+    <p>ค่าสร้างบ้านขึ้นกับขนาด จำนวนชั้น และวัสดุที่เลือกเป็นหลัก ตารางนี้คำนวณด้วยเครื่องมือด้านบน จากราคากลางวัสดุก่อสร้าง กรุงเทพฯ และปริมณฑล (ก.ย. 2569) รวมกำไรผู้รับเหมา 10% และ VAT 7% หลังคากระเบื้องคอนกรีต</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>แบบบ้าน</th><th>ห้อง</th><th class="num">ประหยัด<br>(ล้านบาท)</th><th class="num">มาตรฐาน<br>(ล้านบาท)</th><th class="num">ดี<br>(ล้านบาท)</th></tr></thead>
+      <tbody><tr><td>บ้านชั้นเดียว 80 ตร.ม.</td><td>2 นอน 1 น้ำ</td><td class="num">0.84</td><td class="num">0.87</td><td class="num">0.95</td></tr><tr><td>บ้านชั้นเดียว 100 ตร.ม.</td><td>2 นอน 2 น้ำ</td><td class="num">1.06</td><td class="num">1.10</td><td class="num">1.19</td></tr><tr><td>บ้านชั้นเดียว 120 ตร.ม.</td><td>3 นอน 2 น้ำ</td><td class="num">1.26</td><td class="num">1.30</td><td class="num">1.41</td></tr><tr><td>บ้าน 2 ชั้น 150 ตร.ม.</td><td>3 นอน 2 น้ำ</td><td class="num">1.37</td><td class="num">1.43</td><td class="num">1.56</td></tr><tr><td>บ้าน 2 ชั้น 200 ตร.ม.</td><td>4 นอน 3 น้ำ</td><td class="num">1.81</td><td class="num">1.89</td><td class="num">2.07</td></tr><tr><td>บ้าน 2 ชั้น 250 ตร.ม.</td><td>4 นอน 3 น้ำ</td><td class="num">2.22</td><td class="num">2.31</td><td class="num">2.53</td></tr></tbody></table></div>
+    <h3>ทำไมบ้าน 2 ชั้นถูกกว่าต่อตารางเมตร</h3>
+    <p>บ้าน 2 ชั้นใช้หลังคาและฐานรากชุดเดียวคลุมพื้นที่สองชั้น ต้นทุนสองส่วนนี้จึงเฉลี่ยลงต่อตารางเมตร แม้จะมีค่าบันไดและพื้นชั้นบนเพิ่มเข้ามา บ้านชั้นเดียวขนาดเท่ากันจึงมักแพงกว่าต่อตารางเมตรประมาณ 10–15%</p>
+    <h3>สัดส่วนค่าก่อสร้างโดยทั่วไป</h3>
+    <p>งานโครงสร้าง (ฐานราก เสา คาน พื้น) ประมาณ 30–40% งานสถาปัตย์ (ผนัง พื้น ฝ้า หลังคา สี ประตูหน้าต่าง สุขภัณฑ์) ประมาณ 55–60% และงานระบบไฟฟ้า ประปา ประมาณ 5–8% หลังคาเป็นหมวดที่แพงที่สุดสำหรับบ้านชั้นเดียว</p>
+    <h3>อยากได้ตัวเลขที่แม่นกว่านี้</h3>
+    <p>ตัวเลขจากเครื่องมือเหมาะกับการตั้งงบช่วงแรก เมื่อมีแบบบ้านแล้ว ควรทำ BOQ (Bill of Quantities) ที่ถอดปริมาณจากแบบจริงทุกรายการ เพื่อใช้เทียบราคาผู้รับเหมาและคุมงบระหว่างก่อสร้าง</p>
+  </article>
+
+  <section class="article faq" aria-labelledby="q-h">
+    <h2 id="q-h">คำถามที่พบบ่อย</h2>
+    <details><summary>ค่าสร้างบ้าน 2569 ตารางเมตรละเท่าไหร่</summary><p>จากราคากลางวัสดุ ก.ย. 2569 บ้านมาตรฐานทั่วไปอยู่ประมาณ 9,000–11,000 บาทต่อตารางเมตร รวมกำไรผู้รับเหมา 10% และ VAT แล้ว บ้านชั้นเดียวมักแพงกว่าต่อตารางเมตร เพราะหลังคาและฐานรากคิดเต็มพื้นที่</p></details><details><summary>สร้างบ้าน 2 ชั้น 150 ตารางเมตร ใช้งบเท่าไหร่</summary><p>ประมาณ 1.37–1.56 ล้านบาท ขึ้นกับระดับวัสดุ (3 ห้องนอน 2 ห้องน้ำ หลังคากระเบื้องคอนกรีต) ใช้เครื่องมือด้านบนปรับตามบ้านของคุณได้</p></details><details><summary>ราคานี้รวมอะไรบ้าง</summary><p>รวมงานโครงสร้าง ฐานราก เสาเข็ม งานสถาปัตย์ ผนัง พื้น ฝ้า หลังคา สี ประตูหน้าต่าง สุขภัณฑ์ และงานระบบไฟฟ้า ประปา ไม่รวมที่ดิน ค่าออกแบบ ค่าขออนุญาต รั้ว งานภายนอก และเฟอร์นิเจอร์</p></details><details><summary>ทำไมราคาจากผู้รับเหมาแต่ละเจ้าไม่เท่ากัน</summary><p>ต่างกันที่วัสดุที่เลือก กำไรและค่าดำเนินการ ความยากของหน้างาน และการถอดปริมาณจากแบบ วิธีเทียบราคาที่ดีที่สุดคือมี BOQ จากแบบจริงไว้เป็นตัวตั้ง</p></details><details><summary>ตัวเลขนี้ใช้ยื่นกู้ธนาคารได้ไหม</summary><p>ใช้ประเมินงบเบื้องต้นได้ แต่การยื่นกู้มักต้องใช้ BOQ ที่ถอดจากแบบจริง ซึ่งจ้างถอดแบบได้จากปุ่มด้านบน</p></details>
+  </section>
+
+  <section class="notes" aria-labelledby="n-h">
+    <h3 id="n-h">ตัวเลขนี้มาจากไหน</h3>
+    <ul>
+      <li>ราคาวัสดุอ้างอิงราคาวัสดุก่อสร้าง กรุงเทพฯ และปริมณฑล ของ สนค. กระทรวงพาณิชย์ (ก.ย. 2569) บัญชีราคา สพฐ. ปีงบ 2569 และค่าแรงกรมบัญชีกลาง ว480 บางรายการเป็นค่าประมาณ</li>
+      <li>ปริมาณงานคิดจากสัดส่วนต่อพื้นที่ของบ้านตัวอย่างที่ถอดแบบจริง บ้านแต่ละหลังต่างกันได้ตามแบบ จึงแสดงเป็นช่วง ±15%</li>
+      <li>ไม่รวมค่าที่ดิน ค่าออกแบบและขออนุญาต รั้ว ถนน งานภายนอก เฟอร์นิเจอร์ บิวท์อิน เครื่องใช้ไฟฟ้า และค่าขนส่งวัสดุต่างจังหวัด</li>
+      <li>ผลนี้ใช้ประเมินงบเบื้องต้นเท่านั้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบโครงสร้าง</li>
+    </ul>
+  </section>
+  <footer>
+    <span>จัดทำโดย โม วิศวกรโยธา · รับถอดแบบ BOQ บ้านทั้งหลัง</span>
+    <span>ผลการคำนวณเป็นการประเมินงบเบื้องต้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบโครงสร้าง</span>
+  </footer>
+</div>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const state = { bed: 3, bath: 2 };
+  const lim = { bed: [1, 8], bath: [1, 6] };
+  const fmt = n => Math.round(n).toLocaleString('th-TH');
+
+  // Unit costs (THB, ex-VAT) and quantity ratios, calibrated to an 8x12 m sample house taken off in the BOQ template.
+  function estimate(p){
+    const A = p.area, n = p.fl, F = A / n, k = p.lv;
+    const cats = [];
+    const add = (part, name, v) => cats.push({ part, name, v });
+    // Structure
+    add(0, 'ฐานรากและงานดิน', F * 1106 * (1 + 0.35 * (n - 1)));
+    add(0, 'โครงสร้าง เสา คาน พื้น', F * 2200 + (A - F) * 2300);
+    if (n > 1) add(0, 'บันได ค.ส.ล.', (n - 1) * 45000);
+    // Architecture
+    add(1, 'ผนังและฉาบ', A * 1121);
+    add(1, 'งานพื้น', A * 986 * k);
+    add(1, 'ฝ้าเพดาน', A * 456 * k);
+    add(1, 'หลังคา', F * (p.rf === 'metal' ? 2380 : 2015));
+    add(1, 'งานสี', A * 294 * k);
+    add(1, 'ประตูหน้าต่าง', ((p.bed + 1) * 3410 + p.bath * 1467 + 0.0825 * A * 1992) * k);
+    add(1, 'สุขภัณฑ์', p.bath * 11700 * k);
+    // Systems
+    add(2, 'ระบบไฟฟ้า', A * (0.125 * 600 + 0.146 * 630 + 0.125 * 330) + p.bed * 1300 + 4500 * Math.max(1, n - 1));
+    add(2, 'ระบบประปา-สุขาภิบาล', (3 * p.bath + 2) * 800 + (3 * p.bath + 1) * 950 + Math.ceil(p.bath / 2) * 6937 + 13500);
+    const cost = cats.reduce((s, c) => s + c.v, 0);
+    const ohp = cost * p.ohp / 100;
+    const vat = p.vat ? (cost + ohp) * 0.07 : 0;
+    const factor = (cost + ohp + vat) / cost;
+    cats.forEach(c => c.t = c.v * factor);
+    return { cats, total: cost + ohp + vat, perSqm: (cost + ohp + vat) / A };
+  }
+
+  const PARTS = [
+    { name: 'งานโครงสร้าง', c: 'var(--accent)' },
+    { name: 'งานสถาปัตย์', c: 'var(--brown)' },
+    { name: 'งานระบบ', c: 'var(--slate)' }
+  ];
+
+  function read(){
+    let area = parseFloat($('area').value);
+    if (!isFinite(area) || area < 30) area = 30;
+    if (area > 1000) area = 1000;
+    let ohp = parseFloat($('ohp').value); if (!isFinite(ohp) || ohp < 0) ohp = 0;
+    return {
+      area,
+      fl: +document.querySelector('input[name=fl]:checked').value,
+      rf: document.querySelector('input[name=rf]:checked').value,
+      lv: +document.querySelector('input[name=lv]:checked').value,
+      ohp, vat: $('vat').checked, bed: state.bed, bath: state.bath
+    };
+  }
+
+  function render(){
+    const p = read(), r = estimate(p);
+    $('tot').innerHTML = fmt(r.total) + '<small>บาท</small>';
+    $('rng').textContent = fmt(r.total * 0.85 / 10000) + '–' + fmt(r.total * 1.15 / 10000) + ' หมื่นบาท';
+    $('psm').textContent = fmt(r.perSqm);
+    const sums = [0, 0, 0]; r.cats.forEach(c => sums[c.part] += c.t);
+    $('bar').innerHTML = sums.map((s, i) => `<span style="width:${(s / r.total * 100).toFixed(2)}%;background:${PARTS[i].c}"></span>`).join('');
+    $('legend').innerHTML = sums.map((s, i) => `<div style="--c:${PARTS[i].c}"><div class="n">${PARTS[i].name}</div><div class="v">${fmt(s)} บาท · ${(s / r.total * 100).toFixed(0)}%</div></div>`).join('');
+    $('tb').innerHTML = r.cats.map(c => `<tr><td><span class="dot" style="--c:${PARTS[c.part].c}"></span>${c.name}</td><td class="num">${fmt(c.t)}</td><td class="num">${(c.t / r.total * 100).toFixed(1)}%</td></tr>`).join('')
+      + `<tr class="sum"><td>รวม${p.vat ? ' (รวมกำไรและ VAT)' : ' (รวมกำไร)'}</td><td class="num">${fmt(r.total)}</td><td class="num">100%</td></tr>`;
+  }
+
+  $('areaR').addEventListener('input', e => { $('area').value = e.target.value; render(); });
+  $('area').addEventListener('input', e => { const v = +e.target.value; if (v >= 40 && v <= 400) $('areaR').value = v; render(); });
+  document.querySelectorAll('.step button').forEach(b => b.addEventListener('click', () => {
+    const t = b.dataset.t, v = Math.min(lim[t][1], Math.max(lim[t][0], state[t] + +b.dataset.d));
+    state[t] = v; $(t).textContent = v; render();
+  }));
+  $('f').addEventListener('change', render);
+  $('f').addEventListener('input', render);
+  $('f').addEventListener('submit', e => e.preventDefault());
+  render();
+})();
+</script>
+</body>
+</html>
