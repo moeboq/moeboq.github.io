@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thailand House Building Cost Calculator 2026 | Cost per m² &amp; sq ft</title>
+<meta name="description" content="Free calculator for the cost to build a house in Thailand in 2026. Enter size, floors, bedrooms and finish level to get a cost breakdown in THB, USD, EUR, GBP or AUD, based on Thai reference material prices. Made by a Thai civil engineer.">
+<link rel="canonical" href="https://moeboq.github.io/en/">
+<link rel="alternate" hreflang="en" href="https://moeboq.github.io/en/">
+<link rel="alternate" hreflang="th" href="https://moeboq.github.io/">
+<link rel="alternate" hreflang="x-default" href="https://moeboq.github.io/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thailand House Building Cost Calculator 2026">
+<meta property="og:description" content="How much does it cost to build a house in Thailand? Get an itemised estimate in seconds.">
+<meta property="og:url" content="https://moeboq.github.io/en/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Thailand House Building Cost Calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does it cost to build a house in Thailand in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Based on September 2026 Thai government reference prices for materials and labour, a standard house costs roughly ฿9,000–11,000 per m² (about $25–30 per sq ft), including a 10% contractor margin and 7% VAT. Single-storey houses cost more per m² than two-storey houses because the roof and foundations cover the whole floor area."}}, {"@type": "Question", "name": "What is included in the estimate?", "acceptedAnswer": {"@type": "Answer", "text": "Foundations and piles, the concrete structure, walls, floor finishes, ceilings, roof, painting, doors and windows, bathroom fixtures, and basic electrical and plumbing. Land, design and permit fees, fences, landscaping, furniture, built-ins and appliances are not included."}}, {"@type": "Question", "name": "Can a foreigner build a house in Thailand?", "acceptedAnswer": {"@type": "Answer", "text": "Foreigners generally cannot own land in Thailand, so houses are usually built on a Thai spouse's land or on leased land. Ownership rules are complex, so get independent legal advice before you build."}}, {"@type": "Question", "name": "Why do contractor quotes differ so much?", "acceptedAnswer": {"@type": "Answer", "text": "Quotes differ by material choices, contractor margin, site conditions, and how quantities were taken off the drawings. A Bill of Quantities (BOQ) prepared from your actual drawings is the best baseline for comparing quotes."}}, {"@type": "Question", "name": "Are prices outside Bangkok different?", "acceptedAnswer": {"@type": "Answer", "text": "The estimate uses Bangkok and vicinity prices. Labour is often cheaper in the provinces, while transport can make some materials more expensive in remote areas. Expect differences of roughly ±10%."}}]}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Sarabun:wght@400;600&display=swap">
+<style>
+/* Layout: estimator workbench — inputs column left, result sheet right (stacks on phone); brand = deep red / brown / charcoal on cool grey */
+:root{
+  --bg:#E4E4E6; --surface:#EFEFF1; --sunk:#E8E8EB; --ink:#1C1C1E; --muted:#5E5E64; --line:#CFCFD4;
+  --accent:#8B1E16; --accent-ink:#F0F0F2; --brown:#8B5E3C; --slate:#5E5E64;
+  --display:"Kanit","Sarabun",system-ui,sans-serif; --body:"Sarabun","Tahoma",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#161618; --surface:#222225; --sunk:#1B1B1E; --ink:#ECECEE; --muted:#A5A5AC; --line:#38383D;
+  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --slate:#9A9AA2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161618; --surface:#222225; --sunk:#1B1B1E; --ink:#ECECEE; --muted:#A5A5AC; --line:#38383D;
+  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --slate:#9A9AA2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 40px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+header h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.5vw,40px);line-height:1.15;margin:0;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.12em;color:var(--accent);margin-bottom:6px}
+.grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.panel h2{font-family:var(--display);font-weight:500;font-size:18px;margin:0 0 14px}
+form{display:grid;gap:16px}
+.field{display:grid;gap:6px}
+.field label,.field .lbl{font-weight:600;font-size:15px}
+.hint{font-size:13px;color:var(--muted)}
+.row{display:flex;gap:10px;align-items:center}
+input[type=number]{font:inherit;font-variant-numeric:tabular-nums;width:110px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--ink)}
+input[type=range]{flex:1;min-width:0;accent-color:var(--accent)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{flex:1 1 auto;text-align:center;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);cursor:pointer;font-size:15px;white-space:nowrap}
+.seg input:checked+label{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.seg input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}
+.step{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;overflow:hidden;width:max-content}
+.step button{font:inherit;font-size:18px;width:40px;height:38px;border:0;background:var(--sunk);color:var(--ink);cursor:pointer}
+.step button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.step output{min-width:44px;text-align:center;font-variant-numeric:tabular-nums;font-weight:600}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check{display:flex;gap:8px;align-items:center;font-size:15px}
+.check input{accent-color:var(--accent);width:18px;height:18px}
+
+.total{display:grid;gap:4px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.total .k{font-size:14px;color:var(--muted)}
+.big{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,52px);line-height:1.1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.big small{font-size:.42em;font-weight:500;color:var(--ink);margin-left:6px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;font-variant-numeric:tabular-nums}
+.meta b{font-weight:600}
+.parts{margin:18px 0 6px}
+.bar{display:flex;height:16px;border-radius:4px;overflow:hidden;background:var(--sunk)}
+.bar span{display:block;height:100%}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:480px){.legend{grid-template-columns:minmax(0,1fr)}}
+.legend>div{border-top:3px solid var(--c);padding-top:6px}
+.legend .n{font-size:14px;color:var(--muted)}
+.legend .v{font-weight:600;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto;margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+th{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.04em;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:7px 8px;border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right;white-space:nowrap}
+td .dot{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--c);margin-right:8px;vertical-align:middle}
+tr.sum td{font-weight:600;border-bottom:0}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--ink);color:var(--bg);border-radius:10px;padding:18px 20px}
+.cta p{margin:0;max-width:56ch}
+.cta strong{font-family:var(--display);font-weight:500;font-size:18px;display:block}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:500;text-decoration:none;padding:10px 18px;border-radius:6px;white-space:nowrap}
+.btn:focus-visible{outline:2px solid var(--bg);outline-offset:2px}
+.notes{font-size:14px;color:var(--muted);display:grid;gap:6px}
+.notes h3{font-family:var(--display);font-weight:500;font-size:15px;color:var(--ink);margin:0}
+.notes ul{margin:0;padding-left:20px}
+@media (prefers-reduced-motion:no-preference){.bar span{transition:width .25s ease}}
+</style>
+<style>
+.article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 22px 8px}
+.article h2{font-family:var(--display);font-weight:500;font-size:22px;margin:0 0 10px;text-wrap:balance}
+.article h3{font-family:var(--display);font-weight:500;font-size:18px;margin:22px 0 8px}
+.article p,.article li{max-width:68ch}
+.article table{margin:10px 0 6px}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{cursor:pointer;font-weight:600}
+.faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.faq p{margin:8px 0 0;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);display:grid;gap:4px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.top b{font-family:var(--display);font-weight:500;color:var(--ink)}
+</style>
+<style>select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--sunk);color:var(--ink)} .top a{color:var(--accent);font-weight:600}</style>
+<style>
+/* Neumorphism skin: soft grey surfaces with paired light/dark shadows; deep red accent */
+:root{
+  --bg:#E2E4E8; --surface:#E2E4E8; --sunk:#E2E4E8; --ink:#1E1F22; --muted:#5A5D64; --line:#CDD0D6;
+  --sd:#BCC0C8; --sl:#F6F7F9; --accent:#8B1E16; --accent2:#A8322A; --accent-ink:#F2F2F4; --brown:#8B5E3C; --slate:#5E5E64;
+  --r:22px; --rs:14px;
+  --raise:8px 8px 18px var(--sd),-8px -8px 18px var(--sl);
+  --raise-s:4px 4px 9px var(--sd),-4px -4px 9px var(--sl);
+  --press:inset 4px 4px 9px var(--sd),inset -4px -4px 9px var(--sl);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#25262A; --surface:#25262A; --sunk:#25262A; --ink:#ECECEE; --muted:#A3A5AC; --line:#34353A;
+  --sd:#18191C; --sl:#323338; --accent:#D9604F; --accent2:#E57A6A; --accent-ink:#1A1A1C; --brown:#C08A63; --slate:#9A9AA2}}
+:root[data-theme="dark"]{
+  --bg:#25262A; --surface:#25262A; --sunk:#25262A; --ink:#ECECEE; --muted:#A3A5AC; --line:#34353A;
+  --sd:#18191C; --sl:#323338; --accent:#D9604F; --accent2:#E57A6A; --accent-ink:#1A1A1C; --brown:#C08A63; --slate:#9A9AA2}
+body{background:var(--bg)}
+.wrap{gap:30px}
+.top{background:var(--bg);box-shadow:var(--raise-s);border-radius:999px;padding:10px 20px}
+.top b::before{content:"";display:inline-block;width:26px;height:26px;margin-right:10px;vertical-align:-7px;border-radius:50%;box-shadow:var(--raise-s);
+  background:radial-gradient(circle at 50% 55%,var(--accent) 0 5px,transparent 6px),var(--bg)}
+.top a{color:var(--accent);font-weight:600;text-decoration:none;padding:4px 12px;border-radius:999px;box-shadow:var(--raise-s)}
+.top a:hover{box-shadow:var(--press)}
+header{padding:8px 4px}
+.eyebrow{display:inline-block;padding:5px 14px;border-radius:999px;box-shadow:var(--press);letter-spacing:.08em}
+.panel,.article{background:var(--bg);border:0;border-radius:var(--r);box-shadow:var(--raise);padding:24px}
+.article{padding:26px 26px 14px}
+.grid{gap:30px}
+input[type=number],select{border:0;border-radius:var(--rs);background:var(--bg);box-shadow:var(--press);padding:10px 12px}
+input[type=number]:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=range]{-webkit-appearance:none;appearance:none;height:12px;border-radius:999px;background:var(--bg);box-shadow:var(--press);outline-offset:6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;cursor:pointer;
+  background:radial-gradient(circle,var(--accent) 0 5px,var(--bg) 6px);box-shadow:3px 3px 7px var(--sd),-3px -3px 7px var(--sl)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:50%;cursor:pointer;
+  background:radial-gradient(circle,var(--accent) 0 5px,var(--bg) 6px);box-shadow:3px 3px 7px var(--sd),-3px -3px 7px var(--sl)}
+.seg{gap:10px}
+.seg label{border:0;border-radius:var(--rs);background:var(--bg);box-shadow:var(--raise-s);padding:10px 12px;transition:box-shadow .15s,color .15s}
+.seg label:hover{color:var(--accent)}
+.seg input:checked+label{background:var(--bg);color:var(--accent);box-shadow:var(--press);font-weight:700}
+.step{border:0;gap:12px;overflow:visible}
+.step button{width:40px;height:40px;border-radius:50%;background:var(--bg);box-shadow:var(--raise-s);color:var(--ink)}
+.step button:active{box-shadow:var(--press)}
+.step output{min-width:46px;padding:8px 0;border-radius:var(--rs);box-shadow:var(--press)}
+.check input{accent-color:var(--accent)}
+.total{border-bottom:0;padding:18px 20px;border-radius:var(--rs);box-shadow:var(--press);margin-bottom:6px}
+.big{color:var(--accent);text-shadow:2px 2px 4px var(--sd),-2px -2px 4px var(--sl)}
+.bar{height:14px;border-radius:999px;padding:3px;background:var(--bg);box-shadow:var(--press);gap:3px}
+.bar span{border-radius:999px}
+.legend{gap:14px;margin-top:16px}
+.legend>div{border-top:0;padding:10px 12px;border-radius:var(--rs);box-shadow:var(--raise-s);position:relative;padding-left:24px}
+.legend>div::before{content:"";position:absolute;left:11px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--c)}
+th{border-bottom:0}
+td{border-bottom:1px solid var(--line)}
+td .dot{border-radius:50%}
+tr.sum td{color:var(--accent)}
+.tablewrap{padding:4px 2px}
+.cta{background:var(--bg);color:var(--ink);border-radius:var(--r);box-shadow:var(--raise);padding:22px 24px;border-left:0;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--accent)}
+.btn{border-radius:999px;padding:12px 24px;background:linear-gradient(145deg,var(--accent2),var(--accent));color:var(--accent-ink);
+  box-shadow:5px 5px 12px var(--sd),-5px -5px 12px var(--sl);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:none;box-shadow:inset 3px 3px 7px rgba(0,0,0,.3)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.faq details{border-bottom:0;margin:12px 0;padding:12px 16px;border-radius:var(--rs);box-shadow:var(--raise-s)}
+.faq details[open]{box-shadow:var(--press)}
+.faq summary{list-style:none;position:relative;padding-right:28px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:-2px;font-family:var(--display);font-size:20px;color:var(--accent)}
+.faq details[open] summary::after{content:"−"}
+.notes{padding:4px 6px}
+@media (max-width:520px){
+  :root{--raise:5px 5px 12px var(--sd),-5px -5px 12px var(--sl)}
+  .panel,.article{padding:18px}
+  .top{border-radius:18px}
+}
+@media (prefers-reduced-motion:reduce){.seg label,.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><b>Thailand House Cost Calculator</b><span>Prices updated Nov 2026 · <a href="../" hreflang="th" lang="th">ภาษาไทย</a></span></div>
+  <header>
+    <div class="eyebrow">Plan your budget before you hire a builder</div>
+    <h1>How much will it cost to build your house in Thailand?</h1>
+    <p>Enter the size of your house and choose a finish level. The estimate uses current Thai reference prices for materials and labour, broken down from foundations to plumbing.</p>
+  </header>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="in-h">
+      <h2 id="in-h">Your house</h2>
+      <form id="f" novalidate>
+        <div class="field">
+          <span class="lbl" id="un-l">Units</span>
+          <div class="seg" role="radiogroup" aria-labelledby="un-l">
+            <input type="radio" name="un" id="un1" value="m" checked><label for="un1">Square metres</label>
+            <input type="radio" name="un" id="un2" value="ft"><label for="un2">Square feet</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="area">Total floor area (<span id="aunit">m²</span>)</label>
+          <div class="row">
+            <input type="range" id="areaR" min="40" max="400" step="5" value="150" aria-label="Floor area">
+            <input type="number" id="area" min="30" max="11000" step="1" value="150">
+          </div>
+          <span class="hint">All floors combined, excluding open carports and uncovered terraces</span>
+        </div>
+        <div class="field">
+          <span class="lbl" id="fl-l">Storeys</span>
+          <div class="seg" role="radiogroup" aria-labelledby="fl-l">
+            <input type="radio" name="fl" id="fl1" value="1"><label for="fl1">1</label>
+            <input type="radio" name="fl" id="fl2" value="2" checked><label for="fl2">2</label>
+            <input type="radio" name="fl" id="fl3" value="3"><label for="fl3">3</label>
+          </div>
+        </div>
+        <div class="pair">
+          <div class="field">
+            <span class="lbl">Bedrooms</span>
+            <div class="step"><button type="button" data-t="bed" data-d="-1" aria-label="Fewer bedrooms">−</button><output id="bed">3</output><button type="button" data-t="bed" data-d="1" aria-label="More bedrooms">+</button></div>
+          </div>
+          <div class="field">
+            <span class="lbl">Bathrooms</span>
+            <div class="step"><button type="button" data-t="bath" data-d="-1" aria-label="Fewer bathrooms">−</button><output id="bath">2</output><button type="button" data-t="bath" data-d="1" aria-label="More bathrooms">+</button></div>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="rf-l">Roof</span>
+          <div class="seg" role="radiogroup" aria-labelledby="rf-l">
+            <input type="radio" name="rf" id="rf1" value="tile" checked><label for="rf1">Concrete tile</label>
+            <input type="radio" name="rf" id="rf2" value="metal"><label for="rf2">Metal sheet</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="lv-l">Finish level</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lv-l">
+            <input type="radio" name="lv" id="lv1" value="0.85"><label for="lv1">Budget</label>
+            <input type="radio" name="lv" id="lv2" value="1" checked><label for="lv2">Standard</label>
+            <input type="radio" name="lv" id="lv3" value="1.35"><label for="lv3">Premium</label>
+          </div>
+          <span class="hint">Affects floors, ceilings, paint, doors and windows, and bathroom fixtures</span>
+        </div>
+        <div class="pair">
+          <div class="field">
+            <label for="ohp">Builder margin (%)</label>
+            <input type="number" id="ohp" min="0" max="40" step="1" value="10">
+          </div>
+          <div class="field">
+            <label for="cur">Currency</label>
+            <select id="cur"><option value="THB">THB ฿</option><option value="USD" selected>USD $</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="AUD">AUD A$</option></select>
+          </div>
+        </div>
+        <label class="check" for="vat"><input type="checkbox" id="vat" checked>Include Thai VAT 7%</label>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="out-h" aria-live="polite">
+      <h2 id="out-h">Estimate</h2>
+      <div class="total">
+        <span class="k">Estimated construction cost</span>
+        <div class="big" id="tot">-</div>
+        <div class="meta">
+          <span>Likely range <b id="rng">-</b></span>
+          <span>Average <b id="psm">-</b></span>
+        </div>
+      </div>
+      <div class="parts">
+        <div class="bar" id="bar" aria-hidden="true"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Work package</th><th class="num">Cost</th><th class="num">Share</th></tr></thead>
+          <tbody id="tb"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="cta">
+    <p><strong>Need numbers from your actual drawings?</strong>A Thai civil engineer prepares a detailed Bill of Quantities (BOQ): every item with material and labour costs, plus the rebar order list. Delivered as Excel with formulas and PDF. Booked through Fastwork, a Thai freelance platform.</p>
+    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Request a BOQ</a>
+  </section>
+
+  <article class="article" aria-labelledby="a-h">
+    <h2 id="a-h">Cost to build a house in Thailand in 2026</h2>
+    <p>Building costs in Thailand depend mainly on size, number of storeys and finish level. The table below comes from the calculator above, using Bangkok-area reference prices from September 2026, a 10% builder margin, 7% VAT and a concrete tile roof. USD figures use ฿33.87 per US dollar (13 Nov 2026).</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>House</th><th>Rooms</th><th class="num">Budget</th><th class="num">Standard</th><th class="num">Premium</th></tr></thead>
+      <tbody><tr><td>Bungalow, 80 m² (861 sq ft)</td><td>2 bed, 1 bath</td><td class="num">฿0.84M</td><td class="num">฿0.87M<br><span class="hint">≈ $25.8k</span></td><td class="num">฿0.95M</td></tr><tr><td>Bungalow, 100 m² (1,076 sq ft)</td><td>2 bed, 2 bath</td><td class="num">฿1.06M</td><td class="num">฿1.10M<br><span class="hint">≈ $32.4k</span></td><td class="num">฿1.19M</td></tr><tr><td>Bungalow, 120 m² (1,292 sq ft)</td><td>3 bed, 2 bath</td><td class="num">฿1.26M</td><td class="num">฿1.30M<br><span class="hint">≈ $38.5k</span></td><td class="num">฿1.41M</td></tr><tr><td>Two-storey, 150 m² (1,615 sq ft)</td><td>3 bed, 2 bath</td><td class="num">฿1.37M</td><td class="num">฿1.43M<br><span class="hint">≈ $42.1k</span></td><td class="num">฿1.56M</td></tr><tr><td>Two-storey, 200 m² (2,153 sq ft)</td><td>4 bed, 3 bath</td><td class="num">฿1.81M</td><td class="num">฿1.89M<br><span class="hint">≈ $55.7k</span></td><td class="num">฿2.07M</td></tr><tr><td>Two-storey, 250 m² (2,691 sq ft)</td><td>4 bed, 3 bath</td><td class="num">฿2.22M</td><td class="num">฿2.31M<br><span class="hint">≈ $68.3k</span></td><td class="num">฿2.53M</td></tr></tbody></table></div>
+    <h3>Why two-storey houses cost less per square metre</h3>
+    <p>A two-storey house uses one roof and one set of foundations for two floors, so those costs are spread over more floor area. Even after adding stairs and an upper floor slab, a bungalow of the same size usually costs 10–15% more per square metre.</p>
+    <h3>Where the money goes</h3>
+    <p>Structure (foundations, columns, beams and slabs) is typically 30–40% of the cost, architectural work (walls, floors, ceilings, roof, paint, doors, windows and bathrooms) about 55–60%, and electrical and plumbing 5–8%. For bungalows, the roof is usually the single most expensive item.</p>
+    <h3>Getting a reliable number</h3>
+    <p>Use the calculator to set an early budget. Once you have drawings, a Bill of Quantities lists every item measured from the plans. It lets you compare contractor quotes line by line and keep the budget under control during construction.</p>
+  </article>
+
+  <section class="article faq" aria-labelledby="q-h">
+    <h2 id="q-h">Frequently asked questions</h2>
+    <details><summary>How much does it cost to build a house in Thailand in 2026?</summary><p>Based on September 2026 Thai government reference prices for materials and labour, a standard house costs roughly ฿9,000–11,000 per m² (about $25–30 per sq ft), including a 10% contractor margin and 7% VAT. Single-storey houses cost more per m² than two-storey houses because the roof and foundations cover the whole floor area.</p></details><details><summary>What is included in the estimate?</summary><p>Foundations and piles, the concrete structure, walls, floor finishes, ceilings, roof, painting, doors and windows, bathroom fixtures, and basic electrical and plumbing. Land, design and permit fees, fences, landscaping, furniture, built-ins and appliances are not included.</p></details><details><summary>Can a foreigner build a house in Thailand?</summary><p>Foreigners generally cannot own land in Thailand, so houses are usually built on a Thai spouse's land or on leased land. Ownership rules are complex, so get independent legal advice before you build.</p></details><details><summary>Why do contractor quotes differ so much?</summary><p>Quotes differ by material choices, contractor margin, site conditions, and how quantities were taken off the drawings. A Bill of Quantities (BOQ) prepared from your actual drawings is the best baseline for comparing quotes.</p></details><details><summary>Are prices outside Bangkok different?</summary><p>The estimate uses Bangkok and vicinity prices. Labour is often cheaper in the provinces, while transport can make some materials more expensive in remote areas. Expect differences of roughly ±10%.</p></details>
+  </section>
+
+  <section class="notes" aria-labelledby="n-h">
+    <h3 id="n-h">Where the numbers come from</h3>
+    <ul>
+      <li>Material prices: Thai Ministry of Commerce (TPSO) construction material prices for Bangkok and vicinity, September 2026; Office of the Basic Education Commission price list FY2026; labour rates from the Comptroller General's Department (June 2026). Some items are estimates.</li>
+      <li>Quantities are scaled per floor area from a sample house measured in a full BOQ. Every house differs, so the result is shown as a ±15% range.</li>
+      <li>Exchange rates are indicative mid-market rates from 12–13 Nov 2026 and will change.</li>
+      <li>Excludes land, design and permit fees, fences, external works, furniture, built-ins, appliances and transport to remote provinces. This is a budget estimate, not a quotation or a structural design.</li>
+    </ul>
+  </section>
+  <footer>
+    <span>Made by Moe, civil engineer in Thailand · BOQ and quantity takeoff for houses</span>
+  </footer>
+</div>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const state = { bed: 3, bath: 2 };
+  const lim = { bed: [1, 8], bath: [1, 6] };
+  const RATES = { THB: 1, USD: 33.865, EUR: 37.489, GBP: 44.868, AUD: 23.053 };
+  const SYM = { THB: '฿', USD: '$', EUR: '€', GBP: '£', AUD: 'A$' };
+  const cur = () => $('cur').value;
+  const unit = () => document.querySelector('input[name=un]:checked').value;
+  const fmt = n => Math.round(n).toLocaleString('en-US');
+  const money = thb => SYM[cur()] + fmt(thb / RATES[cur()]);
+
+  // Unit costs (THB, ex-VAT) and quantity ratios, calibrated to an 8x12 m sample house taken off in the BOQ template.
+  function estimate(p){
+    const A = p.area, n = p.fl, F = A / n, k = p.lv;
+    const cats = [];
+    const add = (part, name, v) => cats.push({ part, name, v });
+    // Structure
+    add(0, 'Foundations & earthworks', F * 1106 * (1 + 0.35 * (n - 1)));
+    add(0, 'Structure: columns, beams, slabs', F * 2200 + (A - F) * 2300);
+    if (n > 1) add(0, 'Concrete stairs', (n - 1) * 45000);
+    // Architecture
+    add(1, 'Walls & plastering', A * 1121);
+    add(1, 'Floor finishes', A * 986 * k);
+    add(1, 'Ceilings', A * 456 * k);
+    add(1, 'Roof', F * (p.rf === 'metal' ? 2380 : 2015));
+    add(1, 'Painting', A * 294 * k);
+    add(1, 'Doors & windows', ((p.bed + 1) * 3410 + p.bath * 1467 + 0.0825 * A * 1992) * k);
+    add(1, 'Bathroom fixtures', p.bath * 11700 * k);
+    // Systems
+    add(2, 'Electrical', A * (0.125 * 600 + 0.146 * 630 + 0.125 * 330) + p.bed * 1300 + 4500 * Math.max(1, n - 1));
+    add(2, 'Plumbing & sanitary', (3 * p.bath + 2) * 800 + (3 * p.bath + 1) * 950 + Math.ceil(p.bath / 2) * 6937 + 13500);
+    const cost = cats.reduce((s, c) => s + c.v, 0);
+    const ohp = cost * p.ohp / 100;
+    const vat = p.vat ? (cost + ohp) * 0.07 : 0;
+    const factor = (cost + ohp + vat) / cost;
+    cats.forEach(c => c.t = c.v * factor);
+    return { cats, total: cost + ohp + vat, perSqm: (cost + ohp + vat) / A };
+  }
+
+  const PARTS = [
+    { name: 'Structure', c: 'var(--accent)' },
+    { name: 'Architecture', c: 'var(--brown)' },
+    { name: 'MEP systems', c: 'var(--slate)' }
+  ];
+
+  function read(){
+    let area = parseFloat($('area').value); if (unit() === 'ft') area = area / 10.7639;
+    if (!isFinite(area) || area < 30) area = 30;
+    if (area > 1000) area = 1000;
+    let ohp = parseFloat($('ohp').value); if (!isFinite(ohp) || ohp < 0) ohp = 0;
+    return {
+      area,
+      fl: +document.querySelector('input[name=fl]:checked').value,
+      rf: document.querySelector('input[name=rf]:checked').value,
+      lv: +document.querySelector('input[name=lv]:checked').value,
+      ohp, vat: $('vat').checked, bed: state.bed, bath: state.bath
+    };
+  }
+
+  function render(){
+    const p = read(), r = estimate(p);
+    const perUnit = unit() === 'ft' ? r.perSqm / 10.7639 : r.perSqm;
+    $('tot').innerHTML = money(r.total) + '<small>' + cur() + '</small>';
+    $('rng').textContent = money(r.total * 0.85) + ' – ' + money(r.total * 1.15);
+    $('psm').textContent = money(perUnit) + (unit() === 'ft' ? ' per sq ft' : ' per m²');
+    const sums = [0, 0, 0]; r.cats.forEach(c => sums[c.part] += c.t);
+    $('bar').innerHTML = sums.map((s, i) => `<span style="width:${(s / r.total * 100).toFixed(2)}%;background:${PARTS[i].c}"></span>`).join('');
+    $('legend').innerHTML = sums.map((s, i) => `<div style="--c:${PARTS[i].c}"><div class="n">${PARTS[i].name}</div><div class="v">${money(s)} · ${(s / r.total * 100).toFixed(0)}%</div></div>`).join('');
+    $('tb').innerHTML = r.cats.map(c => `<tr><td><span class="dot" style="--c:${PARTS[c.part].c}"></span>${c.name}</td><td class="num">${money(c.t)}</td><td class="num">${(c.t / r.total * 100).toFixed(1)}%</td></tr>`).join('')
+      + `<tr class="sum"><td>Total${p.vat ? ' (incl. margin & VAT)' : ' (incl. margin)'}</td><td class="num">${money(r.total)}</td><td class="num">100%</td></tr>`;
+  }
+  $('areaR').addEventListener('input', e => { $('area').value = e.target.value; render(); });
+  $('area').addEventListener('input', e => { const v = +e.target.value; if (v >= +$('areaR').min && v <= +$('areaR').max) $('areaR').value = v; render(); });
+  document.querySelectorAll('input[name=un]').forEach(r => r.addEventListener('change', () => {
+    const a = parseFloat($('area').value) || 150, ft = unit() === 'ft';
+    const v = ft ? Math.round(a * 10.7639 / 10) * 10 : Math.round(a / 10.7639);
+    $('areaR').min = ft ? 400 : 40; $('areaR').max = ft ? 4300 : 400; $('areaR').step = ft ? 50 : 5;
+    $('area').value = v; $('areaR').value = v; $('aunit').textContent = ft ? 'sq ft' : 'm²'; render();
+  }));
+  document.querySelectorAll('.step button').forEach(b => b.addEventListener('click', () => {
+    const t = b.dataset.t, v = Math.min(lim[t][1], Math.max(lim[t][0], state[t] + +b.dataset.d));
+    state[t] = v; $(t).textContent = v; render();
+  }));
+  $('f').addEventListener('change', render);
+  $('f').addEventListener('input', render);
+  $('f').addEventListener('submit', e => e.preventDefault());
+  render();
+})();
+</script>
+</body>
+</html>
