@@ -191,11 +191,11 @@ tr.sum td{color:var(--accent)}
 </head>
 <body>
 <div class="wrap">
-  <div class="sitebar">
+  <!--nav--><div class="sitebar">
     <a class="brand" href=""><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
-    <nav class="quick" aria-label="เมนูลัด"><a href="boq/">บริการถอดแบบ BOQ</a><a href="works/">ผลงาน</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a></nav>
+    <nav class="quick" aria-label="เมนูลัด"><a href="boq/">บริการถอดแบบ BOQ</a><a href="plan/">วาดแปลนออก BOQ</a><a href="works/">ผลงาน</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a></nav>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button>
-  </div>
+  </div><!--/nav-->
   <header>
     <div class="eyebrow">ประเมินงบก่อนจ้างผู้รับเหมา</div>
     <h1>ค่าสร้างบ้านของคุณประมาณเท่าไหร่</h1>
@@ -324,11 +324,11 @@ tr.sum td{color:var(--accent)}
       <li>ผลนี้ใช้ประเมินงบเบื้องต้นเท่านั้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบโครงสร้าง</li>
     </ul>
   </section>
-  <footer class="sitefoot">
-    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="">หน้าแรก</a><a href="boq/">บริการถอดแบบ BOQ</a><a href="works/">ผลงาน</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a><a href="en/" hreflang="en" lang="en">English</a></nav>
+  <!--foot--><footer class="sitefoot">
+    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="">หน้าแรก</a><a href="boq/">บริการถอดแบบ BOQ</a><a href="plan/">วาดแปลนออก BOQ</a><a href="works/">ผลงาน</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a><a href="en/" hreflang="en" lang="en">English</a></nav>
     <span>MOE BOQ · โม วิศวกรโยธา · รับถอดแบบ BOQ และประมาณราคาบ้านทั้งหลัง ผ่าน <a href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Fastwork</a></span>
     <span>ตัวเลขบนเว็บนี้เป็นการประเมินงบเบื้องต้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบหรือรับรองโครงสร้าง</span>
-  </footer>
+  </footer><!--/foot-->
 </div>
 <script>
 (function(){
@@ -409,13 +409,14 @@ tr.sum td{color:var(--accent)}
   render();
 })();
 </script>
-<div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="เมนูหลัก">
+<!--menu--><div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="เมนูหลัก">
   <button class="menu-close" type="button">ปิด ✕</button>
   <div style="display:grid;gap:8px">
-    <nav aria-label="เมนูหลัก"><ol><li><a href="" aria-current="page"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="boq/"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="works/"><b>ผลงาน</b><span>ตัวอย่างไฟล์ส่งงานและเครื่องมือ</span></a></li><li><a href="blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
+    <nav aria-label="เมนูหลัก"><ol><li><a href="" aria-current="page"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="boq/"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="plan/"><b>วาดแปลนออก BOQ</b><span>เครื่องมือฟรี ลองวาดบ้านของคุณ</span></a></li><li><a href="works/"><b>ผลงาน</b><span>ตัวอย่างไฟล์ส่งงาน</span></a></li><li><a href="blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
     <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
+    <a href="en/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>
-</div>
+</div><!--/menu-->
 <script src="assets/site.js" defer></script>
 </body>
 </html>
