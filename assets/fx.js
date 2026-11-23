@@ -24,6 +24,7 @@
     [60, 178, 296, 400].forEach(function(x, i){ s += L(x, 268, x, 280, 'dm', 1.5 + i * .04); });
     s += L(60, 274, 400, 274, 'dm', 1.5);
     [['4,000', 119], ['4,000', 237], ['3,500', 348]].forEach(function(t, i){ s += '<text x="' + t[1] + '" y="268" text-anchor="middle" style="animation-delay:' + (1.9 + i * .1) + 's">' + t[0] + '</text>'; });
+    if (!animated){ var en = document.documentElement.lang === 'en'; s += '<text class="room" x="119" y="150" text-anchor="middle">' + (en ? 'Bedroom' : 'ห้องนอน') + '</text><text class="room" x="237" y="150" text-anchor="middle">' + (en ? 'Living' : 'ห้องนั่งเล่น') + '</text><text class="room" x="348" y="98" text-anchor="middle">' + (en ? 'Bath' : 'ห้องน้ำ') + '</text><text class="room" x="348" y="203" text-anchor="middle">' + (en ? 'Kitchen' : 'ครัว') + '</text>'; }
     return '<svg viewBox="0 0 460 300" class="' + (animated ? 'anim' : '') + '" aria-hidden="true">' + s + '</svg>';
   }
 

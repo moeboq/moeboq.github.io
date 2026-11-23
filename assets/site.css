@@ -398,3 +398,11 @@ h3{font-size:19px;font-weight:700;letter-spacing:0}
 .theme-btn{width:64px}
 :root[data-theme="dark"] .theme-btn i{transform:translateX(32px)}
 .chip{box-shadow:none}
+
+/* before/after slider in the hero (replaces the drawing panel) — matches the ชุด 2 demo */
+.ba .after img{width:82%;height:auto}
+.ba .before svg{inset:auto;position:relative;width:78%}
+.ba .before{display:grid;place-items:center}
+.ba svg text.room{font-family:var(--display);font-size:17px;fill:var(--muted)}
+.hero-ba{aspect-ratio:460/330;align-self:center}
+.ba .tag2{background:color-mix(in srgb,var(--surface) 90%,transparent);z-index:2;pointer-events:none}
