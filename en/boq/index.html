@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>var t=null;try{t=localStorage.getItem("moe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")</script>
 <title>House BOQ Service in Thailand from 2,500 THB | MOE BOQ</title>
 <meta name="description" content="Bill of Quantities for houses in Thailand by a Thai civil engineer: every item with material and labour costs, rebar order list, Excel with formulas and PDF in 4–7 days.">
 <link rel="canonical" href="https://moeboq.github.io/en/boq/">
@@ -19,7 +20,7 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "House Bill of Quantities (BOQ)", "serviceType": "Bill of Quantities", "areaServed": "TH", "provider": {"@type": "Person", "name": "Moe, civil engineer"}, "offers": [{"@type": "Offer", "name": "Whole house", "price": "2500", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}, {"@type": "Offer", "name": "Complete", "price": "3490", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}, {"@type": "Offer", "name": "Large house", "price": "4990", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How accurate is the BOQ?", "acceptedAnswer": {"@type": "Answer", "text": "Quantities are measured from your drawings item by item. Material prices follow the latest Thai Ministry of Commerce reference prices and labour rates follow the Comptroller General's Department. You can edit any price in Excel and the BOQ recalculates."}}, {"@type": "Question", "name": "What if my drawings are incomplete?", "acceptedAnswer": {"@type": "Answer", "text": "I will list what the drawings do not show and state the assumptions used in the BOQ notes, so you can check them."}}, {"@type": "Question", "name": "How many revisions are included?", "acceptedAnswer": {"@type": "Answer", "text": "Two revisions in every package, for example changing materials, adding items or updating prices."}}, {"@type": "Question", "name": "Do you certify structural designs?", "acceptedAnswer": {"@type": "Answer", "text": "No. This service covers quantity take-off and cost estimating only, not structural design or sign-off."}}, {"@type": "Question", "name": "What language are the files in?", "acceptedAnswer": {"@type": "Answer", "text": "BOQ files are prepared in Thai, the format Thai contractors use, so you can hand them straight to local builders."}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
@@ -27,26 +28,42 @@
   <!--nav--><div class="sitebar">
     <a class="brand" href="../../en/"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>BOQ & house cost estimates</small></span></a>
     <nav class="quick" aria-label="Quick links"><a href="../../en/boq/" aria-current="page">BOQ service</a><a href="../../en/works/">Samples</a><a href="../../en/about/">About</a><a href="../../en/contact/">Contact</a></nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button>
+    <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="Toggle dark mode"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
-  <section class="hero">
+  <section class="hero split">
+    <div>
     <span class="eyebrow">BOQ service</span>
-    <h1>A Bill of Quantities for your house in Thailand</h1>
+    <h1>A Bill of Quantities for<br><span class="tw" aria-hidden="true" data-words='["bungalows","two-storey homes","three-storey homes","contractors","home owners"]'>bungalows</span><span class="sr">bungalows, two- and three-storey homes, contractors and home owners</span> in Thailand</h1>
     <p>Send your drawings and get every item priced with Thai material and labour costs, grouped by work package, plus the rebar order list. Use it to compare contractor quotes and control your budget during construction.</p>
     <div class="chips"><span class="chip">Delivered in 4–7 days</span><span class="chip">2 revisions included</span><span class="chip">Thai government reference prices</span></div>
     <div class="actions"><a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Get a free quote</a><a class="btn ghost" href="../works/">See samples</a></div>
+    </div>
+    <div class="draw" data-fx="plan" role="img" aria-label="A house plan draws itself, then a 3D house rises"><span class="cap">Plan → 3D house</span><button class="replay" type="button">Replay ↺</button><div class="house"><img src="../../assets/house3d.png" alt="" width="507" height="300"></div></div>
   </section>
+  <div class="marq" aria-hidden="true"><div><span>Excel with formulas</span><span>Thai government reference prices</span><span>Delivered in 4–7 days</span><span>2 revisions included</span><span>Rebar list with bar counts</span><span>Rush in 1–2 days</span><span>By a civil engineer</span></div></div>
+
   <section class="section" aria-labelledby="pk-h">
     <header><h2 id="pk-h">Packages and prices</h2><p>Fixed price per house in Thai baht. Booking and payment go through Fastwork, a Thai freelance marketplace.</p></header>
-    <div class="cards"><article class="card pk hot"><span class="tag">Recommended</span>
-        <h3>Whole house</h3><div class="price">2,500<small>THB</small></div><div class="time">4 days · up to 200 m²</div>
-        <ul><li>Structure: foundations, columns, beams, slabs</li><li>Walls, plastering, floors, ceilings, roof, painting</li><li>Doors, windows and bathroom fixtures</li><li>Cost summary + Excel and PDF files</li></ul></article><article class="card pk">
-        <h3>Complete</h3><div class="price">3,490<small>THB</small></div><div class="time">5 days · up to 200 m²</div>
-        <ul><li>Everything in Whole house</li><li>Electrical (priced per point)</li><li>Plumbing and sanitary</li><li>Best for comparing full contractor quotes</li></ul></article><article class="card pk">
-        <h3>Large house</h3><div class="price">4,990<small>THB</small></div><div class="time">7 days · 201–350 m²</div>
-        <ul><li>Everything in Complete</li><li>For multi-storey and larger houses</li><li>Rebar list with number of bars to order</li><li>Cost per square metre</li></ul></article></div>
+    <div class="cards"><article class="flip hot"><div class="in">
+        <div class="face f pk"><span class="tag">Recommended</span><h3>Whole house</h3><div class="price"><span data-count="2500">2,500</span><small>THB</small></div><div class="time">4 days · up to 200 m²</div>
+          <button class="flip-btn" type="button" aria-expanded="false">See details ↻</button></div>
+        <div class="face b"><h3>What's included: Whole house</h3><ul><li>Structure: foundations, columns, beams, slabs</li><li>Walls, plastering, floors, ceilings, roof, painting</li><li>Doors, windows and bathroom fixtures</li><li>Cost summary + Excel and PDF files</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ Back</button></div>
+      </div></article><article class="flip"><div class="in">
+        <div class="face f pk"><h3>Complete</h3><div class="price"><span data-count="3490">3,490</span><small>THB</small></div><div class="time">5 days · up to 200 m²</div>
+          <button class="flip-btn" type="button" aria-expanded="false">See details ↻</button></div>
+        <div class="face b"><h3>What's included: Complete</h3><ul><li>Everything in Whole house</li><li>Electrical (priced per point)</li><li>Plumbing and sanitary</li><li>Best for comparing full contractor quotes</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ Back</button></div>
+      </div></article><article class="flip"><div class="in">
+        <div class="face f pk"><h3>Large house</h3><div class="price"><span data-count="4990">4,990</span><small>THB</small></div><div class="time">7 days · 201–350 m²</div>
+          <button class="flip-btn" type="button" aria-expanded="false">See details ↻</button></div>
+        <div class="face b"><h3>What's included: Large house</h3><ul><li>Everything in Complete</li><li>For multi-storey and larger houses</li><li>Rebar list with number of bars to order</li><li>Cost per square metre</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ Back</button></div>
+      </div></article></div>
     <div class="addon"><div><b>Rush service: delivered in 1–2 days</b><div class="muted" style="font-size:14.5px">Available for any package, subject to availability. Please ask before ordering.</div></div><span class="price">+500–1,000 THB</span></div>
     <p class="muted" style="font-size:14.5px">Structure-only or rebar-only take-offs are available on request. Houses over 350 m² are quoted from the drawings.</p>
+  </section>
+  <section class="section" aria-labelledby="bd-h">
+    <header><h2 id="bd-h">Every work package, from foundations to MEP</h2><p>Scroll slowly and watch the house go up in the same order as the BOQ.</p></header>
+    <div class="build" data-fx="build"><div class="stick"><div><div class="pct" aria-hidden="true">0%</div><ol><li><i>1</i>Foundations and piles</li><li><i>2</i>Columns and beams</li><li><i>3</i>Floor slab</li><li><i>4</i>Walls, doors and windows</li><li><i>5</i>Roof structure</li><li><i>6</i>Roof covering</li><li><i>7</i>Electrical and plumbing</li></ol></div>
+      <div class="svgbox"><svg viewBox="0 0 520 360" role="img" aria-label="A house that builds itself as you scroll"></svg></div></div></div>
   </section>
   <section class="section" aria-labelledby="st-h">
     <header><h2 id="st-h">How it works</h2></header>
@@ -99,5 +116,6 @@
   </div>
 </div><!--/menu-->
 <script src="../../assets/site.js" defer></script>
+<script src="../../assets/fx.js" defer></script>
 </body>
 </html>

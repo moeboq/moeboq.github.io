@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>var t=null;try{t=localStorage.getItem("moe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")</script>
 <title>รับถอดแบบ BOQ บ้านทั้งหลัง เริ่ม 2,500 บาท ได้ Excel พร้อมสูตร | MOE BOQ</title>
 <meta name="description" content="รับถอดแบบ BOQ บ้านทั้งหลังโดยวิศวกรโยธา แยกค่าวัสดุ ค่าแรง และจำนวนเหล็ก ได้ไฟล์ Excel พร้อมสูตรและ PDF ใน 4–7 วัน ส่งแบบประเมินราคาฟรี">
 <link rel="canonical" href="https://moeboq.github.io/boq/">
@@ -19,7 +20,7 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "ถอดแบบ BOQ บ้านทั้งหลัง", "serviceType": "Bill of Quantities", "areaServed": "TH", "provider": {"@type": "Person", "name": "โม วิศวกรโยธา"}, "offers": [{"@type": "Offer", "name": "ทั้งหลัง", "price": "2500", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}, {"@type": "Offer", "name": "ครบทุกระบบ", "price": "3490", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}, {"@type": "Offer", "name": "บ้านใหญ่", "price": "4990", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ราคา BOQ แม่นแค่ไหน", "acceptedAnswer": {"@type": "Answer", "text": "ปริมาณถอดจากแบบตามจริงทุกรายการ ราคาวัสดุอ้างอิงราคากลางล่าสุดของ สนค. กระทรวงพาณิชย์ และค่าแรงตามหนังสือกรมบัญชีกลาง ว480 และแก้ราคาเองใน Excel ได้ ตารางจะคำนวณใหม่ให้อัตโนมัติ"}}, {"@type": "Question", "name": "ส่งแบบไม่ครบได้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ได้ จะแจ้งจุดที่แบบไม่ระบุ และใช้สมมติฐานที่เขียนไว้ในหมายเหตุของ BOQ เพื่อให้ตรวจสอบได้"}}, {"@type": "Question", "name": "แก้ไขได้กี่ครั้ง", "acceptedAnswer": {"@type": "Answer", "text": "แก้ไขได้ 2 ครั้งทุกแพ็กเกจ เช่น เปลี่ยนวัสดุ เพิ่มรายการ หรือปรับราคา"}}, {"@type": "Question", "name": "รับเซ็นรับรองแบบไหม", "acceptedAnswer": {"@type": "Answer", "text": "บริการนี้เป็นการถอดแบบและประมาณราคา ไม่รวมการคำนวณหรือรับรองแบบโครงสร้าง"}}, {"@type": "Question", "name": "ต้องการงานด่วน", "acceptedAnswer": {"@type": "Answer", "text": "มีบริการงานด่วนส่งภายใน 1–2 วัน เพิ่ม 500–1,000 บาท รับตามคิวว่าง ทักแชตเช็กคิวก่อนสั่งได้"}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -27,26 +28,42 @@
   <!--nav--><div class="sitebar">
     <a class="brand" href="../"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
     <nav class="quick" aria-label="เมนูลัด"><a href="../boq/" aria-current="page">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../works/">ผลงาน</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a></nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button>
+    <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="สลับโหมดมืดหรือสว่าง"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
-  <section class="hero">
+  <section class="hero split">
+    <div>
     <span class="eyebrow">บริการถอดแบบ BOQ</span>
-    <h1>ถอดแบบ BOQ บ้านทั้งหลัง ได้ Excel พร้อมสูตร</h1>
-    <p>ส่งแบบบ้านมา ได้รายการวัสดุและค่าแรงทุกรายการ แยกหมวดงาน พร้อมจำนวนเหล็กที่ต้องสั่ง ใช้เทียบราคาผู้รับเหมาและคุมงบระหว่างก่อสร้างได้</p>
+    <h1>ถอดแบบ BOQ บ้านทั้งหลัง<br>สำหรับ <span class="tw" aria-hidden="true" data-words='["บ้านชั้นเดียว","บ้าน 2 ชั้น","บ้าน 3 ชั้น","ผู้รับเหมา","เจ้าของบ้าน"]'>บ้านชั้นเดียว</span><span class="sr">บ้านชั้นเดียว บ้าน 2 ชั้น บ้าน 3 ชั้น ผู้รับเหมา และเจ้าของบ้าน</span></h1>
+    <p>ได้ Excel พร้อมสูตร ส่งแบบบ้านมา ได้รายการวัสดุและค่าแรงทุกรายการ แยกหมวดงาน พร้อมจำนวนเหล็กที่ต้องสั่ง ใช้เทียบราคาผู้รับเหมาและคุมงบระหว่างก่อสร้างได้</p>
     <div class="chips"><span class="chip">ได้งานใน 4–7 วัน</span><span class="chip">แก้ไขได้ 2 ครั้ง</span><span class="chip">ราคาอ้างอิง สนค. และ ว480</span></div>
     <div class="actions"><a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a><a class="btn ghost" href="../works/">ดูตัวอย่างผลงาน</a></div>
+    </div>
+    <div class="draw" data-fx="plan" role="img" aria-label="ภาพแปลนบ้านค่อยๆ วาดขึ้น แล้วบ้าน 3 มิติลอยขึ้นมา"><span class="cap">แปลน → บ้าน 3 มิติ</span><button class="replay" type="button">เล่นซ้ำ ↺</button><div class="house"><img src="../assets/house3d.png" alt="" width="507" height="300"></div></div>
   </section>
+  <div class="marq" aria-hidden="true"><div><span>Excel พร้อมสูตร</span><span>ราคาอ้างอิง สนค. และ ว480</span><span>ได้งานใน 4–7 วัน</span><span>แก้ไขได้ 2 ครั้ง</span><span>ถอดเหล็กพร้อมจำนวนเส้น</span><span>งานด่วน 1–2 วัน</span><span>โดยวิศวกรโยธา</span></div></div>
+
   <section class="section" aria-labelledby="pk-h">
     <header><h2 id="pk-h">แพ็กเกจและราคา</h2><p>ราคาเหมาต่อหลัง จ้างงานและชำระเงินผ่าน Fastwork</p></header>
-    <div class="cards"><article class="card pk hot"><span class="tag">แนะนำ</span>
-        <h3>ทั้งหลัง</h3><div class="price">2,500<small>บาท</small></div><div class="time">ภายใน 4 วัน · บ้านไม่เกิน 200 ตร.ม.</div>
-        <ul><li>งานโครงสร้าง ฐานราก เสา คาน พื้น</li><li>ผนัง ฉาบ พื้น ฝ้า หลังคา สี</li><li>ประตูหน้าต่าง สุขภัณฑ์</li><li>สรุปราคาแยกหมวด + ไฟล์ Excel และ PDF</li></ul></article><article class="card pk">
-        <h3>ครบทุกระบบ</h3><div class="price">3,490<small>บาท</small></div><div class="time">ภายใน 5 วัน · บ้านไม่เกิน 200 ตร.ม.</div>
-        <ul><li>ทุกอย่างในแพ็กเกจทั้งหลัง</li><li>ระบบไฟฟ้า (คิดต่อจุด)</li><li>ระบบประปาและสุขาภิบาล</li><li>เหมาะสำหรับเทียบราคาผู้รับเหมาแบบครบทุกงาน</li></ul></article><article class="card pk">
-        <h3>บ้านใหญ่</h3><div class="price">4,990<small>บาท</small></div><div class="time">ภายใน 7 วัน · บ้าน 201–350 ตร.ม.</div>
-        <ul><li>ครบทุกระบบเหมือนแพ็กเกจกลาง</li><li>รองรับบ้านหลายชั้นและพื้นที่มาก</li><li>รายการเหล็กพร้อมจำนวนเส้นสั่งซื้อ</li><li>สรุปราคาต่อตารางเมตร</li></ul></article></div>
+    <div class="cards"><article class="flip hot"><div class="in">
+        <div class="face f pk"><span class="tag">แนะนำ</span><h3>ทั้งหลัง</h3><div class="price"><span data-count="2500">2,500</span><small>บาท</small></div><div class="time">ภายใน 4 วัน · บ้านไม่เกิน 200 ตร.ม.</div>
+          <button class="flip-btn" type="button" aria-expanded="false">ดูรายละเอียด ↻</button></div>
+        <div class="face b"><h3>ได้อะไรบ้าง: ทั้งหลัง</h3><ul><li>งานโครงสร้าง ฐานราก เสา คาน พื้น</li><li>ผนัง ฉาบ พื้น ฝ้า หลังคา สี</li><li>ประตูหน้าต่าง สุขภัณฑ์</li><li>สรุปราคาแยกหมวด + ไฟล์ Excel และ PDF</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ กลับด้านหน้า</button></div>
+      </div></article><article class="flip"><div class="in">
+        <div class="face f pk"><h3>ครบทุกระบบ</h3><div class="price"><span data-count="3490">3,490</span><small>บาท</small></div><div class="time">ภายใน 5 วัน · บ้านไม่เกิน 200 ตร.ม.</div>
+          <button class="flip-btn" type="button" aria-expanded="false">ดูรายละเอียด ↻</button></div>
+        <div class="face b"><h3>ได้อะไรบ้าง: ครบทุกระบบ</h3><ul><li>ทุกอย่างในแพ็กเกจทั้งหลัง</li><li>ระบบไฟฟ้า (คิดต่อจุด)</li><li>ระบบประปาและสุขาภิบาล</li><li>เหมาะสำหรับเทียบราคาผู้รับเหมาแบบครบทุกงาน</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ กลับด้านหน้า</button></div>
+      </div></article><article class="flip"><div class="in">
+        <div class="face f pk"><h3>บ้านใหญ่</h3><div class="price"><span data-count="4990">4,990</span><small>บาท</small></div><div class="time">ภายใน 7 วัน · บ้าน 201–350 ตร.ม.</div>
+          <button class="flip-btn" type="button" aria-expanded="false">ดูรายละเอียด ↻</button></div>
+        <div class="face b"><h3>ได้อะไรบ้าง: บ้านใหญ่</h3><ul><li>ครบทุกระบบเหมือนแพ็กเกจกลาง</li><li>รองรับบ้านหลายชั้นและพื้นที่มาก</li><li>รายการเหล็กพร้อมจำนวนเส้นสั่งซื้อ</li><li>สรุปราคาต่อตารางเมตร</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ กลับด้านหน้า</button></div>
+      </div></article></div>
     <div class="addon"><div><b>บริการงานด่วน ส่งภายใน 1–2 วัน</b><div class="muted" style="font-size:14.5px">เพิ่มได้ทุกแพ็กเกจ รับตามคิวว่าง กรุณาสอบถามก่อนสั่ง</div></div><span class="price">+500–1,000 บาท</span></div>
     <p class="muted" style="font-size:14.5px">ต้องการเฉพาะงานโครงสร้างหรือถอดเหล็ก ทักแชตสอบถามได้ · พื้นที่เกิน 350 ตร.ม. ประเมินราคาตามแบบ</p>
+  </section>
+  <section class="section" aria-labelledby="bd-h">
+    <header><h2 id="bd-h">ถอดให้ครบ ตั้งแต่ฐานรากถึงงานระบบ</h2><p>ค่อยๆ เลื่อนลง แล้วดูบ้านสร้างขึ้นทีละขั้นตามหมวดงานใน BOQ</p></header>
+    <div class="build" data-fx="build"><div class="stick"><div><div class="pct" aria-hidden="true">0%</div><ol><li><i>1</i>ฐานรากและเสาเข็ม</li><li><i>2</i>เสาและคาน</li><li><i>3</i>พื้น</li><li><i>4</i>ผนัง ประตู หน้าต่าง</li><li><i>5</i>โครงหลังคา</li><li><i>6</i>มุงหลังคา</li><li><i>7</i>งานระบบไฟฟ้าและประปา</li></ol></div>
+      <div class="svgbox"><svg viewBox="0 0 520 360" role="img" aria-label="ภาพบ้านที่สร้างขึ้นทีละขั้นตามการเลื่อนหน้า"></svg></div></div></div>
   </section>
   <section class="section" aria-labelledby="st-h">
     <header><h2 id="st-h">ขั้นตอนการทำงาน</h2></header>
@@ -107,5 +124,6 @@
   </div>
 </div><!--/menu-->
 <script src="../assets/site.js" defer></script>
+<script src="../assets/fx.js" defer></script>
 </body>
 </html>

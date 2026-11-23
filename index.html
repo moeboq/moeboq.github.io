@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
+<script>var t=null;try{t=localStorage.getItem("moe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>คำนวณค่าสร้างบ้าน 2569 ประเมินงบสร้างบ้านต่อตารางเมตร ฟรี</title>
 <meta name="description" content="คำนวณค่าสร้างบ้านฟรี กรอกพื้นที่ จำนวนชั้น ห้องนอน ห้องน้ำ เลือกระดับวัสดุ ได้งบประมาณแยกหมวดงานทันที จากราคากลางวัสดุก่อสร้าง 2569 โดยวิศวกรโยธา">
@@ -18,7 +19,7 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "คำนวณค่าสร้างบ้าน", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "th", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}, "description": "ประเมินค่าก่อสร้างบ้านจากพื้นที่ จำนวนชั้น และระดับวัสดุ ด้วยราคากลางวัสดุก่อสร้าง 2569"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ค่าสร้างบ้าน 2569 ตารางเมตรละเท่าไหร่", "acceptedAnswer": {"@type": "Answer", "text": "จากราคากลางวัสดุ ก.ย. 2569 บ้านมาตรฐานทั่วไปอยู่ประมาณ 9,000–11,000 บาทต่อตารางเมตร รวมกำไรผู้รับเหมา 10% และ VAT แล้ว บ้านชั้นเดียวมักแพงกว่าต่อตารางเมตร เพราะหลังคาและฐานรากคิดเต็มพื้นที่"}}, {"@type": "Question", "name": "สร้างบ้าน 2 ชั้น 150 ตารางเมตร ใช้งบเท่าไหร่", "acceptedAnswer": {"@type": "Answer", "text": "ประมาณ 1.37–1.56 ล้านบาท ขึ้นกับระดับวัสดุ (3 ห้องนอน 2 ห้องน้ำ หลังคากระเบื้องคอนกรีต) ใช้เครื่องมือด้านบนปรับตามบ้านของคุณได้"}}, {"@type": "Question", "name": "ราคานี้รวมอะไรบ้าง", "acceptedAnswer": {"@type": "Answer", "text": "รวมงานโครงสร้าง ฐานราก เสาเข็ม งานสถาปัตย์ ผนัง พื้น ฝ้า หลังคา สี ประตูหน้าต่าง สุขภัณฑ์ และงานระบบไฟฟ้า ประปา ไม่รวมที่ดิน ค่าออกแบบ ค่าขออนุญาต รั้ว งานภายนอก และเฟอร์นิเจอร์"}}, {"@type": "Question", "name": "ทำไมราคาจากผู้รับเหมาแต่ละเจ้าไม่เท่ากัน", "acceptedAnswer": {"@type": "Answer", "text": "ต่างกันที่วัสดุที่เลือก กำไรและค่าดำเนินการ ความยากของหน้างาน และการถอดปริมาณจากแบบ วิธีเทียบราคาที่ดีที่สุดคือมี BOQ จากแบบจริงไว้เป็นตัวตั้ง"}}, {"@type": "Question", "name": "ตัวเลขนี้ใช้ยื่นกู้ธนาคารได้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ใช้ประเมินงบเบื้องต้นได้ แต่การยื่นกู้มักต้องใช้ BOQ ที่ถอดจากแบบจริง ซึ่งจ้างถอดแบบได้จากปุ่มด้านบน"}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <style>
 /* Layout: estimator workbench — inputs column left, result sheet right (stacks on phone); brand = deep red / brown / charcoal on cool grey */
@@ -112,81 +113,101 @@ footer{font-size:13px;color:var(--muted);display:grid;gap:4px}
 .top b{font-family:var(--display);font-weight:500;color:var(--ink)}
 </style>
 <style>
-/* Neumorphism skin: soft grey surfaces with paired light/dark shadows; deep red accent */
-:root{
-  --bg:#E2E4E8; --surface:#E2E4E8; --sunk:#E2E4E8; --ink:#1E1F22; --muted:#5A5D64; --line:#CDD0D6;
-  --sd:#BCC0C8; --sl:#F6F7F9; --accent:#8B1E16; --accent2:#A8322A; --accent-ink:#F2F2F4; --brown:#8B5E3C; --slate:#5E5E64;
-  --r:22px; --rs:14px;
-  --raise:8px 8px 18px var(--sd),-8px -8px 18px var(--sl);
-  --raise-s:4px 4px 9px var(--sd),-4px -4px 9px var(--sl);
-  --press:inset 4px 4px 9px var(--sd),inset -4px -4px 9px var(--sl);
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#25262A; --surface:#25262A; --sunk:#25262A; --ink:#ECECEE; --muted:#A3A5AC; --line:#34353A;
-  --sd:#18191C; --sl:#323338; --accent:#D9604F; --accent2:#E57A6A; --accent-ink:#1A1A1C; --brown:#C08A63; --slate:#9A9AA2}}
-:root[data-theme="dark"]{
-  --bg:#25262A; --surface:#25262A; --sunk:#25262A; --ink:#ECECEE; --muted:#A3A5AC; --line:#34353A;
-  --sd:#18191C; --sl:#323338; --accent:#D9604F; --accent2:#E57A6A; --accent-ink:#1A1A1C; --brown:#C08A63; --slate:#9A9AA2}
-body{background:var(--bg)}
-.wrap{gap:30px}
-.top{background:var(--bg);box-shadow:var(--raise-s);border-radius:999px;padding:10px 20px}
-.top b::before{content:"";display:inline-block;width:26px;height:26px;margin-right:10px;vertical-align:-7px;border-radius:50%;box-shadow:var(--raise-s);
-  background:radial-gradient(circle at 50% 55%,var(--accent) 0 5px,transparent 6px),var(--bg)}
-.top a{color:var(--accent);font-weight:600;text-decoration:none;padding:4px 12px;border-radius:999px;box-shadow:var(--raise-s)}
-.top a:hover{box-shadow:var(--press)}
-header{padding:8px 4px}
-.eyebrow{display:inline-block;padding:5px 14px;border-radius:999px;box-shadow:var(--press);letter-spacing:.08em}
-.panel,.article{background:var(--bg);border:0;border-radius:var(--r);box-shadow:var(--raise);padding:24px}
-.article{padding:26px 26px 14px}
-.grid{gap:30px}
-input[type=number],select{border:0;border-radius:var(--rs);background:var(--bg);box-shadow:var(--press);padding:10px 12px}
-input[type=number]:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-input[type=range]{-webkit-appearance:none;appearance:none;height:12px;border-radius:999px;background:var(--bg);box-shadow:var(--press);outline-offset:6px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;cursor:pointer;
-  background:radial-gradient(circle,var(--accent) 0 5px,var(--bg) 6px);box-shadow:3px 3px 7px var(--sd),-3px -3px 7px var(--sl)}
-input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:50%;cursor:pointer;
-  background:radial-gradient(circle,var(--accent) 0 5px,var(--bg) 6px);box-shadow:3px 3px 7px var(--sd),-3px -3px 7px var(--sl)}
-.seg{gap:10px}
-.seg label{border:0;border-radius:var(--rs);background:var(--bg);box-shadow:var(--raise-s);padding:10px 12px;transition:box-shadow .15s,color .15s}
-.seg label:hover{color:var(--accent)}
-.seg input:checked+label{background:var(--bg);color:var(--accent);box-shadow:var(--press);font-weight:700}
-.step{border:0;gap:12px;overflow:visible}
-.step button{width:40px;height:40px;border-radius:50%;background:var(--bg);box-shadow:var(--raise-s);color:var(--ink)}
-.step button:active{box-shadow:var(--press)}
-.step output{min-width:46px;padding:8px 0;border-radius:var(--rs);box-shadow:var(--press)}
-.check input{accent-color:var(--accent)}
-.total{border-bottom:0;padding:18px 20px;border-radius:var(--rs);box-shadow:var(--press);margin-bottom:6px}
-.big{color:var(--accent);text-shadow:2px 2px 4px var(--sd),-2px -2px 4px var(--sl)}
-.bar{height:14px;border-radius:999px;padding:3px;background:var(--bg);box-shadow:var(--press);gap:3px}
+/* White skin for the calculator: white cards, green & purple accents */
+:root{--bg:#F6F6F9;--surface:#FFFFFF;--sunk:#F2F2F7;--ink:#1D1D22;--muted:#5D5F68;--line:#E4E5EC;
+  --accent:#8B1E16;--accent2:#A8322A;--accent-ink:#FFFFFF;--green:#0E7C55;--green-soft:#E6F4EE;--purple:#6A3FA0;--purple-soft:#F0EAF8;
+  --raise:0 1px 2px rgba(23,23,40,.05),0 10px 28px rgba(23,23,40,.07);--raise-s:0 1px 2px rgba(23,23,40,.05),0 4px 12px rgba(23,23,40,.06);--press:inset 0 0 0 1px var(--line);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151519;--surface:#1F1F25;--sunk:#18181D;--ink:#ECECF0;--muted:#A6A7B0;--line:#2E2F37;
+  --accent:#E0675A;--accent2:#EA8073;--accent-ink:#151519;--green:#4CC593;--green-soft:#173327;--purple:#B497E8;--purple-soft:#2A2138;
+  --raise:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);--raise-s:0 1px 2px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151519;--surface:#1F1F25;--sunk:#18181D;--ink:#ECECF0;--muted:#A6A7B0;--line:#2E2F37;
+  --accent:#E0675A;--accent2:#EA8073;--accent-ink:#151519;--green:#4CC593;--green-soft:#173327;--purple:#B497E8;--purple-soft:#2A2138;
+  --raise:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35);--raise-s:0 1px 2px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);color-scheme:dark}
+body{background:radial-gradient(900px 480px at 0% -8%,var(--green-soft),transparent 62%),radial-gradient(900px 500px at 100% -8%,var(--purple-soft),transparent 62%),var(--bg);background-repeat:no-repeat}
+
+.wrap{gap:28px}
+.panel,.article{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--raise);padding:24px}
+.grid{gap:28px}
+input[type=number],select{border:1px solid var(--line);border-radius:12px;background:var(--sunk);padding:10px 12px;color:var(--ink)}
+input[type=number]:focus-visible,select:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+input[type=range]{accent-color:var(--purple)}
+.seg{gap:8px}
+.seg label{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 12px;transition:border-color .15s,color .15s}
+.seg label:hover{border-color:var(--purple);color:var(--purple)}
+.seg input:checked+label{background:var(--purple-soft);border-color:var(--purple);color:var(--purple);font-weight:700}
+.seg input:focus-visible+label{outline:2px solid var(--purple)}
+.step{border:0;gap:10px;overflow:visible}
+.step button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.step button:hover{border-color:var(--purple);color:var(--purple)}
+.step output{min-width:46px;padding:8px 0;border-radius:12px;background:var(--sunk)}
+.check input{accent-color:var(--purple)}
+.total{border-bottom:0;padding:18px 20px;border-radius:14px;background:linear-gradient(120deg,var(--green-soft),var(--purple-soft));margin-bottom:6px}
+.big{color:var(--accent)}
+.bar{height:12px;border-radius:999px;background:var(--sunk);gap:3px}
 .bar span{border-radius:999px}
-.legend{gap:14px;margin-top:16px}
-.legend>div{border-top:0;padding:10px 12px;border-radius:var(--rs);box-shadow:var(--raise-s);position:relative;padding-left:24px}
-.legend>div::before{content:"";position:absolute;left:11px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--c)}
-th{border-bottom:0}
-td{border-bottom:1px solid var(--line)}
+.legend{gap:12px;margin-top:14px}
+.legend>div{border-top:0;padding:10px 12px 10px 26px;border-radius:12px;border:1px solid var(--line);background:var(--surface);position:relative}
+.legend>div::before{content:"";position:absolute;left:12px;top:16px;width:8px;height:8px;border-radius:50%;background:var(--c)}
 td .dot{border-radius:50%}
 tr.sum td{color:var(--accent)}
-.tablewrap{padding:4px 2px}
-.cta{background:var(--bg);color:var(--ink);border-radius:var(--r);box-shadow:var(--raise);padding:22px 24px;border-left:0;position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--accent)}
-.btn{border-radius:999px;padding:12px 24px;background:linear-gradient(145deg,var(--accent2),var(--accent));color:var(--accent-ink);
-  box-shadow:5px 5px 12px var(--sd),-5px -5px 12px var(--sl);transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:none;box-shadow:inset 3px 3px 7px rgba(0,0,0,.3)}
-.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.faq details{border-bottom:0;margin:12px 0;padding:12px 16px;border-radius:var(--rs);box-shadow:var(--raise-s)}
-.faq details[open]{box-shadow:var(--press)}
+th{border-bottom:1px solid var(--line)}
+.cta{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;box-shadow:var(--raise);padding:22px 24px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:linear-gradient(var(--green),var(--purple))}
+.btn{border-radius:999px;padding:12px 24px;background:linear-gradient(145deg,var(--accent2),var(--accent));color:var(--accent-ink);box-shadow:0 6px 16px rgba(139,30,22,.22)}
+.faq details{border:1px solid var(--line);border-bottom:1px solid var(--line);margin:12px 0;padding:12px 16px;border-radius:14px;background:var(--surface)}
+.faq details[open]{background:var(--sunk)}
 .faq summary{list-style:none;position:relative;padding-right:28px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:0;top:-2px;font-family:var(--display);font-size:20px;color:var(--accent)}
+.faq summary::after{content:"+";position:absolute;right:0;top:-2px;font-size:20px;color:var(--purple)}
 .faq details[open] summary::after{content:"−"}
-.notes{padding:4px 6px}
-@media (max-width:520px){
-  :root{--raise:5px 5px 12px var(--sd),-5px -5px 12px var(--sl)}
-  .panel,.article{padding:18px}
-  .top{border-radius:18px}
-}
-@media (prefers-reduced-motion:reduce){.seg label,.btn{transition:none}}
+</style>
+<style>
+/* modern type & colour for the calculator */
+:root{--display:"Anuphan","IBM Plex Sans Thai",system-ui,sans-serif;--body:"IBM Plex Sans Thai","Anuphan",system-ui,sans-serif;
+  --bg:#FAFAFC;--surface:#FFFFFF;--sunk:#F3F2F8;--ink:#14131A;--muted:#5B5A66;--line:#E7E6EE;
+  --accent:#6D3BD7;--accent2:#8B5CF6;--accent-ink:#FFFFFF;--purple:#6D3BD7;--purple-soft:#EFE9FE;--green:#0B9A6A;--green-soft:#E3F6EE;
+  --raise:0 1px 2px rgba(20,19,26,.04),0 12px 32px rgba(60,40,120,.08);--raise-s:0 1px 2px rgba(20,19,26,.05),0 4px 14px rgba(60,40,120,.07);--r:24px;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E0E13;--surface:#17171F;--sunk:#12121A;--ink:#EDEDF3;--muted:#A3A3B2;--line:#2A2A36;
+  --accent:#A78BFA;--accent2:#C4B5FD;--accent-ink:#0E0E13;--purple:#A78BFA;--purple-soft:#2A2140;--green:#34D399;--green-soft:#10291F;
+  --raise:0 1px 2px rgba(0,0,0,.5),0 12px 32px rgba(0,0,0,.4);--raise-s:0 1px 2px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E0E13;--surface:#17171F;--sunk:#12121A;--ink:#EDEDF3;--muted:#A3A3B2;--line:#2A2A36;
+  --accent:#A78BFA;--accent2:#C4B5FD;--accent-ink:#0E0E13;--purple:#A78BFA;--purple-soft:#2A2140;--green:#34D399;--green-soft:#10291F;
+  --raise:0 1px 2px rgba(0,0,0,.5),0 12px 32px rgba(0,0,0,.4);--raise-s:0 1px 2px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.35);color-scheme:dark}
+html{transition:background-color .4s}
+body{font-size:17px;line-height:1.7;background:radial-gradient(1000px 520px at -5% -10%,var(--green-soft),transparent 60%),radial-gradient(1000px 560px at 105% -10%,var(--purple-soft),transparent 60%),var(--bg);background-repeat:no-repeat;transition:background-color .4s,color .4s}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em}
+
+header h1{font-size:clamp(34px,5.5vw,58px);line-height:1.1;letter-spacing:-.02em}
+.panel h2{font-family:var(--display);font-weight:700;font-size:20px}
+.big{font-family:var(--display);letter-spacing:-.02em;background:linear-gradient(90deg,var(--ink),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.big small{-webkit-text-fill-color:var(--muted)}
+.total{background:linear-gradient(120deg,var(--green-soft),var(--purple-soft))}
+.btn{background:linear-gradient(135deg,#8B5CF6,#6D3BD7);color:#fff;box-shadow:0 10px 24px rgba(109,59,215,.32)}
+tr.sum td{color:var(--purple)}
+.seg input:checked+label{background:var(--purple-soft);border-color:var(--purple);color:var(--purple)}
+</style>
+<style>
+/* "ชุด 2" look for the calculator */
+:root{--display:"Kanit","Sarabun",system-ui,sans-serif;--body:"Tahoma","Sarabun",system-ui,sans-serif;
+  --bg:#F6F6F9;--surface:#FFFFFF;--sunk:#F2F2F7;--ink:#1D1D22;--muted:#5D5F68;--line:#E4E5EC;
+  --accent:#8B1E16;--accent2:#A8322A;--accent-ink:#FFFFFF;--purple:#6A3FA0;--purple-soft:#F0EAF8;--green:#0E7C55;--green-soft:#E6F4EE;
+  --raise:0 1px 2px rgba(23,23,40,.04),0 10px 26px rgba(23,23,40,.06);--raise-s:0 1px 2px rgba(23,23,40,.05),0 4px 12px rgba(23,23,40,.06);--r:24px;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151519;--surface:#1F1F25;--sunk:#18181D;--ink:#ECECF0;--muted:#A6A7B0;--line:#2E2F37;
+  --accent:#C9473A;--accent2:#E0675A;--accent-ink:#FFFFFF;--purple:#B497E8;--purple-soft:#2A2138;--green:#4CC593;--green-soft:#173327;
+  --raise:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.35);--raise-s:0 1px 2px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151519;--surface:#1F1F25;--sunk:#18181D;--ink:#ECECF0;--muted:#A6A7B0;--line:#2E2F37;
+  --accent:#C9473A;--accent2:#E0675A;--accent-ink:#FFFFFF;--purple:#B497E8;--purple-soft:#2A2138;--green:#4CC593;--green-soft:#173327;
+  --raise:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.35);--raise-s:0 1px 2px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);color-scheme:dark}
+body{font-family:var(--body);font-size:16.5px;line-height:1.6;background:var(--bg);transition:background-color .5s,color .5s}
+h1,h2,h3,b,strong{font-family:var(--display)}
+
+header h1{font-size:clamp(30px,5vw,52px);line-height:1.15;letter-spacing:0}
+.panel,.article{box-shadow:none}
+.panel h2{font-family:var(--display);font-weight:700;font-size:19px}
+.big{font-family:var(--display);color:var(--accent);background:none;-webkit-text-fill-color:currentColor}
+.big small{-webkit-text-fill-color:var(--muted)}
+.btn{background:linear-gradient(145deg,var(--accent2),var(--accent));color:#fff;box-shadow:0 10px 22px rgba(139,30,22,.25)}
+tr.sum td{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -194,13 +215,15 @@ tr.sum td{color:var(--accent)}
   <!--nav--><div class="sitebar">
     <a class="brand" href=""><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
     <nav class="quick" aria-label="เมนูลัด"><a href="boq/">บริการถอดแบบ BOQ</a><a href="plan/">วาดแปลนออก BOQ</a><a href="works/">ผลงาน</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a></nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button>
+    <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="สลับโหมดมืดหรือสว่าง"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <header>
     <div class="eyebrow">ประเมินงบก่อนจ้างผู้รับเหมา</div>
     <h1>ค่าสร้างบ้านของคุณประมาณเท่าไหร่</h1>
     <p>กรอกขนาดบ้านและเลือกระดับวัสดุ ระบบคำนวณจากราคากลางวัสดุก่อสร้างล่าสุด แยกให้เห็นทุกหมวดงาน ตั้งแต่ฐานรากจนถึงงานระบบ</p>
   </header>
+  <div class="marq" aria-hidden="true"><div><span>Excel พร้อมสูตร</span><span>ราคาอ้างอิง สนค. และ ว480</span><span>ได้งานใน 4–7 วัน</span><span>แก้ไขได้ 2 ครั้ง</span><span>ถอดเหล็กพร้อมจำนวนเส้น</span><span>งานด่วน 1–2 วัน</span><span>โดยวิศวกรโยธา</span></div></div>
+
 
   <div class="grid">
     <section class="panel" aria-labelledby="in-h">
@@ -367,8 +390,8 @@ tr.sum td{color:var(--accent)}
 
   const PARTS = [
     { name: 'งานโครงสร้าง', c: 'var(--accent)' },
-    { name: 'งานสถาปัตย์', c: 'var(--brown)' },
-    { name: 'งานระบบ', c: 'var(--slate)' }
+    { name: 'งานสถาปัตย์', c: 'var(--purple)' },
+    { name: 'งานระบบ', c: 'var(--green)' }
   ];
 
   function read(){
@@ -418,5 +441,6 @@ tr.sum td{color:var(--accent)}
   </div>
 </div><!--/menu-->
 <script src="assets/site.js" defer></script>
+<script src="assets/fx.js" defer></script>
 </body>
 </html>

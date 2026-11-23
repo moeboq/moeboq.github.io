@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>var t=null;try{t=localStorage.getItem("moe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")</script>
 <title>ตัวอย่างผลงานถอดแบบ BOQ บ้าน ไฟล์ Excel และ PDF | MOE BOQ</title>
 <meta name="description" content="ตัวอย่างไฟล์ถอดแบบ BOQ บ้านทั้งหลัง ใบถอดเหล็ก คอนกรีต งานสถาปัตยกรรม และสรุปราคาแยกหมวด พร้อมเครื่องมือคำนวณค่าสร้างบ้านฟรี">
 <link rel="canonical" href="https://moeboq.github.io/works/">
@@ -18,7 +19,7 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -26,13 +27,17 @@
   <!--nav--><div class="sitebar">
     <a class="brand" href="../"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
     <nav class="quick" aria-label="เมนูลัด"><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../works/" aria-current="page">ผลงาน</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a></nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button>
+    <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="สลับโหมดมืดหรือสว่าง"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <section class="hero">
     <span class="eyebrow">ผลงาน</span>
     <h1>ตัวอย่างไฟล์ส่งงานและเครื่องมือ</h1>
     <p>ดูหน้าตาไฟล์ BOQ ที่จะได้รับจริง ตั้งแต่ใบถอดปริมาณจนถึงสรุปราคา ตัวอย่างทั้งหมดใช้บ้านตัวอย่าง 8 × 12 ม.</p>
     <div class="actions"><a class="btn" href="../assets/sample-boq.pdf" target="_blank" rel="noopener">เปิดตัวอย่างไฟล์ PDF</a><a class="btn ghost" href="../boq/">ดูแพ็กเกจและราคา</a></div>
+  </section>
+  <section class="section" aria-labelledby="ba-h">
+    <header><h2 id="ba-h">จากแบบ สู่บ้านจริง</h2><p>ลากแถบตรงกลางไปซ้าย-ขวา เพื่อเทียบแปลนกับบ้าน 3 มิติ</p></header>
+    <div class="ba" data-fx="ba"><div class="layer after"><img src="../assets/house3d.png" alt="" width="507" height="300"></div><div class="layer before"></div><span class="tag2" style="left:12px">แปลน</span><span class="tag2" style="right:12px">บ้าน 3 มิติ</span><input type="range" min="0" max="100" value="50" aria-label="เลื่อนเทียบแปลนกับบ้าน 3 มิติ"><div class="handle"></div></div>
   </section>
   <section class="section" aria-labelledby="g-h">
     <header><h2 id="g-h">ตัวอย่างงานถอดแบบ</h2><p>กดที่ภาพเพื่อดูขนาดเต็ม</p></header>
@@ -64,5 +69,6 @@
   </div>
 </div><!--/menu-->
 <script src="../assets/site.js" defer></script>
+<script src="../assets/fx.js" defer></script>
 </body>
 </html>

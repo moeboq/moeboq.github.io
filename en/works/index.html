@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>var t=null;try{t=localStorage.getItem("moe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")</script>
 <title>Sample BOQ Files for Houses in Thailand (Excel & PDF) | MOE BOQ</title>
 <meta name="description" content="See sample Bill of Quantities files for a house in Thailand: rebar, concrete and architectural take-offs and a cost summary by work package.">
 <link rel="canonical" href="https://moeboq.github.io/en/works/">
@@ -18,7 +19,7 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
@@ -26,13 +27,17 @@
   <!--nav--><div class="sitebar">
     <a class="brand" href="../../en/"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>BOQ & house cost estimates</small></span></a>
     <nav class="quick" aria-label="Quick links"><a href="../../en/boq/">BOQ service</a><a href="../../en/works/" aria-current="page">Samples</a><a href="../../en/about/">About</a><a href="../../en/contact/">Contact</a></nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button>
+    <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="Toggle dark mode"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <section class="hero">
     <span class="eyebrow">Samples</span>
     <h1>What your BOQ files look like</h1>
     <p>From take-off sheets to the final cost summary. All samples use an 8 × 12 m example house. The files are in Thai, the format Thai contractors work with.</p>
     <div class="actions"><a class="btn" href="../../assets/sample-boq.pdf" target="_blank" rel="noopener">Open sample PDF</a><a class="btn ghost" href="../boq/">Packages and prices</a></div>
+  </section>
+  <section class="section" aria-labelledby="ba-h">
+    <header><h2 id="ba-h">From drawing to house</h2><p>Drag the handle left and right to compare the plan with the 3D house.</p></header>
+    <div class="ba" data-fx="ba"><div class="layer after"><img src="../../assets/house3d.png" alt="" width="507" height="300"></div><div class="layer before"></div><span class="tag2" style="left:12px">Plan</span><span class="tag2" style="right:12px">3D house</span><input type="range" min="0" max="100" value="50" aria-label="Slide to compare the plan with the 3D house"><div class="handle"></div></div>
   </section>
   <section class="section" aria-labelledby="g-h">
     <header><h2 id="g-h">Sample take-offs</h2><p>Select an image to view it full size.</p></header>
@@ -64,5 +69,6 @@
   </div>
 </div><!--/menu-->
 <script src="../../assets/site.js" defer></script>
+<script src="../../assets/fx.js" defer></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>var t=null;try{t=localStorage.getItem("moe-theme")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")</script>
 <title>About Moe, Civil Engineer and BOQ Estimator in Thailand | MOE BOQ</title>
 <meta name="description" content="Moe is a Thai civil engineer preparing Bills of Quantities and cost estimates for houses, measured from the drawings with Thai reference prices.">
 <link rel="canonical" href="https://moeboq.github.io/en/about/">
@@ -18,7 +19,7 @@
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
@@ -26,7 +27,7 @@
   <!--nav--><div class="sitebar">
     <a class="brand" href="../../en/"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>BOQ & house cost estimates</small></span></a>
     <nav class="quick" aria-label="Quick links"><a href="../../en/boq/">BOQ service</a><a href="../../en/works/">Samples</a><a href="../../en/about/" aria-current="page">About</a><a href="../../en/contact/">Contact</a></nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button>
+    <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="Toggle dark mode"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <section class="hero">
     <span class="eyebrow">About</span>
@@ -61,5 +62,6 @@
   </div>
 </div><!--/menu-->
 <script src="../../assets/site.js" defer></script>
+<script src="../../assets/fx.js" defer></script>
 </body>
 </html>

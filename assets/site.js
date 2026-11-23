@@ -26,4 +26,13 @@
       catch (e){ if (out) out.textContent = 'คัดลอกไม่ได้ ลองเลือกข้อความแล้วกด Ctrl+C'; }
     });
   });
+  // dark / light toggle (remembered per browser)
+  var tb = document.querySelector('.theme-btn');
+  if (tb){
+    var root = document.documentElement;
+    var isDark = function(){ return root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; };
+    var sync = function(){ tb.setAttribute('aria-pressed', isDark()); };
+    sync();
+    tb.addEventListener('click', function(){ var next = isDark() ? 'light' : 'dark'; root.dataset.theme = next; try { localStorage.setItem('moe-theme', next); } catch (e) {} sync(); });
+  }
 })();
