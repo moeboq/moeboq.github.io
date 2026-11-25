@@ -19,8 +19,8 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "คำนวณค่าสร้างบ้าน", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "th", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}, "description": "ประเมินค่าก่อสร้างบ้านจากพื้นที่ จำนวนชั้น และระดับวัสดุ ด้วยราคากลางวัสดุก่อสร้าง 2569"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ค่าสร้างบ้าน 2569 ตารางเมตรละเท่าไหร่", "acceptedAnswer": {"@type": "Answer", "text": "จากราคากลางวัสดุ ก.ย. 2569 บ้านมาตรฐานทั่วไปอยู่ประมาณ 9,000–11,000 บาทต่อตารางเมตร รวมกำไรผู้รับเหมา 10% และ VAT แล้ว บ้านชั้นเดียวมักแพงกว่าต่อตารางเมตร เพราะหลังคาและฐานรากคิดเต็มพื้นที่"}}, {"@type": "Question", "name": "สร้างบ้าน 2 ชั้น 150 ตารางเมตร ใช้งบเท่าไหร่", "acceptedAnswer": {"@type": "Answer", "text": "ประมาณ 1.37–1.56 ล้านบาท ขึ้นกับระดับวัสดุ (3 ห้องนอน 2 ห้องน้ำ หลังคากระเบื้องคอนกรีต) ใช้เครื่องมือด้านบนปรับตามบ้านของคุณได้"}}, {"@type": "Question", "name": "ราคานี้รวมอะไรบ้าง", "acceptedAnswer": {"@type": "Answer", "text": "รวมงานโครงสร้าง ฐานราก เสาเข็ม งานสถาปัตย์ ผนัง พื้น ฝ้า หลังคา สี ประตูหน้าต่าง สุขภัณฑ์ และงานระบบไฟฟ้า ประปา ไม่รวมที่ดิน ค่าออกแบบ ค่าขออนุญาต รั้ว งานภายนอก และเฟอร์นิเจอร์"}}, {"@type": "Question", "name": "ทำไมราคาจากผู้รับเหมาแต่ละเจ้าไม่เท่ากัน", "acceptedAnswer": {"@type": "Answer", "text": "ต่างกันที่วัสดุที่เลือก กำไรและค่าดำเนินการ ความยากของหน้างาน และการถอดปริมาณจากแบบ วิธีเทียบราคาที่ดีที่สุดคือมี BOQ จากแบบจริงไว้เป็นตัวตั้ง"}}, {"@type": "Question", "name": "ตัวเลขนี้ใช้ยื่นกู้ธนาคารได้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ใช้ประเมินงบเบื้องต้นได้ แต่การยื่นกู้มักต้องใช้ BOQ ที่ถอดจากแบบจริง ซึ่งจ้างถอดแบบได้จากปุ่มด้านบน"}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261125c">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=20261125h">
 <style>
 /* Layout: estimator workbench — inputs column left, result sheet right (stacks on phone); brand = deep red / brown / charcoal on cool grey */
 :root{
@@ -390,6 +390,22 @@ tr.sum td{color:var(--pink)}
 .c-end .row{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:24px;flex-wrap:wrap}
 .c-end p{margin:0;font-family:"Anton","Kanit",sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,42px);line-height:1.15;text-transform:uppercase}
 .c-end .btn{background:#00307C;color:#fff;font-size:19px;padding:20px 34px}.c-end .btn:hover{background:#001f52}
+/* full-screen menu on navy */
+.menu{background:#00307C}.menu,.menu a{color:#fff}
+.menu nav a{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.22);border-radius:0;box-shadow:none}
+.menu nav a span{color:#C9D5EA}
+.menu nav a::before{background:#E84884;color:#fff;box-shadow:none}
+.menu nav a:hover,.menu nav a[aria-current="page"]{background:rgba(255,255,255,.12);border-color:#E84884;box-shadow:none}
+.menu nav a[aria-current="page"] b{color:#FF8FB8}
+.menu .btn{background:#E84884;color:#fff}.menu .btn:hover{background:#fff;color:#00307C}
+.menu-close{background:#E84884;color:#fff;border:0;border-radius:999px;box-shadow:none}.menu-close:hover{background:#fff;color:#00307C}
+.menu a:focus-visible,.menu-close:focus-visible{outline-color:#FF8FB8}
+.menu nav a,.menu nav a b{color:#fff}.menu nav a[aria-current="page"] b{color:#FF8FB8}
+.menu nav a{background:#fff;border:3px solid #E84884;color:#00307C}.menu nav a b{color:#00307C}.menu nav a span{color:#41597F}.menu nav a:hover{background:#FFE6EF;border-color:#E84884}.menu nav a[aria-current="page"]{background:#E84884;border-color:#fff}.menu nav a[aria-current="page"] b,.menu nav a[aria-current="page"] span{color:#fff}.menu nav a[aria-current="page"]::before{background:#fff;color:#E84884}
+html,body,*{font-synthesis:none}
+html[lang="th"]{--display:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn){font-family:"Kanit",sans-serif}
+html[lang="th"]{--display:"IBM Plex Sans Thai",sans-serif;--thai:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2,.brand small){font-family:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:700}
+html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .quote{font-weight:700}
 </style>
 </head>
 <body>
@@ -622,7 +638,7 @@ tr.sum td{color:var(--pink)}
     <a href="en/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>
 </div><!--/menu-->
-<script src="assets/site.js?v=20261125c" defer></script>
-<script src="assets/fx.js?v=20261125c" defer></script>
+<script src="assets/site.js?v=20261125h" defer></script>
+<script src="assets/fx.js?v=20261125h" defer></script>
 </body>
 </html>

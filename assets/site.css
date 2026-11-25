@@ -589,3 +589,19 @@ tr.sum td{color:var(--pink)}
 .c-end p{margin:0;font-family:"Anton","Kanit",sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,42px);line-height:1.15;text-transform:uppercase}
 .c-end .btn{background:#00307C;color:#fff;font-size:19px;padding:20px 34px}.c-end .btn:hover{background:#001f52}
 .c-prof .l .big{color:#fff;-webkit-text-fill-color:#fff}.c-ttl .big{-webkit-text-fill-color:currentColor}.c-sch .c-ttl .big{color:#fff}
+/* full-screen menu on navy */
+.menu{background:#00307C}.menu,.menu a{color:#fff}
+.menu nav a{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.22);border-radius:0;box-shadow:none}
+.menu nav a span{color:#C9D5EA}
+.menu nav a::before{background:#E84884;color:#fff;box-shadow:none}
+.menu nav a:hover,.menu nav a[aria-current="page"]{background:rgba(255,255,255,.12);border-color:#E84884;box-shadow:none}
+.menu nav a[aria-current="page"] b{color:#FF8FB8}
+.menu .btn{background:#E84884;color:#fff}.menu .btn:hover{background:#fff;color:#00307C}
+.menu-close{background:#E84884;color:#fff;border:0;border-radius:999px;box-shadow:none}.menu-close:hover{background:#fff;color:#00307C}
+.menu a:focus-visible,.menu-close:focus-visible{outline-color:#FF8FB8}
+.menu nav a,.menu nav a b{color:#fff}.menu nav a[aria-current="page"] b{color:#FF8FB8}
+.menu nav a{background:#fff;border:3px solid #E84884;color:#00307C}.menu nav a b{color:#00307C}.menu nav a span{color:#41597F}.menu nav a:hover{background:#FFE6EF;border-color:#E84884}.menu nav a[aria-current="page"]{background:#E84884;border-color:#fff}.menu nav a[aria-current="page"] b,.menu nav a[aria-current="page"] span{color:#fff}.menu nav a[aria-current="page"]::before{background:#fff;color:#E84884}
+html,body,*{font-synthesis:none}
+html[lang="th"]{--display:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn){font-family:"Kanit",sans-serif}
+html[lang="th"]{--display:"IBM Plex Sans Thai",sans-serif;--thai:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2,.brand small){font-family:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:700}
+html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .quote{font-weight:700}
