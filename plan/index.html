@@ -17,7 +17,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "วาดแปลนออก BOQ", "applicationCategory": "DesignApplication", "operatingSystem": "Any", "inLanguage": "th", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "THB"}, "description": "วาดแปลนบ้านบนกริด แยกงานโครงสร้าง สถาปัตยกรรม ประปา ไฟฟ้า ได้ BOQ ราคาทันที พร้อมรูปด้าน รูปตัด และโมเดล 3 มิติ"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
 /* Layout: drafting workbench — settings rail left, plan + 3D centre, BOQ sheet below; brand deep red / brown / charcoal on cool grey */
@@ -169,9 +169,11 @@ tr.gsub td{font-weight:700;border-top:2px solid var(--line)}
 </style>
 <style>
 /* site skin for the plan tool: white panels, green & purple accents */
-:root{--bg:#F6F6F9;--surface:#FFFFFF;--sunk:#F2F2F7;--line:#E4E5EC;--display:"Kanit","Sarabun",system-ui,sans-serif;--body:"Tahoma","Sarabun",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151519;--surface:#1F1F25;--sunk:#18181D;--line:#2E2F37}}
-:root[data-theme="dark"]{--bg:#151519;--surface:#1F1F25;--sunk:#18181D;--line:#2E2F37}
+:root{--bg:#E5EBEE;--surface:#FFFFFF;--sunk:#F1F4F6;--line:#C6D1DC;--ink:#00307C;--muted:#41597F;--accent:#E84884;--accent-ink:#FFFFFF;--display:"Anton","Kanit",sans-serif;--body:"Inter","IBM Plex Sans Thai",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1733;--surface:#122348;--sunk:#0F1E3E;--line:#26396A;--ink:#EEF2F8;--muted:#AEBBD0;--accent:#F0679B;--accent-ink:#FFFFFF}}
+:root[data-theme="dark"]{--bg:#0B1733;--surface:#122348;--sunk:#0F1E3E;--line:#26396A;--ink:#EEF2F8;--muted:#AEBBD0;--accent:#F0679B;--accent-ink:#FFFFFF}
+.panel,details.sec{border-radius:0!important}
+.panel,details.sec{box-shadow:none!important}
 .panel{border:1px solid var(--line);border-radius:18px;box-shadow:var(--raise)}
 details.sec{border:1px solid var(--line);border-radius:14px;box-shadow:none}
 .wrap{gap:24px}
@@ -182,7 +184,7 @@ header .eyebrow{width:max-content;max-width:100%}
 <div class="wrap">
   <!--nav--><div class="sitebar">
     <a class="brand" href="../"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
-    <nav class="quick" aria-label="เมนูลัด"><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/" aria-current="page">วาดแปลนออก BOQ</a><a href="../works/">ผลงาน</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a></nav>
+    <nav class="quick" aria-label="เมนูลัด"><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/" aria-current="page">วาดแปลนออก BOQ</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a></nav>
     <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="สลับโหมดมืดหรือสว่าง"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <header>
@@ -324,7 +326,7 @@ header .eyebrow{width:max-content;max-width:100%}
     </div>
   </div>
   <!--foot--><footer class="sitefoot">
-    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="../">หน้าแรก</a><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../works/">ผลงาน</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a><a href="../en/" hreflang="en" lang="en">English</a></nav>
+    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="../">หน้าแรก</a><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a><a href="../en/" hreflang="en" lang="en">English</a></nav>
     <span>MOE BOQ · โม วิศวกรโยธา · รับถอดแบบ BOQ และประมาณราคาบ้านทั้งหลัง ผ่าน <a href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Fastwork</a></span>
     <span>ตัวเลขบนเว็บนี้เป็นการประเมินงบเบื้องต้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบหรือรับรองโครงสร้าง</span>
   </footer><!--/foot-->
@@ -333,7 +335,7 @@ header .eyebrow{width:max-content;max-width:100%}
 <!--menu--><div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="เมนูหลัก">
   <button class="menu-close" type="button">ปิด ✕</button>
   <div style="display:grid;gap:8px">
-    <nav aria-label="เมนูหลัก"><ol><li><a href="../"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="../boq/"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="../plan/" aria-current="page"><b>วาดแปลนออก BOQ</b><span>เครื่องมือฟรี ลองวาดบ้านของคุณ</span></a></li><li><a href="../works/"><b>ผลงาน</b><span>ตัวอย่างไฟล์ส่งงาน</span></a></li><li><a href="../blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="../about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="../contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
+    <nav aria-label="เมนูหลัก"><ol><li><a href="../"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="../boq/"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="../plan/" aria-current="page"><b>วาดแปลนออก BOQ</b><span>เครื่องมือฟรี ลองวาดบ้านของคุณ</span></a></li><li><a href="../blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="../about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="../contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
     <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
     <a href="../en/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>

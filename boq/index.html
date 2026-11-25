@@ -20,97 +20,65 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Service", "name": "ถอดแบบ BOQ บ้านทั้งหลัง", "serviceType": "Bill of Quantities", "areaServed": "TH", "provider": {"@type": "Person", "name": "โม วิศวกรโยธา"}, "offers": [{"@type": "Offer", "name": "ทั้งหลัง", "price": "2500", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}, {"@type": "Offer", "name": "ครบทุกระบบ", "price": "3490", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}, {"@type": "Offer", "name": "บ้านใหญ่", "price": "4990", "priceCurrency": "THB", "url": "https://fastwork.co/user/moeboq/engineering-structural-design-66298785"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ราคา BOQ แม่นแค่ไหน", "acceptedAnswer": {"@type": "Answer", "text": "ปริมาณถอดจากแบบตามจริงทุกรายการ ราคาวัสดุอ้างอิงราคากลางล่าสุดของ สนค. กระทรวงพาณิชย์ และค่าแรงตามหนังสือกรมบัญชีกลาง ว480 และแก้ราคาเองใน Excel ได้ ตารางจะคำนวณใหม่ให้อัตโนมัติ"}}, {"@type": "Question", "name": "ส่งแบบไม่ครบได้ไหม", "acceptedAnswer": {"@type": "Answer", "text": "ได้ จะแจ้งจุดที่แบบไม่ระบุ และใช้สมมติฐานที่เขียนไว้ในหมายเหตุของ BOQ เพื่อให้ตรวจสอบได้"}}, {"@type": "Question", "name": "แก้ไขได้กี่ครั้ง", "acceptedAnswer": {"@type": "Answer", "text": "แก้ไขได้ 2 ครั้งทุกแพ็กเกจ เช่น เปลี่ยนวัสดุ เพิ่มรายการ หรือปรับราคา"}}, {"@type": "Question", "name": "รับเซ็นรับรองแบบไหม", "acceptedAnswer": {"@type": "Answer", "text": "บริการนี้เป็นการถอดแบบและประมาณราคา ไม่รวมการคำนวณหรือรับรองแบบโครงสร้าง"}}, {"@type": "Question", "name": "ต้องการงานด่วน", "acceptedAnswer": {"@type": "Answer", "text": "มีบริการงานด่วนส่งภายใน 1–2 วัน เพิ่ม 500–1,000 บาท รับตามคิวว่าง ทักแชตเช็กคิวก่อนสั่งได้"}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
 <div class="wrap">
   <!--nav--><div class="sitebar">
     <a class="brand" href="../"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
-    <nav class="quick" aria-label="เมนูลัด"><a href="../boq/" aria-current="page">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../works/">ผลงาน</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a></nav>
+    <nav class="quick" aria-label="เมนูลัด"><a href="../boq/" aria-current="page">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a></nav>
     <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="สลับโหมดมืดหรือสว่าง"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
-  <section class="hero split">
-    <div>
-    <span class="eyebrow">บริการถอดแบบ BOQ</span>
-    <h1>ถอดแบบ BOQ บ้านทั้งหลัง<br>สำหรับ <span class="tw" aria-hidden="true" data-words='["บ้านชั้นเดียว","บ้าน 2 ชั้น","บ้าน 3 ชั้น","ผู้รับเหมา","เจ้าของบ้าน"]'>บ้านชั้นเดียว</span><span class="sr">บ้านชั้นเดียว บ้าน 2 ชั้น บ้าน 3 ชั้น ผู้รับเหมา และเจ้าของบ้าน</span></h1>
-    <p>ได้ Excel พร้อมสูตร ส่งแบบบ้านมา ได้รายการวัสดุและค่าแรงทุกรายการ แยกหมวดงาน พร้อมจำนวนเหล็กที่ต้องสั่ง ใช้เทียบราคาผู้รับเหมาและคุมงบระหว่างก่อสร้างได้</p>
-    <div class="chips"><span class="chip">ได้งานใน 4–7 วัน</span><span class="chip">แก้ไขได้ 2 ครั้ง</span><span class="chip">ราคาอ้างอิง สนค. และ ว480</span></div>
-    <div class="actions"><a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a><a class="btn ghost" href="../works/">ดูตัวอย่างผลงาน</a></div>
-    </div>
-    <div class="ba hero-ba" data-fx="ba"><div class="layer after"><img src="../assets/house-ba.png" alt="บ้าน 3 มิติที่สร้างจากแปลน" width="659" height="429"></div><div class="layer before"></div><span class="tag2" style="left:12px">แปลน</span><span class="tag2" style="right:12px">บ้าน 3 มิติ</span><input type="range" min="0" max="100" value="50" aria-label="เลื่อนเทียบแปลนกับบ้าน 3 มิติ"><div class="handle"></div></div>
+  <section class="c-hero" aria-labelledby="c-h1">
+    <div class="vis" aria-hidden="true"><div class="band"></div><p class="giant">MOEBOQ</p><img class="house" src="../assets/house-ghost-c.png" alt="" width="1079" height="678"><span class="side">BILL OF QUANTITIES ✦</span></div>
+    <div class="vert"><span class="eyebrow">บริการถอดแบบ BOQ</span><h1 id="c-h1">ถอดแบบ BOQ<br>บ้านทั้งหลัง</h1><small>โดยวิศวกรโยธา</small></div>
+    <div class="c-lb"><b>เริ่ม 2,500 บาท</b><small>Excel พร้อมสูตร · ค่าวัสดุ ค่าแรง จำนวนเหล็ก · ได้งานใน 4–7 วัน</small><div class="actions"><a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a><a class="btn ghost" href="../plan/">ลองวาดแปลนฟรี →</a></div></div>
+    <p class="quote">「ราคาจากแบบจริง<br>ไม่ใช่ราคาเหมา ตร.ม.」</p>
   </section>
   <div class="marq" aria-hidden="true"><div><span>Excel พร้อมสูตร</span><span>ราคาอ้างอิง สนค. และ ว480</span><span>ได้งานใน 4–7 วัน</span><span>แก้ไขได้ 2 ครั้ง</span><span>ถอดเหล็กพร้อมจำนวนเส้น</span><span>งานด่วน 1–2 วัน</span><span>โดยวิศวกรโยธา</span></div></div>
 
-  <section class="section" aria-labelledby="pk-h">
-    <header><h2 id="pk-h">แพ็กเกจและราคา</h2><p>ราคาเหมาต่อหลัง จ้างงานและชำระเงินผ่าน Fastwork</p></header>
-    <div class="cards"><article class="flip hot"><div class="in">
-        <div class="face f pk"><span class="tag">แนะนำ</span><h3>ทั้งหลัง</h3><div class="price"><span data-count="2500">2,500</span><small>บาท</small></div><div class="time">ภายใน 4 วัน · บ้านไม่เกิน 200 ตร.ม.</div>
-          <button class="flip-btn" type="button" aria-expanded="false">ดูรายละเอียด ↻</button></div>
-        <div class="face b"><h3>ได้อะไรบ้าง: ทั้งหลัง</h3><ul><li>งานโครงสร้าง ฐานราก เสา คาน พื้น</li><li>ผนัง ฉาบ พื้น ฝ้า หลังคา สี</li><li>ประตูหน้าต่าง สุขภัณฑ์</li><li>สรุปราคาแยกหมวด + ไฟล์ Excel และ PDF</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ กลับด้านหน้า</button></div>
-      </div></article><article class="flip"><div class="in">
-        <div class="face f pk"><h3>ครบทุกระบบ</h3><div class="price"><span data-count="3490">3,490</span><small>บาท</small></div><div class="time">ภายใน 5 วัน · บ้านไม่เกิน 200 ตร.ม.</div>
-          <button class="flip-btn" type="button" aria-expanded="false">ดูรายละเอียด ↻</button></div>
-        <div class="face b"><h3>ได้อะไรบ้าง: ครบทุกระบบ</h3><ul><li>ทุกอย่างในแพ็กเกจทั้งหลัง</li><li>ระบบไฟฟ้า (คิดต่อจุด)</li><li>ระบบประปาและสุขาภิบาล</li><li>เหมาะสำหรับเทียบราคาผู้รับเหมาแบบครบทุกงาน</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ กลับด้านหน้า</button></div>
-      </div></article><article class="flip"><div class="in">
-        <div class="face f pk"><h3>บ้านใหญ่</h3><div class="price"><span data-count="4990">4,990</span><small>บาท</small></div><div class="time">ภายใน 7 วัน · บ้าน 201–350 ตร.ม.</div>
-          <button class="flip-btn" type="button" aria-expanded="false">ดูรายละเอียด ↻</button></div>
-        <div class="face b"><h3>ได้อะไรบ้าง: บ้านใหญ่</h3><ul><li>ครบทุกระบบเหมือนแพ็กเกจกลาง</li><li>รองรับบ้านหลายชั้นและพื้นที่มาก</li><li>รายการเหล็กพร้อมจำนวนเส้นสั่งซื้อ</li><li>สรุปราคาต่อตารางเมตร</li></ul><button class="flip-btn" type="button" aria-expanded="false">↺ กลับด้านหน้า</button></div>
-      </div></article></div>
-    <div class="addon"><div><b>บริการงานด่วน ส่งภายใน 1–2 วัน</b><div class="muted" style="font-size:14.5px">เพิ่มได้ทุกแพ็กเกจ รับตามคิวว่าง กรุณาสอบถามก่อนสั่ง</div></div><span class="price">+500–1,000 บาท</span></div>
-    <p class="muted" style="font-size:14.5px">ต้องการเฉพาะงานโครงสร้างหรือถอดเหล็ก ทักแชตสอบถามได้ · พื้นที่เกิน 350 ตร.ม. ประเมินราคาตามแบบ</p>
+  <section class="c-prof" aria-labelledby="pf-h">
+    <div class="l"><span class="big" aria-hidden="true">PRO<br>FILE</span><h2 id="pf-h" class="sr">Profile</h2><p>วิศวกรโยธา · กรุงเทพฯ</p></div>
+    <div class="r"><p>โมเป็นวิศวกรโยธาสายโครงสร้าง ถอดแบบ BOQ บ้านทุกรายการจากแบบจริง ใช้ราคากลางวัสดุล่าสุดของ สนค. และค่าแรงตาม ว480 ได้ไฟล์ที่เอาไปเทียบราคาผู้รับเหมาได้ทันที</p><div class="stats"><div><b>4–7</b><small>วันได้งาน</small></div><div><b>13</b><small>หมวดงาน</small></div><div><b>2</b><small>ครั้งแก้ไขฟรี</small></div></div></div>
   </section>
-  <section class="section" aria-labelledby="bd-h">
-    <header><h2 id="bd-h">ถอดให้ครบ ตั้งแต่ฐานรากถึงงานระบบ</h2><p>ค่อยๆ เลื่อนลง แล้วดูบ้านสร้างขึ้นทีละขั้นตามหมวดงานใน BOQ</p></header>
+  <section class="section c-sec" aria-labelledby="sv-h">
+    <div class="c-ttl"><span class="big" aria-hidden="true">SERVICES</span><div><h2 id="sv-h">ถอดอะไรบ้าง</h2></div></div>
+    <div class="c-list"><div><span class="n">01</span><h3><small>STRUCTURE</small>งานโครงสร้าง</h3><p>เสาเข็ม ฐานราก เสา คาน พื้น วัดทีละชิ้นส่วน</p></div><div><span class="n">02</span><h3><small>ARCHITECTURE</small>งานสถาปัตยกรรม</h3><p>ผนัง ฉาบ พื้น ฝ้า หลังคา สี ประตู หน้าต่าง</p></div><div><span class="n">03</span><h3><small>MEP</small>งานระบบ</h3><p>ประปา สุขาภิบาล สุขภัณฑ์ ไฟฟ้าคิดต่อจุด</p></div><div><span class="n">04</span><h3><small>REBAR</small>ถอดเหล็ก</h3><p>ความยาว น้ำหนัก และจำนวนเส้นที่ต้องสั่งแยกตามขนาด</p></div></div>
+  </section>
+  <section class="c-sch" aria-labelledby="pk-h">
+    <div class="c-ttl"><span class="big" aria-hidden="true">SCHEDULE</span><div><h2 id="pk-h">แพ็กเกจและราคา</h2><p>ราคาเหมาต่อหลัง จ้างงานและชำระเงินผ่าน Fastwork</p></div></div>
+    <div class="c-table" role="table"><div class="c-row c-head" role="row"><div role="columnheader">แพ็กเกจ</div><div role="columnheader">ระยะเวลา</div><div role="columnheader">ได้อะไรบ้าง</div><div role="columnheader">ราคา</div><div role="columnheader"></div></div><div class="c-row hot" role="row"><div class="nm" role="cell"><span class="tag">แนะนำ</span>ทั้งหลัง</div><div role="cell">ภายใน 4 วัน · บ้านไม่เกิน 200 ตร.ม.</div><div role="cell">งานโครงสร้าง ฐานราก เสา คาน พื้น · ผนัง ฉาบ พื้น ฝ้า หลังคา สี · ประตูหน้าต่าง สุขภัณฑ์</div><div class="pr" role="cell"><span data-count="2500">2,500</span><small>บาท</small></div><div role="cell"><a class="bk" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">จองเลย →</a></div></div><div class="c-row" role="row"><div class="nm" role="cell">ครบทุกระบบ</div><div role="cell">ภายใน 5 วัน · บ้านไม่เกิน 200 ตร.ม.</div><div role="cell">ทุกอย่างในแพ็กเกจทั้งหลัง · ระบบไฟฟ้า (คิดต่อจุด) · ระบบประปาและสุขาภิบาล</div><div class="pr" role="cell"><span data-count="3490">3,490</span><small>บาท</small></div><div role="cell"><a class="bk" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">จองเลย →</a></div></div><div class="c-row" role="row"><div class="nm" role="cell">บ้านใหญ่</div><div role="cell">ภายใน 7 วัน · บ้าน 201–350 ตร.ม.</div><div role="cell">ครบทุกระบบเหมือนแพ็กเกจกลาง · รองรับบ้านหลายชั้นและพื้นที่มาก · รายการเหล็กพร้อมจำนวนเส้นสั่งซื้อ</div><div class="pr" role="cell"><span data-count="4990">4,990</span><small>บาท</small></div><div role="cell"><a class="bk" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">จองเลย →</a></div></div></div>
+    <div class="c-rush"><div><b>งานด่วน ส่งภายใน 1–2 วัน</b><span>เพิ่มได้ทุกแพ็กเกจ รับตามคิวว่าง ทักแชตเช็กคิวก่อนสั่ง</span></div><span class="pr">+500–1,000 บาท</span></div>
+    <p class="c-note">ต้องการเฉพาะงานโครงสร้างหรือถอดเหล็ก ทักแชตสอบถามได้ · พื้นที่เกิน 350 ตร.ม. ประเมินราคาตามแบบ</p>
+  </section>
+  <section class="section c-sec" aria-labelledby="bd-h">
+    <div class="c-ttl"><span class="big" aria-hidden="true">BUILD</span><div><h2 id="bd-h">ถอดให้ครบ ตั้งแต่ฐานรากถึงงานระบบ</h2><p>ค่อยๆ เลื่อนลง แล้วดูบ้านสร้างขึ้นทีละขั้นตามหมวดงานใน BOQ</p></div></div>
     <div class="build" data-fx="build"><div class="stick"><div><div class="pct" aria-hidden="true">0%</div><ol><li><i>1</i>ฐานรากและเสาเข็ม</li><li><i>2</i>เสาและคาน</li><li><i>3</i>พื้น</li><li><i>4</i>ผนัง ประตู หน้าต่าง</li><li><i>5</i>โครงหลังคา</li><li><i>6</i>มุงหลังคา</li><li><i>7</i>งานระบบไฟฟ้าและประปา</li></ol></div>
       <div class="svgbox"><svg viewBox="0 0 520 360" role="img" aria-label="ภาพบ้านที่สร้างขึ้นทีละขั้นตามการเลื่อนหน้า"></svg></div></div></div>
   </section>
-  <section class="section" aria-labelledby="st-h">
-    <header><h2 id="st-h">ขั้นตอนการทำงาน</h2></header>
-    <ol class="steps">
-      <li><b>ส่งแบบมาประเมินราคาฟรี</b><span>แบบ PDF หรือ DWG พร้อมพื้นที่และจังหวัด</span></li>
-      <li><b>ถอดปริมาณทุกหมวด</b><span>โครงสร้าง สถาปัตยกรรม และงานระบบตามแพ็กเกจ</span></li>
-      <li><b>ทำ BOQ และสรุปราคา</b><span>ค่าวัสดุ ค่าแรง และราคาต่อตารางเมตร</span></li>
-      <li><b>ส่งไฟล์ Excel และ PDF</b><span>แก้ไขได้ 2 ครั้ง</span></li>
-    </ol>
+  <section class="section c-sec" aria-labelledby="ba-h">
+    <div class="c-ttl"><span class="big" aria-hidden="true">PLAN→HOUSE</span><div><h2 id="ba-h">จากแบบ สู่บ้านจริง</h2><p>ลากแถบตรงกลางไปซ้าย-ขวา เพื่อเทียบแปลนกับบ้าน 3 มิติ</p></div></div>
+    <div class="ba" data-fx="ba"><div class="layer after"><img src="../assets/house-ghost-c.png" alt="บ้าน 3 มิติแบบโปร่งที่สร้างจากแปลน" width="1079" height="678"></div><div class="layer before"></div><span class="tag2" style="left:12px">แปลน</span><span class="tag2" style="right:12px">บ้าน 3 มิติ</span><input type="range" min="0" max="100" value="50" aria-label="เลื่อนเทียบแปลนกับบ้าน 3 มิติ"><div class="handle"></div></div>
+  </section>
+  <section class="section c-sec" aria-labelledby="st-h">
+    <div class="c-ttl"><span class="big" aria-hidden="true">PROCESS</span><div><h2 id="st-h">ขั้นตอนการทำงาน</h2></div></div>
+    <ol class="c-steps"><li><b>01</b><h3>ส่งแบบ</h3><p>PDF หรือ DWG พร้อมพื้นที่และจังหวัด</p></li><li><b>02</b><h3>ประเมินราคา</h3><p>แจ้งแพ็กเกจและราคาภายใน 1 วัน</p></li><li><b>03</b><h3>ถอดแบบ</h3><p>วัดทุกรายการจากแบบจริง</p></li><li><b>04</b><h3>ส่งไฟล์</h3><p>Excel พร้อมสูตร + PDF สรุป แก้ไขได้ 2 ครั้ง</p></li></ol>
   </section>
   <section class="two">
-    <div class="panel section">
-      <h2>สิ่งที่ได้รับ</h2>
-      <ul class="list-check">
-        <li><div><b>PDF พร้อมแนบเสนอราคา</b><span>หน้าปก สรุปราคาแยกหมวด BOQ ค่าวัสดุและค่าแรง และราคาเป็นตัวอักษร</span></div></li>
-        <li><div><b>Excel พร้อมสูตร</b><span>แก้ราคาวัสดุเองได้ BOQ คำนวณใหม่อัตโนมัติ ตรวจย้อนกลับได้ทุกบรรทัด</span></div></li>
-        <li><div><b>ใบถอดปริมาณครบ</b><span>คอนกรีตและไม้แบบ เหล็กพร้อมจำนวนเส้นสั่งซื้อ และงานสถาปัตยกรรม</span></div></li>
-      </ul>
-    </div>
-    <div class="panel section">
-      <h2>สิ่งที่ต้องส่งมา</h2>
-      <ul class="list-check">
-        <li><div><b>แบบก่อสร้าง</b><span>PDF หรือ DWG (โครงสร้าง สถาปัตยกรรม และงานระบบ ตามแพ็กเกจ)</span></div></li>
-        <li><div><b>พื้นที่ใช้สอยโดยประมาณ</b><span>เพื่อเลือกแพ็กเกจให้ตรง</span></div></li>
-        <li><div><b>จังหวัดที่ก่อสร้าง</b><span>ใช้ราคาวัสดุให้ใกล้เคียงพื้นที่</span></div></li>
-        <li><div><b>วัสดุหลักที่เลือก (ถ้ามี)</b><span>เช่น หลังคา กระเบื้อง สุขภัณฑ์</span></div></li>
-      </ul>
-    </div>
+    <div class="panel section"><h2>สิ่งที่ได้รับ</h2><ul class="list-check"><li><div><b>PDF พร้อมแนบเสนอราคา</b><span>หน้าปก สรุปราคาแยกหมวด BOQ ค่าวัสดุและค่าแรง</span></div></li><li><div><b>Excel พร้อมสูตร</b><span>แก้ราคาวัสดุเองได้ BOQ คำนวณใหม่อัตโนมัติ</span></div></li><li><div><b>ใบถอดปริมาณครบ</b><span>คอนกรีต ไม้แบบ เหล็กพร้อมจำนวนเส้น และงานสถาปัตยกรรม</span></div></li></ul></div>
+    <div class="panel section"><h2>สิ่งที่ต้องส่งมา</h2><ul class="list-check"><li><div><b>แบบก่อสร้าง</b><span>PDF หรือ DWG ตามแพ็กเกจ</span></div></li><li><div><b>พื้นที่ใช้สอยโดยประมาณ</b><span>เพื่อเลือกแพ็กเกจให้ตรง</span></div></li><li><div><b>จังหวัดที่ก่อสร้าง</b><span>ใช้ราคาวัสดุให้ใกล้เคียงพื้นที่</span></div></li><li><div><b>วัสดุหลักที่เลือก (ถ้ามี)</b><span>เช่น หลังคา กระเบื้อง สุขภัณฑ์</span></div></li></ul></div>
   </section>
-  <section class="section" aria-labelledby="who-h">
-    <header><h2 id="who-h">เหมาะกับใคร</h2></header>
-    <div class="cards">
-      <article class="card"><h3>เจ้าของบ้าน</h3><p>อยากรู้ค่าก่อสร้างก่อนจ้าง และใช้เทียบราคาผู้รับเหมาหลายเจ้าในรายการเดียวกัน</p></article>
-      <article class="card"><h3>ผู้รับเหมาและช่าง</h3><p>ต้องการตัวเลขไปเสนอราคาลูกค้า หรือสั่งวัสดุ โดยเฉพาะเหล็กที่ต้องรู้จำนวนเส้น</p></article>
-      <article class="card"><h3>ผู้ออกแบบและสถาปนิก</h3><p>ต้องการประมาณงบให้ลูกค้าระหว่างออกแบบ</p></article>
-    </div>
-  </section>
-  <section class="panel section faq" aria-labelledby="fq-h">
-    <h2 id="fq-h">คำถามที่พบบ่อย</h2>
+  <section class="section c-sec faq" aria-labelledby="fq-h">
+    <div class="c-ttl"><span class="big" aria-hidden="true">FAQ</span><div><h2 id="fq-h">คำถามที่พบบ่อย</h2></div></div>
     <details><summary>ราคา BOQ แม่นแค่ไหน</summary><p>ปริมาณถอดจากแบบตามจริงทุกรายการ ราคาวัสดุอ้างอิงราคากลางล่าสุดของ สนค. กระทรวงพาณิชย์ และค่าแรงตามหนังสือกรมบัญชีกลาง ว480 และแก้ราคาเองใน Excel ได้ ตารางจะคำนวณใหม่ให้อัตโนมัติ</p></details><details><summary>ส่งแบบไม่ครบได้ไหม</summary><p>ได้ จะแจ้งจุดที่แบบไม่ระบุ และใช้สมมติฐานที่เขียนไว้ในหมายเหตุของ BOQ เพื่อให้ตรวจสอบได้</p></details><details><summary>แก้ไขได้กี่ครั้ง</summary><p>แก้ไขได้ 2 ครั้งทุกแพ็กเกจ เช่น เปลี่ยนวัสดุ เพิ่มรายการ หรือปรับราคา</p></details><details><summary>รับเซ็นรับรองแบบไหม</summary><p>บริการนี้เป็นการถอดแบบและประมาณราคา ไม่รวมการคำนวณหรือรับรองแบบโครงสร้าง</p></details><details><summary>ต้องการงานด่วน</summary><p>มีบริการงานด่วนส่งภายใน 1–2 วัน เพิ่ม 500–1,000 บาท รับตามคิวว่าง ทักแชตเช็กคิวก่อนสั่งได้</p></details>
   </section>
-  <section class="cta" aria-label="ส่งแบบประเมินราคา">
-    <p><strong>มีแบบบ้านแล้ว อยากรู้ราคาที่แม่นกว่า</strong>ส่งแบบมาประเมินราคาก่อนจ้างได้ฟรี ได้ BOQ ทุกรายการพร้อมค่าวัสดุ ค่าแรง และจำนวนเหล็กที่ต้องสั่ง</p>
-    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
+  <section class="c-end" aria-label="ส่งแบบประเมินราคาฟรี">
+    <span class="big" aria-hidden="true">CONTACT</span>
+    <div class="row"><p>ส่งแบบมา<br>ประเมินราคาฟรี</p><a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ทักแชต Fastwork →</a></div>
   </section>
   <!--foot--><footer class="sitefoot">
-    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="../">หน้าแรก</a><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../works/">ผลงาน</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a><a href="../en/boq/" hreflang="en" lang="en">English</a></nav>
+    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="../">หน้าแรก</a><a href="../boq/">บริการถอดแบบ BOQ</a><a href="../plan/">วาดแปลนออก BOQ</a><a href="../blog/">บทความ</a><a href="../about/">เกี่ยวกับโม</a><a href="../contact/">ติดต่อ</a><a href="../en/boq/" hreflang="en" lang="en">English</a></nav>
     <span>MOE BOQ · โม วิศวกรโยธา · รับถอดแบบ BOQ และประมาณราคาบ้านทั้งหลัง ผ่าน <a href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Fastwork</a></span>
     <span>ตัวเลขบนเว็บนี้เป็นการประเมินงบเบื้องต้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบหรือรับรองโครงสร้าง</span>
   </footer><!--/foot-->
@@ -118,7 +86,7 @@
 <!--menu--><div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="เมนูหลัก">
   <button class="menu-close" type="button">ปิด ✕</button>
   <div style="display:grid;gap:8px">
-    <nav aria-label="เมนูหลัก"><ol><li><a href="../"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="../boq/" aria-current="page"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="../plan/"><b>วาดแปลนออก BOQ</b><span>เครื่องมือฟรี ลองวาดบ้านของคุณ</span></a></li><li><a href="../works/"><b>ผลงาน</b><span>ตัวอย่างไฟล์ส่งงาน</span></a></li><li><a href="../blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="../about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="../contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
+    <nav aria-label="เมนูหลัก"><ol><li><a href="../"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="../boq/" aria-current="page"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="../plan/"><b>วาดแปลนออก BOQ</b><span>เครื่องมือฟรี ลองวาดบ้านของคุณ</span></a></li><li><a href="../blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="../about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="../contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
     <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
     <a href="../en/boq/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>
