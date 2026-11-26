@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=20261125h">
+<link rel="stylesheet" href="../assets/site.css?v=20261126b">
 <style>
 /* Layout: estimator workbench — inputs column left, result sheet right (stacks on phone); brand = deep red / brown / charcoal on cool grey */
 :root{
@@ -407,13 +407,14 @@ html,body,*{font-synthesis:none}
 html[lang="th"]{--display:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn){font-family:"Kanit",sans-serif}
 html[lang="th"]{--display:"IBM Plex Sans Thai",sans-serif;--thai:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2,.brand small){font-family:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:700}
 html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .quote{font-weight:700}
+html[lang="th"]{--display:"Kanit",sans-serif;--thai:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2){font-family:"Kanit",sans-serif}html[lang="th"] :is(.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:800}html[lang="th"] :is(h1,h2,h3,.marq span,.c-rush b,.c-hero .quote){font-weight:700}html[lang="th"] .menu nav a b{font-weight:600}
 </style>
 </head>
 <body>
 <div class="wrap">
   <!--nav--><div class="sitebar">
     <a class="brand" href="../en/"><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>BOQ & house cost estimates</small></span></a>
-    <nav class="quick" aria-label="Quick links"><a href="../en/boq/">BOQ service</a><a href="../en/about/">About</a><a href="../en/contact/">Contact</a></nav>
+    <nav class="quick" aria-label="Quick links"><a href="../plan/">Plan tool</a><a href="../pro/">PRO</a></nav>
     <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="Toggle dark mode"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <header>
@@ -421,7 +422,7 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
     <h1>How much will it cost to build your house in Thailand?</h1>
     <p>Enter the size of your house and choose a finish level. The estimate uses current Thai reference prices for materials and labour, broken down from foundations to plumbing.</p>
   </header>
-  <div class="marq" aria-hidden="true"><div><span>Excel with formulas</span><span>Thai government reference prices</span><span>Delivered in 4–7 days</span><span>2 revisions included</span><span>Rebar list with bar counts</span><span>Rush in 1–2 days</span><span>By a civil engineer</span></div></div>
+  <div class="marq" aria-hidden="true"><div><span>Free, no sign-up</span><span>Thai government reference prices</span><span>Labour rates per Comptroller General</span><span>Structure, architecture and MEP</span><span>Draw a plan, get a BOQ</span><span>3D model, elevations, sections</span><span>By a civil engineer</span></div></div>
 
 
   <div class="grid">
@@ -514,9 +515,9 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
     </section>
   </div>
 
-  <section class="cta">
-    <p><strong>Need numbers from your actual drawings?</strong>A Thai civil engineer prepares a detailed Bill of Quantities (BOQ): every item with material and labour costs, plus the rebar order list. Delivered as Excel with formulas and PDF. Booked through Fastwork, a Thai freelance platform.</p>
-    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Request a BOQ</a>
+  <section class="cta" aria-label="Plan tool">
+    <p><strong>Have a floor plan?</strong>Draw it on the grid and get an itemised BOQ with material and labour costs straight away. Free to use, no sign-up.</p>
+    <a class="btn" href="/plan/">Try the plan tool</a>
   </section>
 
   <article class="article" aria-labelledby="a-h">
@@ -548,8 +549,8 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
     </ul>
   </section>
   <!--foot--><footer class="sitefoot">
-    <nav aria-label="Footer links"><a href="../en/">Home</a><a href="../en/boq/">BOQ service</a><a href="../en/about/">About</a><a href="../en/contact/">Contact</a><a href="../" hreflang="th" lang="th">ภาษาไทย</a></nav>
-    <span>MOE BOQ · Moe, civil engineer in Thailand · Bills of Quantities and cost estimates for houses, booked through <a href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Fastwork</a></span>
+    <nav aria-label="Footer links"><a href="../en/">Home</a><a href="../plan/">Plan tool</a><a href="../pro/">PRO</a><a href="../" hreflang="th" lang="th">ภาษาไทย</a></nav>
+    <span>MOE BOQ · Free house cost calculator and online BOQ tool for Thailand, made by Moe, a Thai civil engineer.</span>
     <span>Figures on this site are budget estimates, not quotations, structural designs or certifications.</span>
   </footer><!--/foot-->
 </div>
@@ -646,12 +647,12 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
 <!--menu--><div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Main menu">
   <button class="menu-close" type="button">Close ✕</button>
   <div style="display:grid;gap:8px">
-    <nav aria-label="Main menu"><ol><li><a href="../en/" aria-current="page"><b>Home</b><span>House cost calculator</span></a></li><li><a href="../en/boq/"><b>BOQ service</b><span>Packages, prices and process</span></a></li><li><a href="../en/about/"><b>About</b><span>Your civil engineer</span></a></li><li><a href="../en/contact/"><b>Contact</b><span>Free quote for your drawings</span></a></li></ol></nav>
-    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Get a free quote</a>
+    <nav aria-label="Main menu"><ol><li><a href="../en/" aria-current="page"><b>Home</b><span>House cost calculator</span></a></li><li><a href="../plan/"><b>Plan tool</b><span>Draw a plan, get a BOQ (Thai)</span></a></li><li><a href="../pro/"><b>PRO</b><span>Free vs PRO · waitlist (Thai)</span></a></li></ol></nav>
+    <a class="btn" href="../plan/">Try the plan tool</a>
     <a href="../" hreflang="th" lang="th" style="justify-self:center;margin-top:6px">ภาษาไทย</a>
   </div>
 </div><!--/menu-->
-<script src="../assets/site.js?v=20261125h" defer></script>
-<script src="../assets/fx.js?v=20261125h" defer></script>
+<script src="../assets/site.js?v=20261126b" defer></script>
+<script src="../assets/fx.js?v=20261126b" defer></script>
 </body>
 </html>

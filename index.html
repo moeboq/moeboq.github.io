@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=20261125h">
+<link rel="stylesheet" href="assets/site.css?v=20261126b">
 <style>
 /* Layout: estimator workbench — inputs column left, result sheet right (stacks on phone); brand = deep red / brown / charcoal on cool grey */
 :root{
@@ -406,13 +406,14 @@ html,body,*{font-synthesis:none}
 html[lang="th"]{--display:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn){font-family:"Kanit",sans-serif}
 html[lang="th"]{--display:"IBM Plex Sans Thai",sans-serif;--thai:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2,.brand small){font-family:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:700}
 html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .quote{font-weight:700}
+html[lang="th"]{--display:"Kanit",sans-serif;--thai:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2){font-family:"Kanit",sans-serif}html[lang="th"] :is(.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:800}html[lang="th"] :is(h1,h2,h3,.marq span,.c-rush b,.c-hero .quote){font-weight:700}html[lang="th"] .menu nav a b{font-weight:600}
 </style>
 </head>
 <body>
 <div class="wrap">
   <!--nav--><div class="sitebar">
     <a class="brand" href=""><span class="logo" aria-hidden="true"></span><span>MOE BOQ<small>ถอดแบบ · ประมาณราคาบ้าน</small></span></a>
-    <nav class="quick" aria-label="เมนูลัด"><a href="boq/">บริการถอดแบบ BOQ</a><a href="plan/">วาดแปลนออก BOQ</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a></nav>
+    <nav class="quick" aria-label="เมนูลัด"><a href="plan/">วาดแปลนออก BOQ</a><a href="pro/">PRO</a><a href="blog/">บทความ</a></nav>
     <div class="bar-right"><button class="theme-btn" type="button" aria-pressed="false" aria-label="สลับโหมดมืดหรือสว่าง"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span><i></i></button><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">เมนู <span class="burger" aria-hidden="true"></span></button></div>
   </div><!--/nav-->
   <header>
@@ -420,7 +421,7 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
     <h1>ค่าสร้างบ้านของคุณประมาณเท่าไหร่</h1>
     <p>กรอกขนาดบ้านและเลือกระดับวัสดุ ระบบคำนวณจากราคากลางวัสดุก่อสร้างล่าสุด แยกให้เห็นทุกหมวดงาน ตั้งแต่ฐานรากจนถึงงานระบบ</p>
   </header>
-  <div class="marq" aria-hidden="true"><div><span>Excel พร้อมสูตร</span><span>ราคาอ้างอิง สนค. และ ว480</span><span>ได้งานใน 4–7 วัน</span><span>แก้ไขได้ 2 ครั้ง</span><span>ถอดเหล็กพร้อมจำนวนเส้น</span><span>งานด่วน 1–2 วัน</span><span>โดยวิศวกรโยธา</span></div></div>
+  <div class="marq" aria-hidden="true"><div><span>ใช้ฟรี ไม่ต้องสมัคร</span><span>ราคากลาง สนค. ก.ย. 2569</span><span>ค่าแรงตาม ว480</span><span>แยกโครงสร้าง สถาปัตย์ งานระบบ</span><span>วาดแปลนได้ BOQ ทันที</span><span>โมเดล 3 มิติ รูปด้าน รูปตัด</span><span>โดยวิศวกรโยธา</span></div></div>
 
 
   <div class="grid">
@@ -510,9 +511,9 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
     </section>
   </div>
 
-  <section class="cta">
-    <p><strong>อยากได้ตัวเลขจากแบบบ้านจริง</strong>ถอดแบบ BOQ ละเอียดทุกรายการ แยกค่าวัสดุ ค่าแรง และจำนวนเหล็กที่ต้องสั่ง โดยวิศวกรโยธา ได้ไฟล์ Excel พร้อมสูตร</p>
-    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
+  <section class="cta" aria-label="วาดแปลนออก BOQ">
+    <p><strong>มีแปลนบ้านแล้ว อยากได้ BOQ ละเอียด</strong>วาดแปลนบนกริด แล้วได้ BOQ ราคาทุกรายการทันที แยกงานโครงสร้าง สถาปัตย์ และงานระบบ ใช้ฟรี ไม่ต้องสมัคร</p>
+    <a class="btn" href="/plan/">ลองวาดแปลนฟรี</a>
   </section>
 
   
@@ -546,8 +547,8 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
     </ul>
   </section>
   <!--foot--><footer class="sitefoot">
-    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="">หน้าแรก</a><a href="boq/">บริการถอดแบบ BOQ</a><a href="plan/">วาดแปลนออก BOQ</a><a href="blog/">บทความ</a><a href="about/">เกี่ยวกับโม</a><a href="contact/">ติดต่อ</a><a href="en/" hreflang="en" lang="en">English</a></nav>
-    <span>MOE BOQ · โม วิศวกรโยธา · รับถอดแบบ BOQ และประมาณราคาบ้านทั้งหลัง ผ่าน <a href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">Fastwork</a></span>
+    <nav aria-label="ลิงก์ท้ายเว็บ"><a href="">หน้าแรก</a><a href="plan/">วาดแปลนออก BOQ</a><a href="pro/">PRO</a><a href="blog/">บทความ</a><a href="en/" hreflang="en" lang="en">English</a></nav>
+    <span>MOE BOQ · เครื่องมือคำนวณค่าสร้างบ้านและถอด BOQ ออนไลน์ จัดทำโดยโม วิศวกรโยธา</span>
     <span>ตัวเลขบนเว็บนี้เป็นการประเมินงบเบื้องต้น ไม่ใช่ใบเสนอราคาและไม่ใช่การออกแบบหรือรับรองโครงสร้าง</span>
   </footer><!--/foot-->
 </div>
@@ -633,12 +634,12 @@ html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .qu
 <!--menu--><div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="เมนูหลัก">
   <button class="menu-close" type="button">ปิด ✕</button>
   <div style="display:grid;gap:8px">
-    <nav aria-label="เมนูหลัก"><ol><li><a href="" aria-current="page"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="boq/"><b>บริการถอดแบบ BOQ</b><span>แพ็กเกจ ราคา และขั้นตอน</span></a></li><li><a href="plan/"><b>วาดแปลนออก BOQ</b><span>เครื่องมือฟรี ลองวาดบ้านของคุณ</span></a></li><li><a href="blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li><li><a href="about/"><b>เกี่ยวกับโม</b><span>วิศวกรโยธาผู้ถอดแบบ</span></a></li><li><a href="contact/"><b>ติดต่อ</b><span>ส่งแบบประเมินราคาฟรี</span></a></li></ol></nav>
-    <a class="btn" href="https://fastwork.co/user/moeboq/engineering-structural-design-66298785" target="_blank" rel="noopener">ส่งแบบประเมินราคาฟรี</a>
+    <nav aria-label="เมนูหลัก"><ol><li><a href="" aria-current="page"><b>หน้าแรก</b><span>คำนวณค่าสร้างบ้านฟรี</span></a></li><li><a href="plan/"><b>วาดแปลนออก BOQ</b><span>วาดบ้านแล้วได้ BOQ ทันที</span></a></li><li><a href="pro/"><b>PRO</b><span>ฟรีกับ PRO · ลงชื่อรอ</span></a></li><li><a href="blog/"><b>บทความ</b><span>ความรู้เรื่องงบสร้างบ้านและ BOQ</span></a></li></ol></nav>
+    <a class="btn" href="plan/">ลองวาดแปลนออก BOQ ฟรี</a>
     <a href="en/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>
 </div><!--/menu-->
-<script src="assets/site.js?v=20261125h" defer></script>
-<script src="assets/fx.js?v=20261125h" defer></script>
+<script src="assets/site.js?v=20261126b" defer></script>
+<script src="assets/fx.js?v=20261126b" defer></script>
 </body>
 </html>

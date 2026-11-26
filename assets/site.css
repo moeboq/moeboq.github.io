@@ -605,3 +605,34 @@ html,body,*{font-synthesis:none}
 html[lang="th"]{--display:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn){font-family:"Kanit",sans-serif}
 html[lang="th"]{--display:"IBM Plex Sans Thai",sans-serif;--thai:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2,.brand small){font-family:"IBM Plex Sans Thai",sans-serif}html[lang="th"] :is(h1,h2,h3,.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:700}
 html[lang="th"] .marq span,html[lang="th"] .c-rush b,html[lang="th"] .c-hero .quote{font-weight:700}
+html[lang="th"]{--display:"Kanit",sans-serif;--thai:"Kanit",sans-serif}html[lang="th"] :is(h1,h2,h3,h4,.c-hero .vert h1,.c-hero .c-lb b,.c-hero .quote,.c-list h3,.c-row .nm,.c-rush b,.c-steps h3,.c-end p,.marq span,.menu nav a b,.menu-close,.menu-btn,.c-ttl h2){font-family:"Kanit",sans-serif}html[lang="th"] :is(.c-hero .vert h1,.c-hero .c-lb b,.c-list h3,.c-row .nm,.c-steps h3,.c-end p){font-weight:800}html[lang="th"] :is(h1,h2,h3,.marq span,.c-rush b,.c-hero .quote){font-weight:700}html[lang="th"] .menu nav a b{font-weight:600}
+/* ===== PRO tags, banner, lock, comparison ===== */
+.pro-tag{display:inline-block;font-family:Anton,sans-serif;font-weight:400;font-size:11px;line-height:1;letter-spacing:.08em;background:#E84884;color:#fff;padding:3px 6px 2px;margin-left:6px;vertical-align:middle;text-transform:uppercase}
+#disc button .pro-tag{font-size:10px;padding:2px 5px 1px}
+.pro-banner{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 0;padding:12px 16px;background:#00307C;color:#fff;font-size:15px}
+.pro-banner .pro-tag{margin:0}.pro-banner a{margin-left:auto;color:#FF8FB8;font-weight:700;text-decoration:none}.pro-banner a:hover{text-decoration:underline}
+.pro-lock{position:absolute;inset:44px 0 0;z-index:5;border:0;background:color-mix(in srgb,var(--surface) 72%,transparent);backdrop-filter:blur(3px);display:grid;place-content:center;justify-items:center;gap:8px;cursor:pointer;font:inherit;color:var(--ink)}
+.pro-lock b{font-family:Kanit,sans-serif;font-size:20px}
+.pro-modal{position:fixed;inset:0;z-index:95;background:rgba(0,20,60,.6);display:grid;place-items:center;padding:20px}
+.pro-modal[hidden]{display:none}
+.pro-modal .box{background:#fff;color:#00307C;border:3px solid #E84884;max-width:440px;padding:28px}
+.pro-modal h2{font-family:Kanit,sans-serif;font-size:24px;margin:10px 0 8px;text-transform:none}.pro-modal p{margin:0 0 18px;color:#41597F}
+.pro-modal .pro-tag{margin:0}
+.cmp{display:grid}
+.cmp-row{display:grid;grid-template-columns:1.8fr .6fr .6fr;gap:16px;align-items:center;border-top:1px solid rgba(255,255,255,.3);padding:18px 0;font-size:17px}
+.cmp-row > div:not(:first-child){text-align:center}
+.cmp-head{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.8;border-top:0;padding:0 0 12px}
+.cmp-row .pc{background:rgba(232,72,132,.16);align-self:stretch;display:grid;place-items:center;margin:-18px 0;padding:18px 0}
+.cmp-head .pc{margin:0;padding:6px 0;background:#E84884;color:#fff;opacity:1}
+.cmp .ok{font-size:24px;font-weight:800;color:#FF8FB8}.cmp .pc .ok{color:#fff}.cmp .no{opacity:.45}
+.cmp .soon{font-size:12px;font-weight:700;letter-spacing:.06em;background:#fff;color:#00307C;padding:3px 8px}
+.cmp-price{border-top:3px solid #fff;font-family:Kanit,sans-serif;font-weight:700}.cmp-price b{font-family:Anton,sans-serif;font-weight:400;font-size:34px;color:#FF8FB8;margin-right:4px}.cmp-price .pc b{color:#fff}
+@media (max-width:640px){.cmp-row{grid-template-columns:1.5fr .55fr .65fr;gap:8px;font-size:14.5px}}
+@media print{
+  body *{visibility:hidden}
+  section[aria-labelledby="b-h"],section[aria-labelledby="b-h"] *{visibility:visible}
+  section[aria-labelledby="b-h"]{position:absolute;left:0;top:0;width:100%;border:0!important}
+  section[aria-labelledby="b-h"] .btn,section[aria-labelledby="b-h"] #toast{display:none!important}
+  .tablewrap{overflow:visible!important}
+}
+.btn.is-off{background:#fff!important;color:#00307C!important;opacity:.75;cursor:default}.c-end .wl-note{margin:18px 0 0;font-size:15px;color:#fff}.c-end .wl-note a{color:#fff;font-weight:700}
