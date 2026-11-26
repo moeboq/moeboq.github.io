@@ -142,3 +142,15 @@ body.app-mode{margin:0;padding:0!important;background:var(--bg)}
 .fl .fb{display:flex;flex-direction:column}.fl .fb > *{flex:none}
 .fl-r #mhint{min-height:1.4em!important}
 .vw-elev .locked .pro-tag{justify-self:center}
+/* wider project browser so the number boxes stay readable */
+@media (min-width:1101px){
+  .fl-l{width:300px}.a-pip{width:300px}
+  .a-main{padding-left:326px}
+}
+.fl-l .g-xy{grid-template-columns:34px minmax(56px,1fr) 46px 24px}
+.fl-l .g-z{grid-template-columns:34px minmax(48px,1fr) minmax(48px,1fr) 42px 24px}
+.fl-l .g-2{grid-template-columns:34px minmax(0,1fr) minmax(0,1fr) 24px}
+.fl-l .g-3{grid-template-columns:34px repeat(3,minmax(0,1fr)) 24px}
+.fl-l .g-4{grid-template-columns:30px repeat(4,minmax(0,1fr)) 24px}
+.fl-l input[type=number],.fl-l input[type=text]{padding:6px 6px;min-width:0}
+.fl-l details.sec > summary{gap:6px}
