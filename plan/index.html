@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=20261126e">
+<link rel="stylesheet" href="../assets/site.css?v=20261126f">
 <style>
 /* Layout: drafting workbench — settings rail left, plan + 3D centre, BOQ sheet below; brand deep red / brown / charcoal on cool grey */
 :root{
@@ -169,9 +169,9 @@ tr.gsub td{font-weight:700;border-top:2px solid var(--line)}
 </style>
 <style>
 /* site skin for the plan tool: white panels, green & purple accents */
-:root{--bg:#E5EBEE;--surface:#FFFFFF;--sunk:#F1F4F6;--line:#C6D1DC;--ink:#00307C;--muted:#41597F;--accent:#E84884;--accent-ink:#FFFFFF;--display:"Anton","Kanit",sans-serif;--body:"Inter","IBM Plex Sans Thai",system-ui,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1733;--surface:#122348;--sunk:#0F1E3E;--line:#26396A;--ink:#EEF2F8;--muted:#AEBBD0;--accent:#F0679B;--accent-ink:#FFFFFF}}
-:root[data-theme="dark"]{--bg:#0B1733;--surface:#122348;--sunk:#0F1E3E;--line:#26396A;--ink:#EEF2F8;--muted:#AEBBD0;--accent:#F0679B;--accent-ink:#FFFFFF}
+:root{--bg:#EAF3FC;--surface:#FFFFFF;--sunk:#F3F8FD;--line:#D5E0EC;--ink:#1B2A41;--muted:#66758A;--accent:#780101;--accent-ink:#FFFFFF;--display:"Anton","Kanit",sans-serif;--body:"Inter","IBM Plex Sans Thai",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1733;--surface:#122348;--sunk:#0F1E3E;--line:#26396A;--ink:#EEF2F8;--muted:#AEBBD0;--accent:#F0506A;--accent-ink:#FFFFFF}}
+:root[data-theme="dark"]{--bg:#0B1733;--surface:#122348;--sunk:#0F1E3E;--line:#26396A;--ink:#EEF2F8;--muted:#AEBBD0;--accent:#F0506A;--accent-ink:#FFFFFF}
 .panel,details.sec{border-radius:0!important}
 .panel,details.sec{box-shadow:none!important}
 .panel{border:1px solid var(--line);border-radius:18px;box-shadow:var(--raise)}
@@ -179,7 +179,7 @@ details.sec{border:1px solid var(--line);border-radius:14px;box-shadow:none}
 .wrap{gap:24px}
 header .eyebrow{width:max-content;max-width:100%}
 </style>
-<link rel="stylesheet" href="../assets/app.css?v=20261126e">
+<link rel="stylesheet" href="../assets/app.css?v=20261126f">
 </head>
 <body>
 <div class="wrap">
@@ -272,6 +272,7 @@ header .eyebrow{width:max-content;max-width:100%}
             <label class="key"><input type="checkbox" id="lyT" checked> โครงหลังคา</label>
             <label class="key"><input type="checkbox" id="lyR"> วัสดุมุง</label>
             <label class="key"><input type="checkbox" id="lyM"> งานระบบ</label>
+            <label class="key"><input type="checkbox" id="lyX" checked> แสงเงาสมจริง</label>
           </div>
           <div class="tools"><span>ลากเพื่อหมุน · เลื่อนลูกกลิ้งหรือถ่างนิ้วเพื่อซูม</span></div>
           <div id="three"><div class="msg" id="tmsg">กำลังโหลดมุมมอง 3 มิติ…</div></div>
@@ -338,7 +339,7 @@ header .eyebrow{width:max-content;max-width:100%}
     <a href="../en/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>
 </div><!--/menu-->
-<script src="../assets/site.js?v=20261126e" defer></script>
+<script src="../assets/site.js?v=20261126f" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
@@ -507,8 +508,8 @@ function axisSums(){
   $('sumZ').textContent = `สูงรวม ${f2(G.lv.reduce((a, l) => a + l.h, 0))} ม. · ${G.lv.length} ชั้น`;
 }
 function inRange(el){ const v = parseFloat(el.value), lo = +el.min, hi = +el.max; const ok = isFinite(v) && v >= lo && v <= hi; el.classList.toggle('bad', !ok); el.title = ok ? '' : `ใส่ค่า ${lo}–${hi}`; return ok ? v : null; }
-document.querySelector('.main').addEventListener('input', e => {
-  const t = e.target;
+document.addEventListener('input', e => {
+  const t = e.target; if (!t.closest || t.closest('.sitebar,.menu,.a-top') || !(t.closest('.main') || t.closest('#app'))) return;
   if (t.dataset.ax){ const v = inRange(t); if (v !== null){ (t.dataset.ax === 'x' ? G.xs : G.ys)[+t.dataset.i] = v; axisSums(); update(); } return; }
   if (t.dataset.z){ const v = inRange(t); if (v !== null){ G.lv[+t.dataset.i][t.dataset.z] = v; axisSums(); update(); } return; }
   if (t.dataset.ty){ const k = t.dataset.ty, ty = TY[k].find(x => x.id === t.dataset.id), fld = t.dataset.f, isInt = fld === 'p';
@@ -522,8 +523,8 @@ document.querySelector('.main').addEventListener('input', e => {
   if (t.id === 'base') axisSums();
   update();
 });
-document.querySelector('.main').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('button'); if (!b || !(b.closest('.main') || b.closest('#app'))) return;
   if (b.id === 'addX' || b.id === 'addY'){
     const ax = b.id === 'addX' ? 'x' : 'y', arr = ax === 'x' ? G.xs : G.ys, old = arr.length;
     arr.push(arr[arr.length - 1]); shiftEdge(ax, old, arr.length); renderAxes(); if (R) R.fitted = false; update(); return;
@@ -1045,11 +1046,13 @@ function init3D(){
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1)); box.appendChild(renderer.domElement); $('tmsg').remove();
     const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(40, 4 / 3, 0.1, 500);
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x666666, 0.95));
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x666666, 0.95); scene.add(hemi);
     const dl = new THREE.DirectionalLight(0xffffff, 0.55); dl.position.set(10, 20, 8); scene.add(dl);
+    const sun = new THREE.DirectionalLight(0xFFEFD6, 2.0); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0004; sun.shadow.radius = 3; sun.visible = false; scene.add(sun); scene.add(sun.target);
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.shadowMap.autoUpdate = false;
     const ctl = new THREE.OrbitControls(cam, renderer.domElement); ctl.enableDamping = true;
     const group = new THREE.Group(); scene.add(group);
-    R = { renderer, scene, cam, ctl, group, fitted: false };
+    R = { renderer, scene, cam, ctl, group, fitted: false, hemi, dl, sun };
     const size = () => { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
     new ResizeObserver(size).observe(box); size();
     (function loop(){ requestAnimationFrame(loop); ctl.update(); renderer.render(scene, cam); })();
@@ -1167,17 +1170,17 @@ function build3D(){
     const rows = Math.ceil(rf.Lsingle / rf.spP); for (let k = 0; k < rows; k++){ const u = k / rows, L = (pa, pb) => pa.map((v, i) => v + (pb[i] - v) * u);
       const k1 = L(c1, p1), k2 = L(c2, p2), k3 = L(c3, p2), k4 = L(c4, p1); [[k1, k2], [k2, k3], [k3, k4], [k4, k1]].forEach(([a, b]) => frame.push(['P', sw2(a), sw2(b)])); }
   }
-  const P3 = p => [p[0] - W / 2, zr + p[2], p[1] - D / 2];
+  const P3 = p => [p[0] - W / 2, zr + p[2], p[1] - D / 2]; let mCeil = null, mRoof = null;
   if (Ly.arc && rf.inf.length){
     const t2 = []; rf.inf.forEach(pl => { const v = pl.map(P3); t2.push(...v[0], ...v[1], ...v[2]); if (v[3]) t2.push(...v[0], ...v[2], ...v[3]); });
     const g2 = new THREE.BufferGeometry(); g2.setAttribute('position', new THREE.Float32BufferAttribute(t2, 3)); g2.computeVertexNormals();
-    g.add(new THREE.Mesh(g2, new THREE.MeshLambertMaterial({ color: 0xbdb5ab, side: THREE.DoubleSide, transparent: true, opacity: 0.85 })));
+    g.add(new THREE.Mesh(g2, mCeil = new THREE.MeshLambertMaterial({ color: 0xbdb5ab, side: THREE.DoubleSide, transparent: true, opacity: 0.85 })));
   }
   rf.posts.forEach(p => frame.push(['V', P3([p.x, p.y, 0]), P3([p.x, p.y, p.h])]));
   rf.sb.forEach(b => frame.push(['S', P3([b.ax, b.ay, b.h]), P3([b.bx, b.by, b.h])]));
   if (Ly.roof && tri.length){
     const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(tri, 3)); geo.computeVertexNormals();
-    g.add(new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ color: $('rf').value === 'metal' ? 0x6d7480 : 0x7a3b2e, side: THREE.DoubleSide, transparent: true, opacity: Ly.frm ? 0.8 : 1 })));
+    g.add(new THREE.Mesh(geo, mRoof = new THREE.MeshLambertMaterial({ color: $('rf').value === 'metal' ? 0x8a9099 : 0x5a6068, side: THREE.DoubleSide, transparent: true, opacity: Ly.frm ? 0.8 : 1 })));
   }
   if (Ly.frm){
     const mR = M(0x3f5b78), mP = M(0x7a8794), mK = M(0x23384d), mV = M(0x2f6b5a), V = THREE.Vector3;
@@ -1190,7 +1193,37 @@ function build3D(){
     });
   }
   if (!R.fitted){ const s = Math.max(W, D, Z[n] + rf.rh); R.cam.position.set(s * 1.2, s * 0.9 + Z[n], s * 1.5); R.ctl.target.set(0, Z[n] / 2 - 1, 0); R.fitted = true; }
+  real3D(g, { conc: [mCol, mConc, mPile, mLean].concat(Object.values(mt)), wall: [mWall], glass: [mGlass], wood: [mDoor], frame: [mFrame], floor: [mFloor], ground: [mGround], ceil: [mCeil], [$('rf').value === 'metal' ? 'metal' : 'roof']: [mRoof] });
 }
+// realistic light & shadow mode (toggle: #lyX)
+let REAL3D = (() => { try { return localStorage.getItem('moe3dReal') !== '0'; } catch (e) { return true; } })();
+const RC = { conc: 0xA8A8A6, wall: 0xEEE9E1, glass: 0x9CC3D8, wood: 0x7A5234, frame: 0x4A4F55, floor: 0xCFCBC3, ground: 0xB7C2AE, roof: 0x5A6068, metal: 0x8A9099, ceil: 0xE6E1D8 };
+function real3D(g, roles){
+  const r = R.renderer, on = REAL3D;
+  r.shadowMap.enabled = on; r.outputEncoding = on ? THREE.sRGBEncoding : THREE.LinearEncoding; r.toneMapping = on ? THREE.LinearToneMapping : THREE.NoToneMapping; r.toneMappingExposure = 0.85;
+  R.hemi.intensity = on ? 0.5 : 0.95; R.hemi.color.set(on ? 0xEAF4FF : 0xffffff); R.hemi.groundColor.set(on ? 0x8A8070 : 0x666666);
+  R.dl.intensity = on ? 0.25 : 0.55; R.sun.visible = on;
+  if (!on) return;
+  const rm = new Map(); Object.entries(roles).forEach(([k, arr]) => arr.forEach(m => m && rm.set(m, k)));
+  const cache = new Map();
+  const conv = m => { if (cache.has(m)) return cache.get(m); const role = rm.get(m); let nm = m;
+    if (m.isMeshLambertMaterial){
+      const col = (role && RC[role] !== undefined ? new THREE.Color(RC[role]) : m.color.clone()).convertSRGBToLinear();
+      const op = role === 'wall' ? 1 : role === 'glass' ? 0.4 : role === 'ground' ? 0.3 : (m.transparent ? m.opacity : 1);
+      nm = new THREE.MeshStandardMaterial({ color: col, roughness: role === 'glass' ? 0.08 : role === 'wood' ? 0.6 : 0.85, metalness: role === 'glass' || role === 'metal' ? 0.25 : 0, side: m.side, transparent: op < 1, opacity: op, depthWrite: op > 0.6 });
+    }
+    cache.set(m, nm); return nm; };
+  const box = new THREE.Box3();
+  g.traverse(o => { if (!o.isMesh) return; const role = rm.get(o.material); o.material = conv(o.material);
+    o.castShadow = role !== 'glass' && role !== 'ground'; o.receiveShadow = true; if (role !== 'ground') box.expandByObject(o); });
+  if (box.isEmpty()) return;
+  const c = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3()), rr = Math.max(sz.x, sz.y, sz.z) * 0.85 + 2;
+  R.sun.position.set(c.x - 0.52 * rr * 1.6, c.y + rr * 1.3, c.z + 0.85 * rr * 1.6); R.sun.target.position.copy(c); R.sun.target.updateMatrixWorld();
+  const sc = R.sun.shadow.camera; sc.left = -rr; sc.right = rr; sc.top = rr; sc.bottom = -rr; sc.near = 0.1; sc.far = rr * 6; sc.updateProjectionMatrix();
+  r.shadowMap.needsUpdate = true;
+}
+$('lyX').addEventListener('change', e => { REAL3D = e.target.checked; try { localStorage.setItem('moe3dReal', REAL3D ? '1' : '0'); } catch (er) {} build3D(); });
+if (!REAL3D) $('lyX').checked = false;
 
 
 const EVN = { F: 'ด้านหน้า', B: 'ด้านหลัง', L: 'ด้านซ้าย', R: 'ด้านขวา', sx: 'รูปตัด ก-ก', sy: 'รูปตัด ข-ข' };
@@ -1323,6 +1356,6 @@ function update(){ const q = compute(); const r = RF(); $('sumR').textContent = 
 initDefaults(); renderAxes(); ['C', 'F', 'B', 'G', 'D', 'W', 'S'].forEach(renderTypes); renderLevels(); init3D(); update();
 })();
 </script>
-<script src="../assets/app.js?v=20261126e" defer></script>
+<script src="../assets/app.js?v=20261126f" defer></script>
 </body>
 </html>

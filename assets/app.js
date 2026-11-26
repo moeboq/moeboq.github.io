@@ -148,5 +148,5 @@
 
   // first-visit tip
   var tip = 0; try { tip = +localStorage.getItem('moe-app-tip'); } catch (e) {}
-  if (!tip) { var hint = $('mhint'); if (hint) hint.insertAdjacentHTML('beforebegin', '<p class="tipx" style="margin:0;padding:8px 10px;border-radius:8px;background:rgba(232,72,132,.12);color:var(--a);font-size:12.5px;font-weight:600">เลือกเครื่องมือจากแถบล่าง แล้วคลิกในแปลนเพื่อวาด · ดูผลใน 3D มุมซ้ายล่าง</p>'); try { localStorage.setItem('moe-app-tip', '1'); } catch (e) {} }
+  if (!tip) { var hint = $('mhint'); if (hint) hint.insertAdjacentHTML('beforebegin', '<p class="tipx" style="margin:0;padding:8px 10px;border-radius:8px;background:rgba(120,1,1,.12);color:var(--a);font-size:12.5px;font-weight:600">เลือกเครื่องมือจากแถบล่าง แล้วคลิกในแปลนเพื่อวาด · ดูผลใน 3D มุมซ้ายล่าง</p>'); try { localStorage.setItem('moe-app-tip', '1'); } catch (e) {} }
 })();
