@@ -162,3 +162,28 @@ body.app-mode{margin:0;padding:0!important;background:var(--bg)}
 .a-bq b{color:#fff}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--a:#C81E32}:root:not([data-theme="light"]) .a-top{background:var(--surface);border-bottom-color:var(--flb)}}
 :root[data-theme="dark"]{--a:#C81E32}:root[data-theme="dark"] .a-top{background:var(--surface);border-bottom-color:var(--flb)}
+
+/* readability (app) */
+#app{font-size:15px}
+.fl > h2{font-size:13.5px;letter-spacing:.03em}
+.fl-r .sub{font-size:13px;letter-spacing:.03em}
+.fl details.sec > summary{font-size:14.5px}
+.fl .sc,.fl .f input,.fl .f select{font-size:14px}
+.fl-r .layers .key{font-size:13.5px;padding:6px 8px}
+.fl-r .kpi .k{font-size:13px}
+.fl-r .dtot,.fl-r .dtot div,.fl-r .dtot .cap{font-size:13.5px}
+.fl-r .warn,.fl-r #mhint,.fl-r .tipx{font-size:14px;line-height:1.55}
+.lh{font-size:13px!important}.dims label{font-size:12.5px!important}
+.cumv,.kg,.hint,.plegend span{font-size:13.5px!important}
+#disc button{font-size:13.5px;padding:4px 12px}
+#modes label{font-size:12.5px}
+.a-proj small{font-size:13px}
+.a-vt button{font-size:14.5px}
+.a-bq small,.a-bq span{font-size:13px}
+#levels button{font-size:13px}
+.pro-tag{font-size:11px}
+#app #disc button{font-size:13.5px!important}#app #modes label{font-size:12.5px!important}#app .tipx{font-size:14px!important;line-height:1.55}
+#app .pt,#app .swap{font-size:13.5px!important}#app #levels button{font-size:13px!important}
+@media (min-width:1101px){.fl-l{width:330px!important}.a-pip{width:330px!important}.a-main{padding-left:356px!important}.fl-r,.a-bq{width:300px!important}}
+.fl details.sec > summary{font-size:14px}
+.fl details.sec > summary .sm,.fl details.sec > summary small,.fl details.sec > summary span{white-space:nowrap}
