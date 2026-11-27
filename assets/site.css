@@ -662,3 +662,4 @@ th,th.num{font-size:14px}
 .cmp-row > div,.cmp-head .pc,.cmp .soon{font-size:13.5px}
 .sitefoot,.sitefoot span,.meta-line{font-size:15px}
 p,li{line-height:1.75}
+input[type=number]{-moz-appearance:textfield;appearance:textfield}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;appearance:none;margin:0}
