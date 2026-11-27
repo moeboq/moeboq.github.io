@@ -102,6 +102,7 @@
     app.querySelectorAll('.a-vt button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.v === v)); });
     if (v === 'plan'){ main.plan.appendChild(planBox); pipBody.appendChild(threeBox); pipT.textContent = '3 มิติ'; pip.hidden = false; }
     else if (v === '3d'){ main['3d'].appendChild(threeBox); pipBody.appendChild(planBox); pipT.textContent = 'แปลน · คลิกเพื่อวาด'; pip.hidden = false; }
+    else if (v === 'elev' && PRO){ main['3d'].appendChild(threeBox); pipBody.appendChild(planBox); pipT.textContent = 'แปลน · ลากเส้นตัดสีแดงได้'; pip.hidden = false; }
     else { pip.hidden = true; }
     q('.a-stage').classList.toggle('has-pip', !pip.hidden);
     try { localStorage.setItem('moe-app-view', v); } catch (e) {}

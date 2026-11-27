@@ -64,6 +64,7 @@ legend{font-family:var(--display);font-weight:500;font-size:14px;padding:0 6px}
 @media (max-width:1100px){.views{grid-template-columns:minmax(0,1fr)}}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;font-size:13px;color:var(--muted)}
 .key{display:inline-flex;align-items:center;gap:6px}
+.cutw{display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center}.cutw[hidden]{display:none}.cutw .key{display:inline-flex;align-items:center;gap:6px}.cuthint{font-size:13px;color:var(--muted)}
 .layers .key{color:var(--ink);font-size:14px;cursor:pointer}
 .layers input{accent-color:var(--accent);width:16px;height:16px}
 .sw{width:14px;height:10px;border-radius:2px;display:inline-block;border:1px solid var(--line)}
@@ -304,7 +305,7 @@ header .eyebrow{width:max-content;max-width:100%}
         </section>
         <section class="panel" aria-labelledby="e-h" style="grid-column:1/-1">
           <h2 id="e-h">รูปด้านและรูปตัด</h2>
-          <div class="evbar"><div id="evb" class="levels" style="margin:0" role="group" aria-label="เลือกรูปด้านหรือรูปตัด"></div><label class="key" id="cutw" hidden>ตำแหน่งตัด <select id="cutk"></select></label></div>
+          <div class="evbar"><div id="evb" class="levels" style="margin:0" role="group" aria-label="เลือกรูปด้านหรือรูปตัด"></div><span class="cutw" id="cutw" hidden><label class="key">ช่วง <select id="cutk"></select></label><label class="key">ระยะจากกริด <span id="cutref"></span> <input id="cutm" type="number" step="0.05" min="0" inputmode="decimal" style="width:76px"> ม.</label><span class="cuthint">หรือลากเส้นตัดสีแดงในแปลน</span></span></div>
           <div class="tablewrap"><svg id="elev" role="img" aria-label="รูปด้านหรือรูปตัดแสดงระดับชั้นและเส้นกริด" style="width:100%;min-width:520px;height:auto;display:block"></svg></div>
         </section>
       </div>
@@ -442,7 +443,16 @@ const G = { xs: [4, 4, 3.5], ys: [4, 4], lv: [{ h: 3.0, t: 0.10 }] };
 const newFloor = () => ({ walls: new Set(), bath: new Set(), open: new Map(), col: new Map(), beam: new Map(), mep: new Map(), ele: new Map() });
 const FL = [newFloor()];
 const FD = { fnd: new Map(), gb: new Map(), meter: null, sep: null, db: null };
-const UI = { disc: 'arc', lvl: 0, mode: 'wall', ev: 'F', cutK: 0 };
+const UI = { disc: 'arc', lvl: 0, mode: 'wall', ev: 'F', cutK: 0, cutP: { sx: null, sy: null } };
+// free section position (metres along the axis perpendicular to the cut line)
+function cutAt(ev){
+  const sx = ev === 'sx', sp = sx ? G.ys : G.xs, Po = cum(sp), L = Po[Po.length - 1];
+  let p = UI.cutP[ev]; if (p === null || p === undefined || !isFinite(p)){ const k = Math.max(0, Math.min(UI.cutK, sp.length - 1)); p = Po[k] + sp[k] / 2; }
+  p = Math.max(0.05, Math.min(L - 0.05, p));
+  let k = 0; while (k < sp.length - 1 && p > Po[k + 1] - 1e-9) k++;
+  if (Math.abs(p - Po[k + 1]) < 0.05) p = Po[k + 1] - 0.05; if (Math.abs(p - Po[k]) < 0.05) p = Po[k] + 0.05;
+  return { k, p, Po, sp, L };
+}
 const CW = '#3B7FB6', CD = '#8B5E3C', CG = '#B08A5A';
 const cum = a => a.reduce((r, v) => (r.push(r[r.length - 1] + v), r), [0]);
 const nx = () => G.xs.length, ny = () => G.ys.length;
@@ -544,7 +554,7 @@ document.addEventListener('input', e => {
     const v = parseFloat(t.value), ok = isFinite(v) && (isInt ? v >= 0 && v <= 12 : v > 0.05 && v <= 6);
     t.classList.toggle('bad', !ok); if (ok && ty){ ty[fld] = isInt ? Math.round(v) : v; fillPick(); update(); } return; }
   if (t.closest && t.closest('#plan')) return;
-  if (t.id === 'pick' || t.id === 'cutk') return;
+  if (t.id === 'pick' || t.id === 'cutk' || t.id === 'cutm') return;
   if (t.dataset.sec){ const ty = TY.S.find(x => x.id === t.dataset.sec), f = t.dataset.f;
     if (f === 'sh') ty.sh = t.value; else { const v = parseFloat(t.value), ok = isFinite(v) && v >= 0 && v <= (f === 't' ? 12 : 400); t.classList.toggle('bad', !ok); if (!ok) return; ty[f] = v; }
     const kgEl = document.querySelector(`[data-kg="${ty.id}"]`); if (kgEl) kgEl.textContent = `${f2(kgm(ty))} กก./ม.`; fillSecPicks(); update(); return; }
@@ -853,15 +863,17 @@ function drawPlan(){
   if (sys && !fnd) s += sysOverlay(Dd, f, px, py, S, X, Y);
   // section cut line
   if (UI.ev === 'sx' || UI.ev === 'sy'){
-    const kk = Math.min(UI.cutK, (UI.ev === 'sx' ? ny() : nx()) - 1), lab = UI.ev === 'sx' ? 'ก' : 'ข', col = 'var(--accent)'; let c = '';
-    if (UI.ev === 'sx'){ const yc = py(Y[kk] + G.ys[kk] / 2), xa = px(0) - 14, xb = px(W) + 14;
+    const CA = cutAt(UI.ev), lab = UI.ev === 'sx' ? 'ก' : 'ข', col = 'var(--accent)'; let c = '';
+    UI.pv = { S, ML, MT };
+    if (UI.ev === 'sx'){ const yc = py(CA.p), xa = px(0) - 14, xb = px(W) + 14;
       c += `<line x1="${xa}" y1="${yc}" x2="${xb}" y2="${yc}" stroke="${col}" stroke-width="1.8" stroke-dasharray="14 4 3 4"/>`;
       [xa, xb].forEach(x => c += `<polygon points="${x - 6},${yc + 3} ${x + 6},${yc + 3} ${x},${yc + 14}" fill="${col}"/><text x="${x}" y="${yc - 5}" text-anchor="middle" style="fill:${col};font-weight:700;font-size:13px">${lab}</text>`);
-    } else { const xc = px(X[kk] + G.xs[kk] / 2), ya = py(0) - 14, yb = py(H) + 14;
+    } else { const xc = px(CA.p), ya = py(0) - 14, yb = py(H) + 14;
       c += `<line x1="${xc}" y1="${ya}" x2="${xc}" y2="${yb}" stroke="${col}" stroke-width="1.8" stroke-dasharray="14 4 3 4"/>`;
       [ya, yb].forEach(y => c += `<polygon points="${xc + 3},${y - 6} ${xc + 3},${y + 6} ${xc + 14},${y}" fill="${col}"/><text x="${xc - 8}" y="${y + 4}" text-anchor="end" style="fill:${col};font-weight:700;font-size:13px">${lab}</text>`);
     }
-    s += `<g pointer-events="none">${c}</g>`;
+    const hit = UI.ev === 'sx' ? `x1="${px(0) - 14}" y1="${py(CA.p)}" x2="${px(W) + 14}" y2="${py(CA.p)}"` : `x1="${px(CA.p)}" y1="${py(0) - 14}" x2="${px(CA.p)}" y2="${py(H) + 14}"`;
+    s += `<g pointer-events="none">${c}</g><line class="cut-hit" ${hit} stroke="transparent" stroke-width="16" style="cursor:${UI.ev === 'sx' ? 'ns-resize' : 'ew-resize'}"><title>ลากเพื่อเลื่อนตำแหน่งตัด</title></line>`;
   }
   // grid lines extended to bubbles (dash-dot), bubbles, two-tier dimension chains in mm
   const mm = v => fmt(Math.round(v * 1000));
@@ -1324,11 +1336,23 @@ const EVN = { F: 'ด้านหน้า', B: 'ด้านหลัง', L: '
 function renderEvBar(){
   $('evb').innerHTML = Object.entries(EVN).map(([v, t]) => `<button type="button" data-ev="${v}" aria-pressed="${UI.ev === v}">${t}</button>`).join('');
   const cut = UI.ev === 'sx' || UI.ev === 'sy'; $('cutw').hidden = !cut;
-  if (cut){ const nn = UI.ev === 'sx' ? ny() : nx(); UI.cutK = Math.max(0, Math.min(UI.cutK, nn - 1));
-    $('cutk').innerHTML = Array.from({ length: nn }, (_, k) => `<option value="${k}">${UI.ev === 'sx' ? `ระหว่างกริด ${k + 1}–${k + 2}` : `ระหว่างกริด ${L1(k)}–${L1(k + 1)}`}</option>`).join(''); $('cutk').value = UI.cutK; }
+  if (cut){ const nn = UI.ev === 'sx' ? ny() : nx(), CA = cutAt(UI.ev); UI.cutK = CA.k;
+    $('cutk').innerHTML = Array.from({ length: nn }, (_, k) => `<option value="${k}">${UI.ev === 'sx' ? `${k + 1}–${k + 2}` : `${L1(k)}–${L1(k + 1)}`}</option>`).join(''); $('cutk').value = CA.k;
+    $('cutref').textContent = UI.ev === 'sx' ? '1' : 'A'; const m = $('cutm'); m.max = CA.L; if (document.activeElement !== m) m.value = CA.p.toFixed(2); }
 }
 $('evb').addEventListener('click', e => { const b = e.target.closest('button[data-ev]'); if (!b) return; UI.ev = b.dataset.ev; drawElev(); drawPlan(); });
-$('cutk').addEventListener('change', e => { UI.cutK = +e.target.value; drawElev(); drawPlan(); });
+$('cutk').addEventListener('change', e => { UI.cutK = +e.target.value; UI.cutP[UI.ev] = null; drawElev(); drawPlan(); });
+$('cutm').addEventListener('input', e => { const v = parseFloat(e.target.value); if (!isFinite(v)) return; UI.cutP[UI.ev] = v; drawElev(); drawPlan(); });
+$('cutm').addEventListener('change', () => renderEvBar());
+(() => { const svg = $('plan'); let drag = false, raf = 0;
+  const toM = e => { const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY; const q = pt.matrixTransform(svg.getScreenCTM().inverse()), v = UI.pv;
+    return UI.ev === 'sx' ? (q.y - v.MT) / v.S : (q.x - v.ML) / v.S; };
+  svg.addEventListener('pointerdown', e => { if (!e.target.classList || !e.target.classList.contains('cut-hit')) return; drag = true; svg.setPointerCapture(e.pointerId); e.preventDefault(); e.stopPropagation(); });
+  svg.addEventListener('pointermove', e => { if (!drag) return; const m = Math.round(toM(e) * 20) / 20; UI.cutP[UI.ev] = m; if (!raf) raf = requestAnimationFrame(() => { raf = 0; drawPlan(); drawElev(); }); });
+  const end = e => { if (!drag) return; drag = false; try { svg.releasePointerCapture(e.pointerId); } catch (er) {} };
+  svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
+  svg.addEventListener('click', e => { if (e.target.classList && e.target.classList.contains('cut-hit')) e.stopImmediatePropagation(); }, true);
+})();
 function drawElev(){
   renderEvBar();
   const X = cum(G.xs), Y = cum(G.ys), W = X[X.length - 1], D = Y[Y.length - 1], n = G.lv.length, base = baseLv(), ped = Math.max(0.5, +$('ped').value || 1);
@@ -1337,7 +1361,7 @@ function drawElev(){
   const ridge = rf.shape === 'shed' ? topCol + (rf.dir === 'x' ? rf.D : rf.W) * rf.tan + O * rf.tan : topCol + rf.rh;
   const ev = UI.ev, cut = ev === 'sx' || ev === 'sy', a = (ev === 'F' || ev === 'B' || ev === 'sx') ? 'x' : 'y', flip = ev === 'B' || ev === 'L' || ev === 'sy';
   const P = a === 'x' ? X : Y, sp = a === 'x' ? G.xs : G.ys, Len = a === 'x' ? W : D, Po = a === 'x' ? Y : X, spo = a === 'x' ? G.ys : G.xs, no = spo.length;
-  const kC = Math.max(0, Math.min(UI.cutK, no - 1)), cPos = Po[kC] + spo[kC] / 2;
+  const CA = cut ? cutAt(ev) : null, kC = cut ? CA.k : Math.max(0, Math.min(UI.cutK, no - 1)), cPos = cut ? CA.p : Po[kC] + spo[kC] / 2;
   const face = ev === 'F' || ev === 'L' ? 0 : ev === 'B' || ev === 'R' ? no : kC + 1;
   const U = p => flip ? Len - p : p, lab = i => a === 'x' ? L1(i) : String(i + 1), olab = i => a === 'x' ? String(i + 1) : L1(i);
   const ptI = (i, fi) => a === 'x' ? [i, fi] : [fi, i], segK = (i, fi) => a === 'x' ? `h:${i}:${fi}` : `v:${fi}:${i}`, crossK = i => a === 'x' ? `v:${i}:${kC}` : `h:${kC}:${i}`;
@@ -1421,7 +1445,7 @@ function drawElev(){
   }
   s += `<text x="${px(Len / 2) + 8}" y="${pz(eave) - 8}" text-anchor="start" style="fill:${cut || strM ? ink : '#fff'};font-size:11px">${({ hip: 'ปั้นหยา', gable: 'จั่ว', shed: 'เพิงหมาแหงน' })[rf.shape]} ${rf.deg}°</text>`;
   // title
-  const fl = ev === 'F' ? 'แนวกริด 1' : ev === 'B' ? `แนวกริด ${ny() + 1}` : ev === 'L' ? 'แนวกริด A' : ev === 'R' ? `แนวกริด ${L1(nx())}` : `ตัดระหว่างกริด ${olab(kC)}–${olab(kC + 1)} มองไปทางกริด ${olab(kC + 1)}`;
+  const fl = ev === 'F' ? 'แนวกริด 1' : ev === 'B' ? `แนวกริด ${ny() + 1}` : ev === 'L' ? 'แนวกริด A' : ev === 'R' ? `แนวกริด ${L1(nx())}` : `ตัดที่ ${fmt(cPos, 2)} ม. จากกริด ${olab(0)} (ระหว่างกริด ${olab(kC)}–${olab(kC + 1)}) มองไปทางกริด ${olab(kC + 1)}`;
   s += `<text x="${ML}" y="20" style="fill:${ink};font-weight:700;font-size:14px">${cut ? EVN[ev] : 'รูป' + EVN[ev]}</text><text x="${ML}" y="35" style="fill:var(--muted);font-size:11px">${fl} · ${strM ? 'แสดงงานโครงสร้าง' : 'แสดงงานสถาปัตยกรรม'}</text>`;
   // grid bubbles + span dims at bottom
   const yb = Hpx + MT + 18, yd = Hpx + MT + 44;
