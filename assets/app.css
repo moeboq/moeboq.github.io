@@ -187,3 +187,4 @@ body.app-mode{margin:0;padding:0!important;background:var(--bg)}
 @media (min-width:1101px){.fl-l{width:330px!important}.a-pip{width:330px!important}.a-main{padding-left:356px!important}.fl-r,.a-bq{width:300px!important}}
 .fl details.sec > summary{font-size:14px}
 .fl details.sec > summary .sm,.fl details.sec > summary small,.fl details.sec > summary span{white-space:nowrap}
+.a-pip .v3bar{display:none}

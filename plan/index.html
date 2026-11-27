@@ -22,6 +22,8 @@
 <style>
 /* Layout: drafting workbench — settings rail left, plan + 3D centre, BOQ sheet below; brand deep red / brown / charcoal on cool grey */
 :root{
+  --wb-fill:#FFFFFF; --wb-line:#1A1A1A; --wb-slab:#E2E2E2; --wb-wall:#BDBDBD; --wb-txt:#1C1C1E;
+  --c-col:#D32F2F; --c-beam:#1E63B5; --c-slab:#B8C4D0; --c-fnd:#2E7D32; --c-gb:#7B3FA0; --c-pile:#6B6F76;
   --bg:#E4E4E6; --surface:#EFEFF1; --sunk:#E8E8EB; --ink:#1C1C1E; --muted:#5E5E64; --line:#CFCFD4;
   --accent:#8B1E16; --accent-ink:#F0F0F2; --brown:#8B5E3C; --wall:#3A3A3E; --bay:#F6F6F7; --bath:#E7D6C9; --grid:#B9B9BF; --facade:#D9D1C8; --facade2:#C4BAB0; --glass:#9EC3D6;
   --display:"Kanit","Sarabun",system-ui,sans-serif; --body:"Sarabun","Tahoma",system-ui,sans-serif;
@@ -29,10 +31,10 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#161618; --surface:#222225; --sunk:#1B1B1E; --ink:#ECECEE; --muted:#A5A5AC; --line:#38383D;
-  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --wall:#D7D7DC; --bay:#2A2A2E; --bath:#4A3A2E; --grid:#55555C; --facade:#4B4641; --facade2:#5C5650; --glass:#4F7A90; color-scheme:dark}}
+  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --wall:#D7D7DC; --bay:#2A2A2E; --bath:#4A3A2E; --grid:#55555C; --facade:#4B4641; --facade2:#5C5650; --glass:#4F7A90; --wb-fill:#1E1E22; --wb-line:#EDEDED; --wb-slab:#2E2E33; --wb-wall:#6A6A72; --wb-txt:#F2F2F3; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#161618; --surface:#222225; --sunk:#1B1B1E; --ink:#ECECEE; --muted:#A5A5AC; --line:#38383D;
-  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --wall:#D7D7DC; --bay:#2A2A2E; --bath:#4A3A2E; --grid:#55555C; --facade:#4B4641; --facade2:#5C5650; --glass:#4F7A90; color-scheme:dark}
+  --accent:#D9604F; --accent-ink:#161618; --brown:#C08A63; --wall:#D7D7DC; --bay:#2A2A2E; --bath:#4A3A2E; --grid:#55555C; --facade:#4B4641; --facade2:#5C5650; --glass:#4F7A90; --wb-fill:#1E1E22; --wb-line:#EDEDED; --wb-slab:#2E2E33; --wb-wall:#6A6A72; --wb-txt:#F2F2F3; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 40px}
@@ -73,6 +75,22 @@ legend{font-family:var(--display);font-weight:500;font-size:14px;padding:0 6px}
 #three{width:100%;aspect-ratio:4/3;max-width:100%;border-radius:8px;background:var(--sunk);overflow:hidden;position:relative}
 #three canvas{display:block;width:100%!important;height:100%!important}
 #three .msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:20px}
+.v3bar{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;z-index:3;font-size:13px}
+.v3views{display:flex;gap:2px;padding:3px;background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.v3bar button{font:inherit;font-weight:600;border:0;background:none;color:var(--ink);padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.v3bar button:hover{background:var(--sunk)}
+.v3bar button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.v3bar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3sec{background:var(--surface)!important;border:1px solid var(--line)!important;display:inline-flex;align-items:center;gap:6px}
+.v3sec[aria-pressed="true"]{background:var(--ink)!important;color:var(--surface)!important}
+.v3secp{display:grid;gap:8px;padding:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:250px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.v3secp[hidden]{display:none}
+.v3ax{display:flex;gap:2px;background:var(--sunk);border-radius:999px;padding:3px}
+.v3ax button{flex:1;padding:5px 8px}
+.v3secp label{display:grid;gap:4px;color:var(--muted);font-size:12.5px}
+.v3secp input[type=range]{width:100%;accent-color:var(--accent)}
+.v3secp .v3flip{justify-self:start;border:1px solid var(--line)}
+@media (max-width:700px){.v3bar{top:76px;right:8px;left:8px;align-items:flex-start}.v3views{overflow-x:auto;max-width:100%}.v3bar button{padding:6px 9px}}
 .kpis{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline;margin-bottom:12px}
 .kpi .k{font-size:13px;color:var(--muted)}
 .kpi .v{font-family:var(--display);font-weight:700;font-size:28px;font-variant-numeric:tabular-nums}
@@ -348,6 +366,9 @@ const $ = id => document.getElementById(id);
 const fmt = (n, d = 0) => (+n).toLocaleString('th-TH', { minimumFractionDigits: d, maximumFractionDigits: d });
 const f2 = v => fmt(v, 2);
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const WB = (window.MOE_STYLE || 'wb') === 'wb'; // white model, black outlines
+const WBK = 'var(--wb-line)', WBF = 'var(--wb-fill)';
+const wbLine = (L, w, fill) => `<line pointer-events="none" ${L} stroke="${WBK}" stroke-width="${w + 2.5}" stroke-linecap="square"/><line pointer-events="none" ${L} stroke="${fill || WBF}" stroke-width="${w}" stroke-linecap="square"/>`;
 const P = {
   exc:  ['ขุดดินฐานราก', 'ลบ.ม.', 0, 120], fill: ['ถมดินกลับบดอัด', 'ลบ.ม.', 0, 80],
   sand: ['ทรายหยาบรองพื้น', 'ลบ.ม.', 510, 99], lean: ['คอนกรีตหยาบ', 'ลบ.ม.', 2670, 426],
@@ -509,7 +530,7 @@ function axisSums(){
 }
 function inRange(el){ const v = parseFloat(el.value), lo = +el.min, hi = +el.max; const ok = isFinite(v) && v >= lo && v <= hi; el.classList.toggle('bad', !ok); el.title = ok ? '' : `ใส่ค่า ${lo}–${hi}`; return ok ? v : null; }
 document.addEventListener('input', e => {
-  const t = e.target; if (!t.closest || t.closest('.sitebar,.menu,.a-top') || !(t.closest('.main') || t.closest('#app'))) return;
+  const t = e.target; if (!t.closest || t.closest('.sitebar,.menu,.a-top,.v3bar') || !(t.closest('.main') || t.closest('#app'))) return;
   if (t.dataset.ax){ const v = inRange(t); if (v !== null){ (t.dataset.ax === 'x' ? G.xs : G.ys)[+t.dataset.i] = v; axisSums(); update(); } return; }
   if (t.dataset.z){ const v = inRange(t); if (v !== null){ G.lv[+t.dataset.i][t.dataset.z] = v; axisSums(); update(); } return; }
   if (t.dataset.ty){ const k = t.dataset.ty, ty = TY[k].find(x => x.id === t.dataset.id), fld = t.dataset.f, isInt = fld === 'p';
@@ -761,7 +782,10 @@ function legend(Dd){
   const ln = (col, dash, w) => `<svg viewBox="0 0 22 18" aria-hidden="true"><line x1="1" y1="9" x2="21" y2="9" stroke="${col}" stroke-width="${w || 2}" ${dash ? `stroke-dasharray="${dash}"` : ''}/></svg>`;
   const sy = k => `<svg viewBox="-11 -9 22 18" aria-hidden="true">${sym(k, 0, 0)}</svg>`;
   let it;
-  if (Dd === 'str') it = [[sw('var(--accent)'), 'เสา / คาน'], [sw('var(--brown)', 'fill-opacity=".4" stroke="var(--brown)"'), 'ฐานราก / คานคอดิน'], [sw('var(--grid)', 'fill-opacity=".6"'), 'แนวผนัง (อ้างอิง)']];
+  const wbs = `stroke="${WBK}" stroke-width="1.5"`;
+  if (Dd === 'str' && WB) it = [[sw(WBF, wbs), 'เสา / คาน / ฐานราก'], [sw('var(--wb-slab)', wbs), 'พื้น'], [sw('var(--grid)', 'fill-opacity=".6"'), 'แนวผนัง']];
+  else if (Dd === 'arc' && WB) it = [[sw('var(--wb-wall)', wbs), 'ผนัง'], [ln('var(--brown)', '', 6), 'ประตู'], [ln('#7fb3cf', '', 4), 'หน้าต่าง'], [sw('var(--bath)'), 'ห้องน้ำ']];
+  else if (Dd === 'str') it = [[sw('var(--c-col)'), 'เสา'], [ln('var(--c-beam)', '', 5), 'คาน'], [sw('var(--c-slab)', 'fill-opacity=".6"'), 'พื้น'], [sw('var(--c-fnd)', 'fill-opacity=".45" stroke="var(--c-fnd)"'), 'ฐานราก'], [ln('var(--c-gb)', '', 5), 'คานคอดิน'], [sw('var(--grid)', 'fill-opacity=".6"'), 'แนวผนัง']];
   else if (Dd === 'arc') it = [[sw('var(--wall)'), 'ผนัง'], [ln('var(--brown)', '', 6), 'ประตู'], [ln('#7fb3cf', '', 4), 'หน้าต่าง'], [sw('var(--bath)'), 'ห้องน้ำ']];
   else if (Dd === 'mep') it = ['wc', 'lav', 'shw', 'fd', 'sink', 'meter', 'sep'].map(k => [sy(k), SYMN[k]]).concat([[ln(CW), 'ท่อน้ำดี'], [ln(CD), 'ท่อส้วม 4″'], [ln(CG, '6 3'), 'ท่อน้ำทิ้ง 2″']]);
   else it = ['lt', 'sw', 'so', 'ac', 'wh', 'db'].map(k => [sy(k), SYMN[k]]).concat([[ln('var(--accent)', '5 3'), 'วงจรแสงสว่าง'], [ln('var(--muted)', '2 3'), 'วงจรเต้ารับ'], [ln('#2f6b5a', '8 2 2 2'), 'วงจรเฉพาะ']]);
@@ -777,7 +801,7 @@ function drawPlan(){
   let s = '';
   for (let i = 0; i < nx(); i++) for (let j = 0; j < ny(); j++){
     const k = `b:${i}:${j}`, bth = !fnd && F.bath.has(k), showB = bth && Dd !== 'str', ar = fmt(G.xs[i] * G.ys[j], 1) + ' ตร.ม.';
-    s += `<rect class="bay" data-k="${k}" ${Dd === 'str' ? 'pointer-events="none"' : ''} x="${px(X[i])}" y="${py(Y[j])}" width="${G.xs[i] * S}" height="${G.ys[j] * S}" fill="${showB ? 'var(--bath)' : 'var(--bay)'}"/>`;
+    s += `<rect class="bay" data-k="${k}" ${Dd === 'str' ? 'pointer-events="none"' : ''} x="${px(X[i])}" y="${py(Y[j])}" width="${G.xs[i] * S}" height="${G.ys[j] * S}" fill="${showB ? 'var(--bath)' : 'var(--bay)'}"/>` + (Dd === 'str' && !fnd ? `<rect pointer-events="none" x="${px(X[i]) + 3}" y="${py(Y[j]) + 3}" width="${G.xs[i] * S - 6}" height="${G.ys[j] * S - 6}" fill="${WB ? 'var(--wb-slab)' : 'var(--c-slab)'}" fill-opacity="${WB ? 1 : .35}"/>` : '');
     if (sys) s += `<text pointer-events="none" x="${px(X[i]) + 5}" y="${py(Y[j]) + 12}" style="fill:var(--muted);font-size:9.5px">${bth ? 'ห้องน้ำ' : ar}</text>`;
     else s += `<text pointer-events="none" x="${px(X[i] + G.xs[i] / 2)}" y="${py(Y[j] + G.ys[j] / 2) + 4}" text-anchor="middle"${showB ? ' style="fill:var(--brown)"' : Dd === 'str' ? ' style="fill:var(--muted)"' : ''}>${showB ? 'ห้องน้ำ' : ar}</text>`;
   }
@@ -787,14 +811,14 @@ function drawPlan(){
     const tagAt = (txt, col) => `<text pointer-events="none" class="tag" x="${(x1 + x2) / 2 + (sg.hz ? 0 : 12)}" y="${(y1 + y2) / 2 + (sg.hz ? -7 : 4)}" text-anchor="middle" style="fill:${col}">${txt}</text>`;
     if (fnd){
       const g = gbAt(sg.k);
-      s += `<line class="seg-vis" pointer-events="none" ${L} stroke="${g ? 'var(--brown)' : 'var(--grid)'}" stroke-width="${g ? Math.max(3, g.b * S) : 1.5}" ${g ? '' : 'stroke-dasharray="5 4"'}/>` + tagAt(g ? g.id : '-', 'var(--brown)');
+      s += (WB && g ? `<line class="seg-vis" pointer-events="none" ${L} stroke="transparent" stroke-width="${(Math.max(4, g.b * S)) + 7}"/>` + wbLine(L, Math.max(4, g.b * S)) : `<line class="seg-vis" pointer-events="none" ${L} stroke="${g ? 'var(--c-gb)' : 'var(--grid)'}" stroke-width="${g ? Math.max(3, g.b * S) : 1.5}" ${g ? '' : 'stroke-dasharray="5 4"'}/>`) + tagAt(g ? g.id : '-', WB ? 'var(--ink)' : 'var(--c-gb)');
     } else if (Dd === 'str'){
       if (F.walls.has(sg.k)) s += `<line pointer-events="none" ${L} stroke="var(--grid)" stroke-width="6" stroke-opacity=".55"/>`;
       const bm = beamAt(f, sg.k);
-      s += `<line class="seg-vis" pointer-events="none" ${L} stroke="${bm ? 'var(--accent)' : 'var(--grid)'}" stroke-width="${bm ? Math.max(3, bm.b * S) : 1.5}" ${bm ? 'stroke-opacity=".85"' : 'stroke-dasharray="5 4"'}/>` + tagAt(bm ? bm.id : '-', 'var(--accent)');
+      s += (WB && bm ? `<line class="seg-vis" pointer-events="none" ${L} stroke="transparent" stroke-width="${(Math.max(4, bm.b * S)) + 7}"/>` + wbLine(L, Math.max(4, bm.b * S)) : `<line class="seg-vis" pointer-events="none" ${L} stroke="${bm ? 'var(--c-beam)' : 'var(--grid)'}" stroke-width="${bm ? Math.max(3, bm.b * S) : 1.5}" ${bm ? 'stroke-opacity=".9"' : 'stroke-dasharray="5 4"'}/>`) + tagAt(bm ? bm.id : '-', WB ? 'var(--ink)' : 'var(--c-beam)');
     } else if (Dd === 'arc'){
       const w = F.walls.has(sg.k);
-      s += `<line class="seg-vis" pointer-events="none" ${L} stroke="${w ? 'var(--wall)' : 'var(--grid)'}" stroke-width="${w ? 7 : 1.5}" ${w ? '' : 'stroke-dasharray="5 4"'}/>`;
+      s += WB && w ? `<line class="seg-vis" pointer-events="none" ${L} stroke="transparent" stroke-width="${(6) + 7}"/>` + wbLine(L, 6, 'var(--wb-wall)') : `<line class="seg-vis" pointer-events="none" ${L} stroke="${w ? 'var(--wall)' : 'var(--grid)'}" stroke-width="${w ? 7 : 1.5}" ${w ? '' : 'stroke-dasharray="5 4"'}/>`;
       if (w) opLay(f, sg).forEach(({ o, s0 }) => {
         const c = s0 + o.t.w / 2, r = c / sg.L, cx = x1 + (x2 - x1) * r, cy = y1 + (y2 - y1) * r, hl = o.t.w * S / 2, dx = sg.hz ? hl : 0, dy = sg.hz ? 0 : hl, isD = o.k === 'D';
         s += `<line pointer-events="none" x1="${cx - dx}" y1="${cy - dy}" x2="${cx + dx}" y2="${cy + dy}" stroke="${isD ? 'var(--brown)' : '#7fb3cf'}" stroke-width="${isD ? 9 : 5}"/>`;
@@ -807,16 +831,16 @@ function drawPlan(){
     if (Dd === 'str') s += `<rect class="pt" data-k="p:${i}:${j}" x="${x - 10}" y="${y - 10}" width="20" height="20" fill="transparent"/>`;
     if (fnd){
       const ft = fndAt(i, j);
-      s += ft ? `<rect pointer-events="none" x="${x - ft.B * S / 2}" y="${y - ft.L * S / 2}" width="${ft.B * S}" height="${ft.L * S}" fill="var(--brown)" fill-opacity="0.35" stroke="var(--brown)"/>`
+      s += ft ? `<rect pointer-events="none" x="${x - ft.B * S / 2}" y="${y - ft.L * S / 2}" width="${ft.B * S}" height="${ft.L * S}" fill="${WB ? WBF : 'var(--c-fnd)'}" fill-opacity="${WB ? 1 : 0.35}" stroke="${WB ? WBK : 'var(--c-fnd)'}" stroke-width="${WB ? 1.6 : 1}"/>`
         : `<circle pointer-events="none" cx="${x}" cy="${y}" r="5" fill="none" stroke="var(--grid)" stroke-width="1.5"/>`;
-      s += `<text pointer-events="none" class="tag" x="${x + 9}" y="${y - 9}" style="fill:var(--brown)">${ft ? ft.id : '-'}</text>`;
+      s += `<text pointer-events="none" class="tag" x="${x + 9}" y="${y - 9}" style="fill:${WB ? 'var(--ink)' : 'var(--c-fnd)'}">${ft ? ft.id : '-'}</text>`;
     } else {
       const c = colAt(f, i, j);
       if (Dd === 'str'){
-        s += c ? `<rect pointer-events="none" x="${x - Math.max(7, c.b * S) / 2}" y="${y - Math.max(7, c.d * S) / 2}" width="${Math.max(7, c.b * S)}" height="${Math.max(7, c.d * S)}" fill="var(--accent)"/>`
+        s += c ? `<rect pointer-events="none" x="${x - Math.max(7, c.b * S) / 2}" y="${y - Math.max(7, c.d * S) / 2}" width="${Math.max(7, c.b * S)}" height="${Math.max(7, c.d * S)}" fill="${WB ? WBF : 'var(--c-col)'}" ${WB ? `stroke="${WBK}" stroke-width="1.8"` : ''}/>`
           : `<circle pointer-events="none" cx="${x}" cy="${y}" r="5" fill="none" stroke="var(--grid)" stroke-width="1.5"/>`;
-        s += `<text pointer-events="none" class="tag" x="${x + 9}" y="${y - 9}" style="fill:var(--accent)">${c ? c.id : '-'}</text>`;
-      } else if (c) s += `<rect pointer-events="none" x="${x - Math.max(6, c.b * S) / 2}" y="${y - Math.max(6, c.d * S) / 2}" width="${Math.max(6, c.b * S)}" height="${Math.max(6, c.d * S)}" fill="${sys ? 'var(--grid)' : 'var(--wall)'}"/>`;
+        s += `<text pointer-events="none" class="tag" x="${x + 9}" y="${y - 9}" style="fill:${WB ? 'var(--ink)' : 'var(--c-col)'}">${c ? c.id : '-'}</text>`;
+      } else if (c) s += `<rect pointer-events="none" x="${x - Math.max(6, c.b * S) / 2}" y="${y - Math.max(6, c.d * S) / 2}" width="${Math.max(6, c.b * S)}" height="${Math.max(6, c.d * S)}" fill="${WB ? WBF : sys ? 'var(--grid)' : 'var(--wall)'}" ${WB ? `stroke="${WBK}" stroke-width="1.6"` : ''}/>`;
     }
   }
   if (sys && !fnd) s += sysOverlay(Dd, f, px, py, S, X, Y);
@@ -1056,6 +1080,7 @@ function init3D(){
     const size = () => { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
     new ResizeObserver(size).observe(box); size();
     (function loop(){ requestAnimationFrame(loop); ctl.update(); renderer.render(scene, cam); })();
+    setup3DTools();
   } catch (e) { $('tmsg') && ($('tmsg').textContent = 'อุปกรณ์นี้ไม่รองรับ 3 มิติ'); R = null; }
 }
 function build3D(){
@@ -1063,12 +1088,13 @@ function build3D(){
   const g = R.group; while (g.children.length) { const c = g.children.pop(); c.geometry && c.geometry.dispose(); }
   const Ly = { fnd: $('lyF').checked, str: $('lyS').checked, arc: $('lyA').checked, roof: $('lyR').checked, frm: $('lyT').checked, mep: $('lyM').checked };
   const n = G.lv.length, X = cum(G.xs), Y = cum(G.ys), W = X[X.length - 1], D = Y[Y.length - 1], S = segs(), base = baseLv(), ped = Math.max(0.5, +$('ped').value || 1) + base;
-  const Z = cum(G.lv.map(l => l.h)), acc = new THREE.Color(css('--accent') || '#8B1E16');
+  const Z = cum(G.lv.map(l => l.h)), acc = new THREE.Color(css('--c-col') || '#D32F2F');
+  const SH = [1, 0.78, 1.18, 0.62, 0.9], shades = (v, d) => SH.map(k => { const c = new THREE.Color(css(v) || d); c.multiplyScalar(k); c.r = Math.min(1, c.r); c.g = Math.min(1, c.g); c.b = Math.min(1, c.b); return c; });
   const M = (c, o) => new THREE.MeshLambertMaterial(o === undefined ? { color: c } : { color: c, transparent: true, opacity: o, depthWrite: o > 0.6 });
-  const pal = [0x8e8e94, 0x7a6f66, 0xa0a0a6, 0x6e6a74, 0x958b80], palB = [acc.clone().multiplyScalar(0.8), new THREE.Color(0xb5562f), new THREE.Color(0x6b2a20), new THREE.Color(0xc77a5a), new THREE.Color(0x5a1a14)];
+  const pal = shades('--c-fnd', '#2E7D32'), palB = shades('--c-beam', '#1E63B5'), palG = shades('--c-gb', '#7B3FA0');
   const mt = {}, mOf = (key, mk) => mt[key] || (mt[key] = mk());
   const idx = (k, id) => Math.max(0, TY[k].findIndex(t => t.id === id));
-  const mCol = M(acc), mConc = M(0xa9a9ae), mPile = M(0x6f6f75), mLean = M(0x7d776f), mGround = M(0x7f8a72, 0.18);
+  const mCol = M(acc), mConc = M(new THREE.Color(css('--c-slab') || '#B8C4D0')), mPile = M(new THREE.Color(css('--c-pile') || '#6B6F76')), mLean = M(0x7d776f), mGround = M(0x7f8a72, 0.18);
   const mWall = M($('wm').value === 'aac' ? 0xd6d6d2 : 0xd8cfc6, 0.92), mGlass = M(0x9ec3d6, 0.45), mDoor = M(0x8b5e3c), mFrame = M(0x5e5e64), mFloor = M(0xcfc8bd), mBath = M(new THREE.Color(css('--brown') || '#8B5E3C'));
   const add = (m, sx, sy, sz, x, y, z) => { const o = new THREE.Mesh(new THREE.BoxGeometry(Math.max(sx, 0.01), Math.max(sy, 0.01), Math.max(sz, 0.01)), m); o.position.set(x - W / 2, y, z - D / 2); g.add(o); return o; };
   add(mGround, W + 6, 0.02, D + 6, W / 2, -base - 0.01, D / 2);
@@ -1077,11 +1103,11 @@ function build3D(){
       const ft = fndAt(i, j); if (!ft) continue; const x = X[i], y = Y[j], c0 = colAt(0, i, j);
       add(mOf('F' + ft.id, () => M(pal[idx('F', ft.id) % 5])), ft.B, ft.t, ft.L, x, -ped - ft.t / 2, y);
       add(mLean, ft.B + 0.1, 0.05, ft.L + 0.1, x, -ped - ft.t - 0.025, y);
-      if (c0) add(mOf('ped', () => M(pal[0])), c0.b, ped, c0.d, x, -ped / 2, y);
+      if (c0) add(mOf('ped', () => M(acc)), c0.b, ped, c0.d, x, -ped / 2, y);
       const ox = ft.B / 4, oz = ft.L / 4, pp = ft.p, pos = pp === 1 ? [[0, 0]] : pp === 2 ? [[-ox, 0], [ox, 0]] : pp === 3 ? [[-ox, -oz], [ox, -oz], [0, oz]] : pp >= 4 ? [[-ox, -oz], [ox, -oz], [-ox, oz], [ox, oz]] : [];
       pos.forEach(([dx, dz]) => add(mPile, 0.18, 3, 0.18, x + dx, -ped - ft.t - 1.55, y + dz));
     }
-    S.forEach(s => { const gb = gbAt(s.k); if (!gb) return; const m = mOf('G' + gb.id, () => M(pal[(idx('G', gb.id) + 1) % 5]));
+    S.forEach(s => { const gb = gbAt(s.k); if (!gb) return; const m = mOf('G' + gb.id, () => M(palG[idx('G', gb.id) % 5]));
       s.hz ? add(m, s.L, gb.h, gb.b, X[s.i] + s.L / 2, -gb.h / 2, Y[s.j]) : add(m, gb.b, gb.h, s.L, X[s.i], -gb.h / 2, Y[s.j] + s.L / 2); });
   }
   if (Ly.str){
@@ -1183,7 +1209,7 @@ function build3D(){
     g.add(new THREE.Mesh(geo, mRoof = new THREE.MeshLambertMaterial({ color: $('rf').value === 'metal' ? 0x8a9099 : 0x5a6068, side: THREE.DoubleSide, transparent: true, opacity: Ly.frm ? 0.8 : 1 })));
   }
   if (Ly.frm){
-    const mR = M(0x3f5b78), mP = M(0x7a8794), mK = M(0x23384d), mV = M(0x2f6b5a), V = THREE.Vector3;
+    const mR = M(0x6b7078), mP = M(0x9aa0a8), mK = M(0x50555c), mV = M(0x80868e), V = THREE.Vector3;
     frame.forEach(([k, a, b]) => {
       const A1 = new V(...a), B1 = new V(...b), len = A1.distanceTo(B1); if (len < 0.05) return;
       const sec = k === 'R' ? rf.tR : k === 'P' ? rf.tP : rf.tK, hh = Math.max(0.03, sec.H / 1000), ww = Math.max(0.02, sec.B / 1000);
@@ -1193,7 +1219,8 @@ function build3D(){
     });
   }
   if (!R.fitted){ const s = Math.max(W, D, Z[n] + rf.rh); R.cam.position.set(s * 1.2, s * 0.9 + Z[n], s * 1.5); R.ctl.target.set(0, Z[n] / 2 - 1, 0); R.fitted = true; }
-  real3D(g, { conc: [mCol, mConc, mPile, mLean].concat(Object.values(mt)), wall: [mWall], glass: [mGlass], wood: [mDoor], frame: [mFrame], floor: [mFloor], ground: [mGround], ceil: [mCeil], [$('rf').value === 'metal' ? 'metal' : 'roof']: [mRoof] });
+  if (window.__v3apply) setTimeout(window.__v3apply, 0);
+  real3D(g, { slab: [mConc], conc: [mLean], wall: [mWall], glass: [mGlass], wood: [mDoor], frame: [mFrame], floor: [mFloor], ground: [mGround], ceil: [mCeil], [$('rf').value === 'metal' ? 'metal' : 'roof']: [mRoof] });
 }
 // realistic light & shadow mode (toggle: #lyX)
 let REAL3D = (() => { try { return localStorage.getItem('moe3dReal') !== '0'; } catch (e) { return true; } })();
@@ -1203,6 +1230,7 @@ function real3D(g, roles){
   r.shadowMap.enabled = on; r.outputEncoding = on ? THREE.sRGBEncoding : THREE.LinearEncoding; r.toneMapping = on ? THREE.LinearToneMapping : THREE.NoToneMapping; r.toneMappingExposure = 0.85;
   R.hemi.intensity = on ? 0.5 : 0.95; R.hemi.color.set(on ? 0xEAF4FF : 0xffffff); R.hemi.groundColor.set(on ? 0x8A8070 : 0x666666);
   R.dl.intensity = on ? 0.25 : 0.55; R.sun.visible = on;
+  if (WB) return wb3D(g, on, roles);
   if (!on) return;
   const rm = new Map(); Object.entries(roles).forEach(([k, arr]) => arr.forEach(m => m && rm.set(m, k)));
   const cache = new Map();
@@ -1217,6 +1245,65 @@ function real3D(g, roles){
   g.traverse(o => { if (!o.isMesh) return; const role = rm.get(o.material); o.material = conv(o.material);
     o.castShadow = role !== 'glass' && role !== 'ground'; o.receiveShadow = true; if (role !== 'ground') box.expandByObject(o); });
   if (box.isEmpty()) return;
+  const c = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3()), rr = Math.max(sz.x, sz.y, sz.z) * 0.85 + 2;
+  R.sun.position.set(c.x - 0.52 * rr * 1.6, c.y + rr * 1.3, c.z + 0.85 * rr * 1.6); R.sun.target.position.copy(c); R.sun.target.updateMatrixWorld();
+  const sc = R.sun.shadow.camera; sc.left = -rr; sc.right = rr; sc.top = rr; sc.bottom = -rr; sc.near = 0.1; sc.far = rr * 6; sc.updateProjectionMatrix();
+  r.shadowMap.needsUpdate = true;
+}
+
+// ---- 3D view presets (free) + section cut (PRO) ----
+function setup3DTools(){
+  const box = $('three'); if (!box || !R || box.querySelector('.v3bar')) return;
+  const PRO = !!window.MOE_PRO, V3 = THREE.Vector3;
+  const bar = document.createElement('div'); bar.className = 'v3bar';
+  const VIEWS = [['iso', '3 มิติ'], ['F', 'หน้า'], ['B', 'หลัง'], ['L', 'ซ้าย'], ['R', 'ขวา'], ['T', 'บน']];
+  bar.innerHTML = '<div class="v3views" role="group" aria-label="มุมมอง">' + VIEWS.map(([k, t]) => `<button type="button" data-v3="${k}" aria-pressed="${k === 'iso'}">${t}</button>`).join('') + '</div>'
+    + `<button type="button" class="v3sec" ${PRO ? '' : 'data-pro="section"'} aria-pressed="false">✂ ตัด section <span class="pro-tag">PRO</span></button>`
+    + '<div class="v3secp" hidden><div class="v3ax" role="group" aria-label="ทิศที่ตัด">' + [['y', 'แนวนอน'], ['x', 'ตามแกน X'], ['z', 'ตามแกน Y']].map(([k, t]) => `<button type="button" data-cut="${k}" aria-pressed="${k === 'y'}">${t}</button>`).join('')
+    + '</div><label>ตำแหน่งที่ตัด<input type="range" class="v3pos" min="0" max="1000" value="450"></label><button type="button" class="v3flip">⇄ กลับด้านที่เห็น</button></div>';
+  box.appendChild(bar);
+  const bb = () => { const b = new THREE.Box3(); R.group.traverse(o => { if (!o.isMesh) return; const m = o.material; if (m && (m.isShadowMaterial || (m.transparent && m.opacity < 0.3))) return; b.expandByObject(o); }); return b; };
+  const go = k => { const b = bb(); if (b.isEmpty()) return; const c = b.getCenter(new V3()), sz = b.getSize(new V3()), d = Math.max(sz.x, sz.y, sz.z) * 1.9 + 2;
+    const dir = { iso: [1.2, 0.9, 1.5], F: [0, 0.1, 1], B: [0, 0.1, -1], L: [-1, 0.1, 0], R: [1, 0.1, 0], T: [0, 1, 0.0001] }[k];
+    const p1 = new V3(...dir).normalize().multiplyScalar(d).add(c), p0 = R.cam.position.clone(), t0 = R.ctl.target.clone(), T0 = performance.now();
+    (function step(){ const u = Math.min(1, (performance.now() - T0) / 450), e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+      R.cam.position.lerpVectors(p0, p1, e); R.ctl.target.lerpVectors(t0, c, e); R.ctl.update(); if (u < 1) requestAnimationFrame(step); })();
+    bar.querySelectorAll('[data-v3]').forEach(x => x.setAttribute('aria-pressed', x.dataset.v3 === k)); };
+  const S = { on: false, ax: 'y', t: 0.45, flip: false }, plane = new THREE.Plane();
+  const helper = new THREE.LineSegments(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: 0xD0142C })); helper.visible = false; R.scene.add(helper);
+  const apply = () => { const r = R.renderer;
+    const setClip = on => { r.localClippingEnabled = true; R.group.traverse(o => { const ms = o.material ? (Array.isArray(o.material) ? o.material : [o.material]) : []; ms.forEach(m => { if (m.isShadowMaterial) return; m.clippingPlanes = on ? [plane] : null; m.clipShadows = on; m.needsUpdate = true; }); }); };
+    if (!S.on){ setClip(false); helper.visible = false; r.shadowMap.needsUpdate = true; return; }
+    const b = bb(); if (b.isEmpty()) return; const i = S.ax === 'y' ? 1 : S.ax === 'x' ? 0 : 2, lo = b.min.getComponent(i), hi = b.max.getComponent(i), pos = lo + (hi - lo) * S.t;
+    const n = new V3(); n.setComponent(i, S.flip ? 1 : -1); plane.set(n, S.flip ? -pos : pos); setClip(true);
+    const q = pos + (S.flip ? 0.01 : -0.01), m = 0.3, a = (i + 1) % 3, c2 = (i + 2) % 3, A0 = b.min.getComponent(a) - m, A1 = b.max.getComponent(a) + m, C0 = b.min.getComponent(c2) - m, C1 = b.max.getComponent(c2) + m;
+    const P = (u, w) => { const v = new V3(); v.setComponent(i, q); v.setComponent(a, u); v.setComponent(c2, w); return [v.x, v.y, v.z]; };
+    const pts = [P(A0, C0), P(A1, C0), P(A1, C0), P(A1, C1), P(A1, C1), P(A0, C1), P(A0, C1), P(A0, C0)].flat();
+    helper.geometry.dispose(); helper.geometry = new THREE.BufferGeometry(); helper.geometry.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3)); helper.visible = true; r.shadowMap.needsUpdate = true; };
+  window.__v3apply = apply;
+  const panel = bar.querySelector('.v3secp');
+  bar.addEventListener('click', e => { const t = e.target.closest('button'); if (!t) return;
+    if (t.dataset.v3) return go(t.dataset.v3);
+    if (t.classList.contains('v3sec')){ if (!PRO) return; S.on = !S.on; t.setAttribute('aria-pressed', S.on); panel.hidden = !S.on; return apply(); }
+    if (t.dataset.cut){ S.ax = t.dataset.cut; S.t = S.ax === 'y' ? 0.45 : 0.5; bar.querySelector('.v3pos').value = S.t * 1000; bar.querySelectorAll('[data-cut]').forEach(x => x.setAttribute('aria-pressed', x === t)); return apply(); }
+    if (t.classList.contains('v3flip')){ S.flip = !S.flip; return apply(); } });
+  bar.querySelector('.v3pos').addEventListener('input', e => { S.t = e.target.value / 1000; apply(); });
+}
+const WBG = { slab: 0xE2E2E2, floor: 0xE2E2E2, ceil: 0xE2E2E2, wall: 0xBDBDBD, roof: 0x6A6A6A, metal: 0x6A6A6A };
+function wb3D(g, on, roles){
+  const rm = new Map(); Object.entries(roles || {}).forEach(([k, arr]) => arr.forEach(m => m && rm.set(m, k)));
+  const dk = css('--wb-txt').toUpperCase() === '#F2F2F3', r = R.renderer, Std = on ? THREE.MeshStandardMaterial : THREE.MeshLambertMaterial, lin = c => { const k = new THREE.Color(c); if (dk) k.multiplyScalar(0.86); return on ? k.convertSRGBToLinear() : k; };
+  const mW = new Std({ color: lin(0xF7F7F5), side: THREE.DoubleSide, roughness: 0.9 }), mG = new Std({ color: lin(0xFFFFFF), side: THREE.DoubleSide, transparent: true, opacity: 0.28, depthWrite: false, roughness: 0.2 });
+  const mL = new THREE.LineBasicMaterial({ color: 0x1A1A1A }), box = new THREE.Box3(), gm = {};
+  const greyM = k => gm[k] || (gm[k] = new Std({ color: lin(WBG[k]), side: THREE.DoubleSide, roughness: 0.9 }));
+  [...g.children].forEach(o => {
+    if (o.isLineSegments && !o.userData.wb){ o.material = mL; return; }
+    if (!o.isMesh) return; const m = o.material, op = m.transparent ? m.opacity : 1;
+    if (op < 0.3){ o.material = new THREE.ShadowMaterial({ opacity: on ? 0.25 : 0 }); o.receiveShadow = true; return; }
+    const role = rm.get(m), glass = role === 'glass' || (!role && op < 0.6); o.material = glass ? mG : WBG[role] !== undefined ? greyM(role) : mW; o.castShadow = !glass; o.receiveShadow = true; box.expandByObject(o);
+    const e = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 25), mL); e.userData.wb = 1; o.add(e);
+  });
+  if (!on || box.isEmpty()) return;
   const c = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3()), rr = Math.max(sz.x, sz.y, sz.z) * 0.85 + 2;
   R.sun.position.set(c.x - 0.52 * rr * 1.6, c.y + rr * 1.3, c.z + 0.85 * rr * 1.6); R.sun.target.position.copy(c); R.sun.target.updateMatrixWorld();
   const sc = R.sun.shadow.camera; sc.left = -rr; sc.right = rr; sc.top = rr; sc.bottom = -rr; sc.near = 0.1; sc.far = rr * 6; sc.updateProjectionMatrix();
