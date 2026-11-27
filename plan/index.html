@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/site.css?v=20261127c">
+<link rel="stylesheet" href="../assets/site.css?v=20261127d">
 <style>
 /* Layout: drafting workbench — settings rail left, plan + 3D centre, BOQ sheet below; brand deep red / brown / charcoal on cool grey */
 :root{
@@ -199,7 +199,7 @@ details.sec{border:1px solid var(--line);border-radius:14px;box-shadow:none}
 .wrap{gap:24px}
 header .eyebrow{width:max-content;max-width:100%}
 </style>
-<link rel="stylesheet" href="../assets/app.css?v=20261127c">
+<link rel="stylesheet" href="../assets/app.css?v=20261127d">
 </head>
 <body>
 <div class="wrap">
@@ -368,7 +368,7 @@ header .eyebrow{width:max-content;max-width:100%}
     <a href="../en/" hreflang="en" lang="en" style="justify-self:center;margin-top:6px">English</a>
   </div>
 </div><!--/menu-->
-<script src="../assets/site.js?v=20261127c" defer></script>
+<script src="../assets/site.js?v=20261127d" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
@@ -1494,9 +1494,29 @@ function drawElev(){
   svg.innerHTML = s;
 }
 function update(){ const q = compute(); const r = RF(); $('sumR').textContent = `${({ hip: 'ปั้นหยา', gable: 'จั่ว', shed: 'เพิง' })[r.shape]} ${r.deg}° · ${f2(r.kg / 1000)} ตัน`; drawPlan(); drawElev(); render(q); build3D(); }
+
+// ---- new project ----
+function newProject(o){
+  const okA = a => Array.isArray(a) && a.length >= 1 && a.length <= 10 && a.every(v => isFinite(v) && v >= 0.5 && v <= 15);
+  if (!okA(o.xs) || !okA(o.ys)) return false;
+  const n = Math.max(1, Math.min(5, o.floors | 0 || 1)), h = Math.max(2.2, Math.min(6, +o.h || 3));
+  G.xs.splice(0, G.xs.length, ...o.xs); G.ys.splice(0, G.ys.length, ...o.ys);
+  G.lv.splice(0, G.lv.length, ...Array.from({ length: n }, (_, i) => ({ h, t: i ? 0.12 : 0.10 })));
+  FL.splice(0, FL.length, ...Array.from({ length: n }, () => newFloor()));
+  FD.fnd.clear(); FD.gb.clear(); FD.meter = null; FD.sep = null; FD.db = null;
+  if (o.tpl === 'sample') initDefaults();
+  if (o.tpl === 'outer' || o.tpl === 'sample'){
+    FL.forEach((F, f) => { segs().forEach(sg => { if (sg.ext) { F.walls.add(sg.k); if (o.tpl === 'outer' && sg.L >= 2.5) F.open.set(sg.k, ['W1']); } }); });
+    if (o.tpl === 'outer') FL[0].open.set(`h:0:${ny()}`, ['D1']);
+    if (o.tpl === 'sample') for (let f = 1; f < n; f++){ FL[0].walls.forEach(k => FL[f].walls.add(k)); FL[0].open.forEach((v, k) => { const w = v.filter(id => id[0] === 'W'); if (w.length) FL[f].open.set(k, w); }); }
+  }
+  UI.lvl = 0; UI.cutP = { sx: null, sy: null }; UI.cutK = 0; if (R) R.fitted = false;
+  renderAxes(); renderLevels(); update(); return true;
+}
+window.MOE_newProject = newProject;
 initDefaults(); renderAxes(); ['C', 'F', 'B', 'G', 'D', 'W', 'S'].forEach(renderTypes); renderLevels(); init3D(); update();
 })();
 </script>
-<script src="../assets/app.js?v=20261127c" defer></script>
+<script src="../assets/app.js?v=20261127d" defer></script>
 </body>
 </html>

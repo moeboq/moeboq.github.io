@@ -194,3 +194,19 @@ html.is-pro .pro-own{display:inline-block}
 /* elevation auto-fit like the plan */
 .vw-elev .tablewrap{overflow:hidden;display:flex}
 .vw-elev #elev{width:100%!important;height:100%!important;min-width:0!important;max-height:100%;flex:1}
+/* new project dialog */
+.np-modal .box.np{display:grid;gap:12px;max-width:460px;width:calc(100vw - 32px);text-align:left;font-size:15px}
+.np h2{margin:0;font-family:Kanit,sans-serif;font-size:24px}
+.np label{display:grid;gap:5px;font-weight:600}
+.np label small{font-weight:400;color:var(--muted)}
+.np input[type=text],.np select{font:inherit;font-weight:400;padding:9px 12px;border:1px solid var(--flb);border-radius:10px;background:var(--surface);color:var(--ink)}
+.np input[type=text]:focus,.np select:focus{outline:2px solid var(--a);outline-offset:1px}
+.np-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.np fieldset{border:0;padding:0;margin:0;display:grid;gap:6px}.np legend{font-weight:600;margin-bottom:6px}
+.np .np-opt{display:flex;gap:10px;align-items:center;font-weight:400;border:1px solid var(--flb);border-radius:10px;padding:9px 12px;cursor:pointer}
+.np .np-opt:has(input:checked){border-color:var(--a);background:rgba(120,1,1,.06)}
+.np .np-opt input{accent-color:var(--a)}
+.np-err{margin:0;color:var(--a);font-weight:600;min-height:0}.np-err:empty{display:none}
+.np-warn{margin:0;font-size:13.5px;color:var(--muted)}
+.np-act{display:flex;gap:8px}
+@media (max-width:700px){.a-new .lbl{display:none}}

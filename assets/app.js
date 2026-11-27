@@ -5,6 +5,7 @@
   if (!$('plan') || !$('three')) return;
   var PRO_URL = '../pro/#waitlist', PRO = !!window.MOE_PRO;
   var P = {
+    plus: '<path d="M12 5v14M5 12h14"/>',
     grid: '<path d="M7 3v18M17 3v18M3 8h18M3 16h18"/>', level: '<path d="M3 8h14M3 16h14"/><path d="M19 6l2 2-2 2M19 14l2 2-2 2"/>',
     wall: '<rect x="3" y="8" width="18" height="8"/><path d="M3 12h18M9 8v4M15 12v4"/>', door: '<path d="M5 21V4h9v17M5 21h14"/><circle cx="11.5" cy="13" r=".8"/>',
     win: '<rect x="4" y="5" width="16" height="14"/><path d="M12 5v14M4 12h16"/>', bath: '<path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M6 12V6a2 2 0 0 1 4 0"/><path d="M7 19l-1 2M17 19l1 2"/>',
@@ -34,7 +35,8 @@
   app.innerHTML =
     '<div class="a-top">' +
       '<a class="a-logo" href="../" aria-label="MOE BOQ หน้าแรก"><i></i>MOE BOQ</a><span class="a-sep"></span>' +
-      '<div class="a-proj">วาดแปลนออก BOQ <small>· โปรเจกต์ตัวอย่าง</small></div><span class="a-sp"></span>' +
+      '<div class="a-proj">วาดแปลนออก BOQ <small>· <span class="pname">โปรเจกต์ตัวอย่าง</span></small></div>' +
+      '<button type="button" class="a-btn a-new" title="เริ่มโปรเจกต์ใหม่">' + ic('plus', 16) + '<span class="lbl">โปรเจกต์ใหม่</span></button><span class="a-sp"></span>' +
       '<button type="button" class="a-btn a-tog" data-tog="fl-l">' + ic('list', 16) + '<span class="lbl">โปรเจกต์</span></button>' +
       '<button type="button" class="a-btn a-tog" data-tog="fl-r">' + ic('sliders', 16) + '<span class="lbl">คุณสมบัติ</span></button>' +
       '<button type="button" class="a-btn pri" data-pro="export">' + ic('excel', 16) + '<span class="lbl">ส่งออก</span> ' + proTag + '</button>' +
@@ -149,6 +151,42 @@
     if (PRO) { if (t.dataset.pro === 'export') { e.preventDefault(); var c = $('copy'); if (c) c.click(); } return; }
     e.preventDefault(); e.stopImmediatePropagation(); openPro();
   }, true);
+
+
+  // ---------- new project dialog ----------
+  var np = document.createElement('div'); np.className = 'pro-modal np-modal'; np.hidden = true;
+  np.innerHTML = '<form class="box np" role="dialog" aria-modal="true" aria-labelledby="np-h">' +
+    '<h2 id="np-h">เริ่มโปรเจกต์ใหม่</h2>' +
+    '<label>ชื่อโปรเจกต์<input name="nm" type="text" value="บ้านใหม่" maxlength="60"></label>' +
+    '<label>ระยะกริดแกน X (ม.) <small>เว้นวรรคคั่น · ใช้ 3*4 ได้</small><input name="xs" type="text" value="4 4" inputmode="decimal"></label>' +
+    '<label>ระยะกริดแกน Y (ม.)<input name="ys" type="text" value="4 4" inputmode="decimal"></label>' +
+    '<div class="np-row"><label>จำนวนชั้น<select name="fl"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>' +
+    '<label>สูงชั้นละ (ม.)<input name="h" type="text" value="3.0" inputmode="decimal"></label></div>' +
+    '<fieldset><legend>เริ่มจาก</legend>' +
+      '<label class="np-opt"><input type="radio" name="tpl" value="blank" checked><span><b>ว่าง</b> มีแค่กริด เสา คาน</span></label>' +
+      '<label class="np-opt"><input type="radio" name="tpl" value="outer"><span><b>ผนังรอบนอก</b> + หน้าต่าง + ประตู 1 บาน</span></label>' +
+      '<label class="np-opt"><input type="radio" name="tpl" value="sample"><span><b>บ้านตัวอย่าง</b> ผนัง ห้องน้ำ งานระบบ</span></label>' +
+    '</fieldset>' +
+    '<p class="np-err" role="alert"></p>' +
+    '<p class="np-warn">แบบที่วาดอยู่ตอนนี้จะถูกแทนที่</p>' +
+    '<div class="np-act"><button type="submit" class="a-btn pri">สร้างโปรเจกต์</button><button type="button" class="a-btn np-x">ยกเลิก</button></div></form>';
+  document.body.appendChild(np);
+  var npf = np.querySelector('form');
+  var parseSp = function(t){ var out = []; String(t).trim().split(/[\s,]+/).forEach(function(tok){ if (!tok) return; var m = tok.match(/^(\d+)\s*[*x×]\s*([\d.]+)$/); if (m) { for (var i = 0; i < +m[1]; i++) out.push(+m[2]); } else out.push(parseFloat(tok)); }); return out; };
+  var openNP = function(){ np.hidden = false; npf.querySelector('[name=nm]').select(); npf.querySelector('.np-err').textContent = ''; };
+  app.addEventListener('click', function(e){ if (e.target.closest('.a-new')) openNP(); });
+  np.addEventListener('click', function(e){ if (e.target === np || e.target.closest('.np-x')) np.hidden = true; });
+  npf.addEventListener('submit', function(e){
+    e.preventDefault(); var fd = new FormData(npf), err = npf.querySelector('.np-err');
+    var xs = parseSp(fd.get('xs')), ys = parseSp(fd.get('ys')), bad = function(a){ return !a.length || a.length > 10 || a.some(function(v){ return !isFinite(v) || v < 0.5 || v > 15; }); };
+    if (bad(xs)) { err.textContent = 'ระยะแกน X ไม่ถูกต้อง: ใส่ 1–10 ช่วง ช่วงละ 0.5–15 ม.'; return; }
+    if (bad(ys)) { err.textContent = 'ระยะแกน Y ไม่ถูกต้อง: ใส่ 1–10 ช่วง ช่วงละ 0.5–15 ม.'; return; }
+    var h = parseFloat(fd.get('h')); if (!(h >= 2.2 && h <= 6)) { err.textContent = 'ความสูงชั้นใส่ได้ 2.2–6 ม.'; return; }
+    if (!window.MOE_newProject || !window.MOE_newProject({ xs: xs, ys: ys, floors: +fd.get('fl'), h: h, tpl: fd.get('tpl') })) { err.textContent = 'สร้างไม่สำเร็จ ลองใหม่อีกครั้ง'; return; }
+    var nm = String(fd.get('nm') || '').trim() || 'บ้านใหม่'; q('.pname').textContent = nm; document.title = nm + ' · วาดแปลนออก BOQ | MOE BOQ';
+    np.hidden = true; show('plan');
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') np.hidden = true; });
 
   // first-visit tip
   var tip = 0; try { tip = +localStorage.getItem('moe-app-tip'); } catch (e) {}
