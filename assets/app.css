@@ -188,3 +188,6 @@ body.app-mode{margin:0;padding:0!important;background:var(--bg)}
 .fl details.sec > summary{font-size:14px}
 .fl details.sec > summary .sm,.fl details.sec > summary small,.fl details.sec > summary span{white-space:nowrap}
 .a-pip .v3bar{display:none}
+.pro-own{font-family:Anton,sans-serif;font-size:11px;letter-spacing:.08em;background:#1B2A41;color:#fff;padding:4px 8px;border-radius:4px;text-decoration:none;white-space:nowrap}
+html.is-pro .pro-tag{display:none}
+html.is-pro .pro-own{display:inline-block}

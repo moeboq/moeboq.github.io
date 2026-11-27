@@ -3,7 +3,7 @@
 (function(){
   var $ = function(id){ return document.getElementById(id); };
   if (!$('plan') || !$('three')) return;
-  var PRO_URL = '../pro/#waitlist';
+  var PRO_URL = '../pro/#waitlist', PRO = !!window.MOE_PRO;
   var P = {
     grid: '<path d="M7 3v18M17 3v18M3 8h18M3 16h18"/>', level: '<path d="M3 8h14M3 16h14"/><path d="M19 6l2 2-2 2M19 14l2 2-2 2"/>',
     wall: '<rect x="3" y="8" width="18" height="8"/><path d="M3 12h18M9 8v4M15 12v4"/>', door: '<path d="M5 21V4h9v17M5 21h14"/><circle cx="11.5" cy="13" r=".8"/>',
@@ -93,7 +93,7 @@
   // elevation is PRO: keep the drawing hidden behind a lock card
   var lock = document.createElement('div'); lock.className = 'locked';
   lock.innerHTML = proTag + '<b>รูปด้าน 4 ด้านและรูปตัดอยู่ใน PRO</b><span>PRO เปิดเร็วๆ นี้ ลงชื่อรอไว้ แล้วจะแจ้งเมื่อเปิด</span><div><a class="a-btn pri" href="' + PRO_URL + '">ลงชื่อรอ PRO</a></div>';
-  main.elev.appendChild(lock); if (ev) { ev.style.display = 'none'; main.elev.appendChild(ev); } if (etw) { etw.style.display = 'none'; main.elev.appendChild(etw); }
+  if (!PRO) main.elev.appendChild(lock); if (ev) { if (!PRO) ev.style.display = 'none'; main.elev.appendChild(ev); } if (etw) { if (!PRO) etw.style.display = 'none'; main.elev.appendChild(etw); }
 
   var cur = 'plan', pip = q('.a-pip'), pipT = q('.a-pip .pt');
   function show(v){
@@ -139,11 +139,14 @@
   var openPro = function(){ modal.hidden = false; modal.querySelector('a').focus(); };
   modal.addEventListener('click', function(e){ if (e.target === modal || e.target.matches('button')) modal.hidden = true; });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { modal.hidden = true; app.querySelectorAll('.fl').forEach(function(x){ x.classList.remove('open'); }); } });
-  var copy = $('copy'); if (copy) copy.insertAdjacentHTML('beforeend', ' ' + proTag);
+  var copy = $('copy'); if (copy && !PRO) copy.insertAdjacentHTML('beforeend', ' ' + proTag);
+  if (PRO) { document.documentElement.classList.add('is-pro'); var lg = q('.a-logo'); if (lg) lg.insertAdjacentHTML('afterend', '<a class="pro-own" href="?pro=off" title="กดเพื่อปิดโหมด PRO ในเครื่องนี้">PRO · เจ้าของ</a>'); }
   document.addEventListener('click', function(e){
     if (!e.target.closest) return;
     var t = e.target.closest('#copy, [data-pro]');
-    if (!t) return; e.preventDefault(); e.stopImmediatePropagation(); openPro();
+    if (!t) return;
+    if (PRO) { if (t.dataset.pro === 'export') { e.preventDefault(); var c = $('copy'); if (c) c.click(); } return; }
+    e.preventDefault(); e.stopImmediatePropagation(); openPro();
   }, true);
 
   // first-visit tip
